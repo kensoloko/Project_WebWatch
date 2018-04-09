@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root "test#test"
+  root "users#new"
+  get "/signup", to: "users#new"
+  post "/signup",  to: "users#create"
+
+  resources :user
 end
