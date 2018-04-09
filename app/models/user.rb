@@ -6,10 +6,12 @@ class User < ApplicationRecord
 
   before_save :email_downcase
 
-  validates :name, presence: true, length: {maximum: 50}
-  validates :email, presence: true, length: {maximum: 255},
+  validates :name, presence: true, length: {maximum: Settings.max_length}
+  validates :email, presence: true,
+    length: {maximum: Settings.email_max_length},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: true
-  validates :phone, presence: true, length: {maximum: 12},
+  validates :phone, presence: true,
+    length: {maximum: Settings.phone_max_length},
     format: {with: VALID_PHONE_REGEX}, uniqueness: true
   validates :address, presence: true
   validates :avatar_url, format: {with: VALID_AVARTAR_URL_REGEX}
