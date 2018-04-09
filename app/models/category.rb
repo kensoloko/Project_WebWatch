@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: {maximum: Settings.max_length}
   validates :description, presence: true
 end
