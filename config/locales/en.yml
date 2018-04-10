@@ -1,5 +1,7 @@
 en:
   hello: "Hello world"
+  users_controller:
+    log_in_success: "welcome to summoner rift"
   layouts:
     nav_bottom_menu:
       Home: "Home"
@@ -32,9 +34,36 @@ en:
       Vietnamese: "Tieng Viet"
       Luxury_watches: "Luxury watches"
   users:
+    form:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+      password: "password"
+      password_confirmation: "password_confirmation"
     filter: "CATEGORIES"
-  sign_up:
-    register: "REGISTER"
+    new:
+      register: "REGISTER"
+      sign_up: "Sign Up"
+    filter:
+      Categories: "CATEGORIES"
+      all_accessories: "All Accessories"
+      women_Watches: "Women Watches"
+      kids_watches: "Kids Watches"
+      men_watches: "Men Watches"
+      brand: "Brand"
+      kurtas: "Kurtas"
+      Sonata: "Sonata"
+      Titan: "Titan"
+      Casio: "Casio"
+      Omax: "Omax"
+      shree: "shree"
+      Fastrack: "Fastrack"
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
   sessions:
     new:
       login: "Login"
@@ -47,5 +76,10 @@ en:
                       multiple shipping addresses, view and track your orders
                       in your account and more."
       btn_create_account: "Create an Account"
-
+    create:
+      invalid: "User invalid"
+      login: "Login success"
+  shared:
+    error_messages:
+      form_errors: "Form has "
 

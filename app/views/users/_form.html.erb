@@ -1,15 +1,15 @@
 <%= form_for @user do |f|%>
   <div class="register-main">
     <div class="col-md-6 account-left">
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.email_field :email, class: "form-control" %>
-      <%= f.telephone_field :phone, class: "form-control" %>
-      <%= f.text_area :address, class: "form-control" %>
+      <%= f.text_field :username, placeholder: t(".name") %>
+      <%= f.text_field :email, placeholder: t(".email") %>
+      <%= f.text_field :phone, placeholder: t(".phone") %>
+      <%= f.text_area :address, placeholder: t(".address")  %>
     </div>
     <div class="col-md-6 account-left">
-      <%= f.password_field :password, class: "form-control" %>
+      <%= f.password_field :password, placeholder: t(".password") %>
       <%= f.password_field :password_confirmation,
-        class: "form-control" %>
+        placeholder: t(".password_confirmation") %>
       <span class="picture">
         <%= f.file_field :avatar_url,
           accept: "image/jpeg,image/gif,image/png" %>
@@ -18,6 +18,6 @@
     <div class="clearfix"></div>
   </div>
   <div class="address submit">
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text) %>
   </div>
 <% end %>

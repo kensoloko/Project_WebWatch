@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root "test#test"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  root "users#new"
+  get "/signup", to: "users#new"
+  post "/signup",  to: "users#create"
 
-  resources :user
+  resources :users
 end
