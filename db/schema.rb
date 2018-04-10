@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20180406025525) do
     t.string "phone"
     t.text "address"
     t.string "avatar_url"
-    t.boolean "is_admin", default: false
+    t.boolean "is_admin", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

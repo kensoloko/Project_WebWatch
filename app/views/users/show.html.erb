@@ -1,0 +1,16 @@
+<% provide :title, @user.username %>
+
+
+<div class="single contact">
+    <div class="container">
+      <div class="single-main">
+        <div class="col-md-9 single-main-left">
+        <div class="sngl-top">
+          <div class="col-md-5 single-top-left">
+            <%= image_tag @user.avatar_url %>
+          </div>
+          <div class="col-md-7 single-top-right">
+            <div class="single-para simpleCart_shelfItem">
+            <h2><%= @user.username %></h2>
+        </div>
+      </div>
