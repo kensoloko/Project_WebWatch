@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root "users#new"
   get "/signup", to: "users#new"
   post "/signup",  to: "users#create"
-
+  get "/products", to: "products#products"
+  get "/checkout", to: "users#checkout"
+  get "/contact", to: "static_pages#contact"
   resources :users
 end

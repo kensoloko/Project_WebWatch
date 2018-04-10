@@ -27,12 +27,13 @@ en:
       Company_name: "HKH.Inc"
       Number_phone: "01689219785"
       Company_Address: "Handico Tower, Pham Hung street, Nam Tu Liem District"
-    header:
       Company_email: "kensoloko@gmail.com"
+    header:
       English2: "English :"
       English: "English"
       Vietnamese: "Tieng Viet"
       Luxury_watches: "Luxury watches"
+      Empty_Cart: "Empty_Cart"
   users:
     form:
       name: "Name"
@@ -41,10 +42,81 @@ en:
       address: "Address"
       password: "password"
       password_confirmation: "password_confirmation"
-    filter: "CATEGORIES"
     new:
       register: "REGISTER"
       sign_up: "Sign Up"
+    checkout:
+      checkout: "CHECKOUT"
+      my_shop_bag: "My Shop Bag"
+      item: "Item"
+      product_name: "Product Name"
+      unit_price: "Unit Price"
+      delivery_details: "Delivery Details"
+      Analog_Watch: "Analog_Watches"
+      price_1: "$ 300.00"
+      price_2: "$ 290.00"
+      price_3: "$ 36.00"
+      free: "Free"
+      delivery: "Delivered in 2-3 business days"
+  sessions:
+    new:
+      login: "Login"
+      existing_user: "Existing User"
+      email: "Email"
+      password: "Password"
+      question: "New User? Create an Account"
+      create_account: "By creating an account with our store, you will be able
+        to move through the checkout process faster, store multiple shipping
+        addresses, view and track your orders in your account and more."
+      btn_create_account: "Create an Account"
+  static_pages:
+    contact:
+      contact_page: "CONTACT"
+      C_address: "Address"
+      C_address1: "Address 1"
+      C_name: "HKH.Inc"
+      Handico: "Handico Tower"
+      C_Address: "Pham Hung street, Nam Tu Liem District"
+      tel: "Tel:01689219785,"
+      fax: "Fax:190-4509-494"
+      C_email: "kensoloko@gmail.com"
+  products:
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+    single:
+      Lorem_Ipsum: "Lorem Ipsum"
+      customer_review: "1 customer review"
+      item_price_1: "$ 95.00"
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
+      tag: "TAG"
+      sex: ": Women,"
+      type: ": CK09"
+      sku: "SKU"
+      add_to_cart: "ADD TO CART"
+      Description: "Description"
+      subitem1: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
+      subitem2: " Duis autem vel eum iriure dolor in hendrerit in vulputate
+        velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+        praesent luptatum zzril delenit augue duis dolore"
+      subitem3: "Mirum est notare quam littera gothica, quam nunc putamus parum
+        claram, anteposuerit litterarum formas humanitatis per seacula quarta
+        decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum
+        clari, fiant sollemnes "
+      Additional_infomation: "Additional infomation"
+      review_10: "Review (10)"
+      Helpful_links: "Helpful Links"
+      Make_a_gift: "Make A Gift"
+  shared:
     filter:
       Categories: "CATEGORIES"
       all_accessories: "All Accessories"
@@ -59,22 +131,3 @@ en:
       Omax: "Omax"
       shree: "shree"
       Fastrack: "Fastrack"
-    products:
-      products: "Products"
-      smart_watch: "Smart Watches"
-      Explore_now: "Explore Now"
-      price_1: "$ 329"
-  sessions:
-    new:
-      login: "Login"
-      existing_user: "Existing User"
-      email: "Email"
-      password: "Password"
-      question: "New User? Create an Account"
-      create_account: "By creating an account with our store, you will be able
-                      to move through the checkout process faster, store
-                      multiple shipping addresses, view and track your orders
-                      in your account and more."
-      btn_create_account: "Create an Account"
-
-
