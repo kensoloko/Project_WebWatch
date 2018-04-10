@@ -1,5 +1,3 @@
 class Layouts < ApplicationController
-  def application
-
-  end
+  def application; end
 end

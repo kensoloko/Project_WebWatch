@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root "users#new"
   get "/signup", to: "users#new"
   post "/signup",  to: "users#create"
-
+  get "/products", to: "users#products"
   resources :users
 end

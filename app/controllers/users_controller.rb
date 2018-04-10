@@ -10,4 +10,8 @@ class UsersController < ApplicationController
     #   flash[:success] = t "uses_controller.log_in_success"
     # end
   end
+
+  def products
+    @product = User.new
+  end
 end
