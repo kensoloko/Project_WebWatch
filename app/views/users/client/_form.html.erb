@@ -1,0 +1,23 @@
+<%= form_for @user do |f|%>
+  <div class="register-main">
+    <div class="col-md-6 account-left">
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.telephone_field :phone, class: "form-control" %>
+      <%= f.text_area :address, class: "form-control" %>
+    </div>
+    <div class="col-md-6 account-left">
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.password_field :password_confirmation,
+        class: "form-control" %>
+      <span class="picture">
+        <%= f.file_field :avatar_url,
+          accept: "image/jpeg,image/gif,image/png" %>
+      </span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="address submit">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>
