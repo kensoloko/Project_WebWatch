@@ -4,16 +4,13 @@
       <%= f.text_field :username, placeholder: t(".name") %>
       <%= f.text_field :email, placeholder: t(".email") %>
       <%= f.text_field :phone, placeholder: t(".phone") %>
-      <%= f.text_area :address, placeholder: t(".address")  %>
+      <%= f.text_area :address, placeholder: t(".address"), cols: 76, rows: 5 %>
     </div>
     <div class="col-md-6 account-left">
       <%= f.password_field :password, placeholder: t(".password") %>
       <%= f.password_field :password_confirmation,
         placeholder: t(".password_confirmation") %>
-      <span class="picture">
-        <%= f.file_field :avatar_url,
-          accept: "image/jpeg,image/gif,image/png" %>
-      </span>
+      <%= f.file_field :avatar_url, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
     <div class="clearfix"></div>
   </div>
