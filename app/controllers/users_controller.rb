@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :username, :email, :password,
-    :password_confirmation, :phone, :address, :avatar_url
+      :password_confirmation, :phone, :address, :avatar_url
   end
 
   def load_user
@@ -53,6 +53,4 @@ class UsersController < ApplicationController
     redirect_to root_url, flash: {danger: t(".access_denied")}\
     if @user != current_user
   end
-
-  def products; end
 end

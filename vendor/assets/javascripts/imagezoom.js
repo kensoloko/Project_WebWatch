@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2014 http://0401morita.github.io/imagezoom-plugin A project by Yosuke Morita
  */
+ //= require_directory "../../../vendor/assets/javascripts"
 (function($){
   var defaults = {
     cursorcolor:'255,255,255',
