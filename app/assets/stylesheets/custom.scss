@@ -1,0 +1,36 @@
+.single-main{
+  font-size: 2rem;
+  padding: 50px 0px;
+  .row{
+    padding: 10px 0px;
+  }
+  b{
+    display: inline-block;
+    width: 200px;
+  }
+  h1{
+    margin-bottom: 20px;
+  }
+}
+.dropdown{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  .dropdown-menu{
+    border-radius: 0;
+    position: absolute;
+    top: 55px;
+    height: 120px;
+    li{
+      background: white;
+    }
+  }
+}
+.register-main
+{
+  textarea{
+    border: 1px solid black;
+    padding: 5px;
+  }
+}
+
