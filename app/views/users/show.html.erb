@@ -1,0 +1,33 @@
+<% provide :title, @user.username %>
+
+
+<div class="single contact">
+  <div class="container">
+    <div class="row single-main">
+      <div class="col-md-12 single-main-left">
+        <h1 class="text-center"><%= t ".user_profile" %></h1>
+        <hr>
+        <div class="sngl-top">
+          <div class="col-md-5 single-top-left">
+            <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
+          </div>
+          <div class="col-md-7 single-top-right">
+            <div class="single-para simpleCart_shelfItem">
+              <h1><%= @user.username %></h2>
+              <div class="row">
+                <b><%= t ".email" %></b><%= @user.email %>
+              </div>
+              <div class="row">
+              <b><%= t ".phone" %></b><%= @user.phone %>
+              </div>
+              <div class="row">
+              <b><%= t ".address" %></b><%= @user.address %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
