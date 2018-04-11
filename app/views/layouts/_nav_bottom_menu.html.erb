@@ -15,10 +15,9 @@
       </div>
       <div class="col-md-3 header-right">
         <div class="search-bar">
-          <%= form_tag(:method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search],
-              placeholder: t(".Search") %>
-            <%= submit_tag t(".S"), name: nil,class: "btn-submit" %>
+          <%= form_for :search, url: "/search" do |f| %>
+            <%= f.text_field :name, placeholder: t(".Search") %>
+            <%= f.submit t(".S"), class: "btn-submit" %>
           <% end %>
         </div>
       </div>

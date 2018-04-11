@@ -20,10 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def products
-    @product = User.new
-  end
-
   def show
   end
 
@@ -32,9 +28,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      redirect_to @user, flash: {success: t("alert.profile_updated")}
+      redirect_to @user, flash: {success: t(".profile_updated")}
     else
-      flash[:danger] = t "alert.update_fail"
+      flash[:danger] = t ".update_fail"
       redirect_to @user
     end
   end
@@ -43,7 +39,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :username, :email, :password,
-      :password_confirmation, :phone, :address, :avatar_url
+    :password_confirmation, :phone, :address, :avatar_url
   end
 
   def load_user
