@@ -53,6 +53,4 @@ class UsersController < ApplicationController
     redirect_to root_url, flash: {danger: t(".access_denied")}\
     if @user != current_user
   end
-
-  def products; end
 end
