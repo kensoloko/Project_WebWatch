@@ -10,7 +10,9 @@
       <%= f.password_field :password, placeholder: t(".password") %>
       <%= f.password_field :password_confirmation,
         placeholder: t(".password_confirmation") %>
-      <%= f.file_field :avatar_url, accept: 'image/jpeg,image/gif,image/png' %>
+      <% if logged_in? %>
+        <%= f.file_field :avatar_url, accept: "image/jpeg,image/gif,image/png" %>
+      <% end %>
     </div>
     <div class="clearfix"></div>
   </div>

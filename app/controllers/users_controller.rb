@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-
     if @user.save
       login @user
       flash[:success] = t ".create_success"
@@ -20,11 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update_attributes user_params
@@ -56,4 +53,6 @@ class UsersController < ApplicationController
     redirect_to root_url, flash: {danger: t(".access_denied")}\
     if @user != current_user
   end
+
+  def products; end
 end
