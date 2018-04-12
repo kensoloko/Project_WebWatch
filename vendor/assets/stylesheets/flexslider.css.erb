@@ -7,15 +7,17 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
- * 
+ *
+ *= require_directory "../../../vendor/assets/stylesheets"
  */
 /* ====================================================================================================================
  * FONT-FACE
  * ====================================================================================================================*/
+
 @font-face {
   font-family: 'flexslider-icon';
-  src: url('../fonts/webfont/flexslider-icon.eot');
-  src: url('../fonts/webfonts/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('../fonts/webfonts/flexslider-icon.woff') format('woff'), url('../fonts/webfonts/flexslider-icon.ttf') format('truetype'), url('../fonts/webfonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  src: url(<%= asset_path 'flexslider-icon.eot' %>);
+  src: url(<%= asset_path 'flexslider-icon.eot?#iefix' %>) format('embedded-opentype'), url(<%= asset_path 'flexslider-icon.woff' %>) format('woff'), url(<%= asset_path 'flexslider-icon.ttf' %>) format('truetype'), url(<%= asset_path 'flexslider-icon.svg#flexslider-icon' %>) format('svg');
   font-weight: normal;
   font-style: normal;
 }

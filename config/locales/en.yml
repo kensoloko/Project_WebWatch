@@ -1,5 +1,4 @@
 en:
-  hello: "Hello world"
   users_controller:
     log_in_success: "welcome to summoner rift"
   layouts:
@@ -10,7 +9,7 @@ en:
       sale: "Sale"
       contact: "Contact"
       Search: "Search"
-      S: "S"
+      S: ""
     footer:
       follow_us: "Follow Us"
       Facebook: "Facebook"
@@ -43,9 +42,6 @@ en:
       access_denied: "Access denied"
     show:
       user_profile: "USER PROFILE"
-      email: "Email:"
-      phone: "Phone:"
-      address: "Address:"
     create:
       create_success: "Create success"
       create_fail: "Create fail"
@@ -103,7 +99,7 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
-    single:
+    show:
       Lorem_Ipsum: "Lorem Ipsum"
       customer_review: "1 customer review"
       item_price_1: "$ 95.00"
@@ -133,6 +129,14 @@ en:
       review_10: "Review (10)"
       Helpful_links: "Helpful Links"
       Make_a_gift: "Make A Gift"
+    index:
+      nulla_max: "Nulla maximus nunc"
+      In_sit: "In sit amet sapien eros Integer dolore magna aliqua"
+      Mauris: "Mauris erat augue"
+      Cras_elit_mauris: "Cras elit mauris"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
   shared:
     filter:
       Categories: "CATEGORIES"
