@@ -1,27 +1,25 @@
 <% provide :title, @user.username %>
-
-
-<div class="single contact">
+<%= stylesheet_link_tag "User_profile" %>
+<div class="patding">
   <div class="container">
     <div class="row single-main">
-      <div class="col-md-12 single-main-left">
-        <h1 class="text-center"><%= t ".user_profile" %></h1>
-        <hr>
+    <h1 class="text-center user-font"><%= t ".user_profile" %></h1>
+      <div class="col-md-12 single-main-left border">
         <div class="sngl-top">
           <div class="col-md-5 single-top-left">
             <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
           </div>
           <div class="col-md-7 single-top-right">
             <div class="single-para simpleCart_shelfItem">
-              <h1><%= @user.username %></h2>
+              <h2 class="Username"><%= @user.username %></h2>
               <div class="row">
-                <b><%= t ".email" %></b><%= @user.email %>
+                <b><%= image_tag "003-gmail.png", alt: "" %></b><%= @user.email %>
               </div>
               <div class="row">
-              <b><%= t ".phone" %></b><%= @user.phone %>
+              <b><%= image_tag "002-phone-book.png", alt: "" %></b><%= @user.phone %>
               </div>
               <div class="row">
-              <b><%= t ".address" %></b><%= @user.address %>
+              <b><%= image_tag "001-location-pin.png", alt: "" %></b><%= @user.address %>
               </div>
             </div>
           </div>
