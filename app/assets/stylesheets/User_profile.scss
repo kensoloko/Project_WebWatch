@@ -1,0 +1,26 @@
+@import 'color_name';
+
+.Username{
+  margin-bottom: 20px !important;
+  color: $color_dodger_blue_approx !important;
+}
+.img-thumbnail{
+  margin-top: 80px;
+}
+.border{
+  margin-top:20px;
+  border-radius:25px;
+  border: 2px solid $color_mine_shaft_approx !important;
+  padding: 20px;
+  box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+.patding{
+  padding-bottom: 100px !important;
+  margin-bottom: 10px;
+}
+.user-font{
+  font-weight: bold;
+}

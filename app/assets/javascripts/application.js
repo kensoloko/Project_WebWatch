@@ -17,13 +17,12 @@
 //= require turbolinks
 
 //= require jquery-1.11.0.min
-//= require load_default_html
+//= require load_default
 //= require simpleCart.min
 //= require memenu
 //= requrie fmemenu
 //= require jquery.easydropdown
 //= require responsiveslides.min
-//= require index_responsiveslides
 //= require single
 //= require imagezoom
 //= require jquery.flexslider

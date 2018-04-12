@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  has_many :rates, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :bill_details
   belongs_to :Category
   belongs_to :Brand
 
