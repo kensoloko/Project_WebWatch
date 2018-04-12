@@ -11,8 +11,20 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
-//= require_directory "../../../vendor/assets/javascripts"
+
+//= require jquery-1.11.0.min
+//= require load_default
+//= require simpleCart.min
+//= require memenu
+//= requrie fmemenu
+//= require jquery.easydropdown
+//= require responsiveslides.min
+//= require index_responsiveslides
+//= require single
+//= require imagezoom
+//= require jquery.flexslider
+//= require checkoutcart
