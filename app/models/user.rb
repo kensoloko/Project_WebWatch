@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar_url, ImageUploader
   has_many :bills
   has_many :comments
   has_many :rates
@@ -11,7 +12,8 @@ class User < ApplicationRecord
     length: {maximum: Settings.email_max_length},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: true
   validates :phone, presence: true,
-    length: {maximum: Settings.phone_max_length}
+    length: {maximum: Settings.phone_max_length},
+    format: {with: VALID_PHONE_REGEX}, uniqueness: true
   validates :address, presence: true
 
   private

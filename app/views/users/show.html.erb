@@ -1,4 +1,4 @@
-<% provide :title, @user.username %>
+<% provide :title, @user.name %>
 <%= stylesheet_link_tag "User_profile" %>
 <div class="patding">
   <div class="container">
@@ -11,7 +11,7 @@
           </div>
           <div class="col-md-7 single-top-right">
             <div class="single-para simpleCart_shelfItem">
-              <h2 class="Username"><%= @user.username %></h2>
+              <h2 class="Username"><%= @user.name %></h2>
               <div class="row">
                 <b><%= image_tag "003-gmail.png", alt: "" %></b><%= @user.email %>
               </div>

@@ -2,11 +2,11 @@
   <div id="error_explanation">
     <div class="alert alert-danger">
       <%= t ".form_errors", err: pluralize(@user.errors.count, "error") %>
-    </div>
-    <ul>
+    <ol>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
-    </ul>
+    </ol>
+    </div>
   </div>
 <% end %>

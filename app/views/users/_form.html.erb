@@ -1,7 +1,7 @@
 <%= form_for @user do |f|%>
   <div class="register-main">
     <div class="col-md-6 account-left">
-      <%= f.text_field :username, placeholder: t(".name") %>
+      <%= f.text_field :name, placeholder: t(".name") %>
       <%= f.text_field :email, placeholder: t(".email") %>
       <%= f.text_field :phone, placeholder: t(".phone") %>
       <%= f.text_area :address, placeholder: t(".address"), cols: 76, rows: 5 %>
