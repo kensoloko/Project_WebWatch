@@ -10,4 +10,8 @@ class ProductsController < ApplicationController
     @category = Category.first
     @brand = Brand.first
   end
+
+  def index
+    @products = Product.page params[:page]
+  end
 end

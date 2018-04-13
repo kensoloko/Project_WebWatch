@@ -1,26 +1,51 @@
-<% provide :title, @user.username %>
+<% provide :title, @user.name %>
 <%= stylesheet_link_tag "User_profile" %>
 <div class="patding">
   <div class="container">
-    <div class="row single-main">
-    <h1 class="text-center user-font"><%= t ".user_profile" %></h1>
+    <div class="row single-main ">
       <div class="col-md-12 single-main-left border">
+        <h1 class="text-center">User Profile</h1>
         <div class="sngl-top">
-          <div class="col-md-5 single-top-left">
+          <div class="col-md-3 single-top-left">
             <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
           </div>
-          <div class="col-md-7 single-top-right">
+          <div class="col-md-8 single-top-right profile">
             <div class="single-para simpleCart_shelfItem">
-              <h2 class="Username"><%= @user.username %></h2>
-              <div class="row">
-                <b><%= image_tag "003-gmail.png", alt: "" %></b><%= @user.email %>
+              <div class="row background-profile">
+                <div class="text-css">General Information</div>
               </div>
-              <div class="row">
-              <b><%= image_tag "002-phone-book.png", alt: "" %></b><%= @user.phone %>
+              <div class="clear-fix"></div>
+              <div class="information-profile">
+                <div class="row">
+                  <b class="unbold"><%= image_tag "avatar.png", alt: "",
+                    class: "image-size" %>
+                    <%= t ".Name" %>
+                  </b>
+                  <%= @user.name %>
+                </div>
+                <div class="row">
+                  <b class="unbold"><%= image_tag "003-gmail.png", alt: "",
+                    class: "image-size" %>
+                    <%= t ".Email" %>
+                  </b>
+                  <%= @user.email %>
+                </div>
+                <div class="row">
+                  <b class="unbold"><%= image_tag "002-phone-book.png", alt: "",
+                    class: "image-size" %>
+                    <%= t ".Phone" %>
+                    </b>
+                    <%= @user.phone %>
+                </div>
+                <div class="row">
+                  <b class="unbold"><%= image_tag "001-location-pin.png",
+                    alt: "", class: "image-size" %>
+                    <%= t ".Address" %>
+                  </b>
+                  <%= @user.address %>
+                </div>
               </div>
-              <div class="row">
-              <b><%= image_tag "001-location-pin.png", alt: "" %></b><%= @user.address %>
-              </div>
+
             </div>
           </div>
         </div>

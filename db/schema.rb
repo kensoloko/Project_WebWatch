@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 20180406025525) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "password_digest"
     t.string "email"
     t.string "phone"
     t.text "address"
-    t.string "avatar_url", default: "avatar_default.png"
+    t.string "avatar_url"
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

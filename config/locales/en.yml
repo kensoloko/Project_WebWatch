@@ -34,6 +34,8 @@ en:
       Luxury_watches: "Luxury watches"
       Empty_Cart: "Empty_Cart"
   users:
+    edit:
+      save: "Save"
     load_user:
       user_not_found: "User not found"
     logged_in_user:
@@ -42,6 +44,10 @@ en:
       access_denied: "Access denied"
     show:
       user_profile: "USER PROFILE"
+      Email: "Email"
+      Phone: "Phone"
+      Address: "Address"
+      Name: "Name"
     create:
       create_success: "Create success"
       create_fail: "Create fail"
@@ -174,4 +180,4 @@ en:
       login: "Login success"
   shared:
     error_messages:
-      form_errors: "Form has "
+      form_errors: "Form has %{err}"
