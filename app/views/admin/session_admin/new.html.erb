@@ -1,0 +1,27 @@
+<% provide :title, t("admin.login") %>
+<div class = "login">
+  <div class="login_wrapper">
+    <section class="login_content">
+      <form>
+        <h1><%= t "admin.admin" %></h1>
+        <div>
+          <input type="text" class="form-control" placeholder="Username" required="" />
+        </div>
+        <div>
+          <input type="password" class="form-control" placeholder="Password" required="" />
+        </div>
+        <div>
+          <a class="btn btn-default submit" href="index.html">Log in</a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="separator">
+          <div class="clearfix"></div>
+          <br />
+          <div>
+            <h1><i class="fa fa-database"></i> <%= t "admin.welcome" %> </h1>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

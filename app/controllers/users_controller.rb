@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i(new create)
+  before_action :logged_in_user, except: %i(checkout new create)
   before_action :correct_user, only: %i(edit update show)
-  before_action :load_user, except: %i(new index create)
+  before_action :load_user, except: %i(checkout new index create)
 
   def new
     @user = User.new
