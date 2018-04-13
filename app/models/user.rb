@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar_url, ImageUploader
   has_many :bills
   has_many :comments
   has_many :rates
