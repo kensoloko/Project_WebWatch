@@ -6,24 +6,14 @@
         <div class="col-md-5 single-top-left">
           <div class="flexslider">
             <ul class="slides">
-              <li data-thumb="<%= asset_path "s-1.jpg" %>">
-                <div class="thumb-image">
-                  <%= image_tag "s-1.jpg", alt: "zxc",
-                    class: "img-responsive", data: {imagezoom: true} %>
+              <% JSON.parse(@product.image).each do |p| %>
+              <li data-thumb="<%= p %>">
+              <div class="thumb-image">
+                  <%= image_tag p, alt: "zxc",
+                  class: "img-responsive", data: {imagezoom: true} %>
                 </div>
               </li>
-              <li data-thumb="<%= asset_path "s-2.jpg" %>">
-                <div class="thumb-image">
-                  <%= image_tag "s-2.jpg", alt: "asd",
-                    class: "img-responsive", data: {imagezoom: true} %>
-                </div>
-              </li>
-              <li data-thumb="<%= asset_path "s-3.jpg" %>">
-                <div class="thumb-image">
-                  <%= image_tag "s-3.jpg", alt: "qwe",
-                    class: "img-responsive", data: {imagezoom: true} %>
-                </div>
-              </li>
+              <% end %>
             </ul>
           </div>
           <%= javascript_include_tag "imagezoom" %>
@@ -33,7 +23,7 @@
         </div>
         <div class="col-md-7 single-top-right">
           <div class="single-para simpleCart_shelfItem">
-            <h2><%= t ".Lorem_Ipsum" %></h2>
+            <h2><%= @product.name %></h2>
             <div class="star-on">
               <ul class="star-footer">
                 <li>
@@ -63,17 +53,17 @@
                 </li>
               </ul>
               <div class="review">
-                <%= link_to t(".customer_review"), "#" %>
+                <%= pluralize @comments.size, "review", "reviews" %>
               </div>
               <div class="clearfix"> </div>
             </div>
-            <h5 class="item_price"><%= t ".item_price_1" %></h5>
-            <p><%= t ".description" %></p>
+            <h5 class="item_price"><%= pluralize @product.price, "$", "$" %></h5>
+            <p><%= @product.description %></p>
             <ul class="tag-men">
-              <li><span><%= t ".tag" %></span>
-              <span class="women1"><%= t ".sex" %></span></li>
-              <li><span><%= t ".sku" %></span>
-              <span class="women1"><%= t ".type" %></span></li>
+              <li><span class="tag"><%= t ".category" %></span>
+              <span><%= @category.name %></span></li>
+              <li><span class="tag"><%= t ".brand" %></span>
+              <span><%= @brand.name %></span></li>
             </ul>
             <%= link_to t(".add_to_cart"), "#", class: "add-cart item_add" %>
           </div>
@@ -85,145 +75,38 @@
           <li class="item1">
             <%= link_to "#" do %>
               <%= image_tag("arrow.png") %>
-              <%= t ".Description" %>
+              <%= t ".content" %>
             <% end %>
             <ul>
               <li class="subitem1">
-                <%= link_to t(".subitem1"), "#" %>
-              </li>
-              <li class="subitem2">
-                <%= link_to t(".subitem2"), "#" %>
-              </li>
-              <li class="subitem3">
-                <%= link_to t(".subitem3"), "#" %>
+                <p><%= @product.content %></p>
               </li>
             </ul>
           </li>
           <li class="item2">
             <%= link_to "#" do %>
               <%= image_tag("arrow.png") %>
-              <%= t ".Additional_infomation" %>
-            <% end %>
-            <ul>
-              <li class="subitem2">
-                <%= link_to t(".subitem2"), "#" %>
-              </li>
-              <li class="subitem3">
-                <%= link_to t(".subitem3"), "#" %>
-              </li>
-            </ul>
-          </li>
-          <li class="item3">
-            <%= link_to "#" do %>
-              <%= image_tag("arrow.png") %>
-              <%= t ".review_10" %>
+              <%=  t(".review") %> (<%= @comments.size %>)
             <% end %>
             <ul>
               <li class="subitem1">
-                <%= link_to t(".subitem1"), "#" %>
-              </li>
-              <li class="subitem2">
-                <%= link_to t(".subitem2"), "#" %>
-              </li>
-              <li class="subitem3">
-                <%= link_to t(".subitem3"), "#" %>
-              </li>
-            </ul>
-          </li>
-          <li class="item4">
-            <%= link_to "#" do %>
-              <%= image_tag("arrow.png") %>
-              <%= t ".Helpful_links" %>
-            <% end %>
-            <ul>
-              <li class="subitem2">
-                <%= link_to t(".subitem2"), "#" %>
-              </li>
-              <li class="subitem3">
-                <%= link_to t(".subitem3"), "#" %>
-              </li>
-            </ul>
-          </li>
-          <li class="item5">
-            <%= link_to "#" do %>
-              <%= image_tag("arrow.png") %>
-              <%= t ".Make_a_gift" %>
-            <% end %>
-            <ul>
-              <li class="subitem1">
-                <%= link_to t(".subitem1"), "#" %>
-              </li>
-              <li class="subitem2">
-                <%= link_to t(".subitem2"), "#" %>
-              </li>
-              <li class="subitem3">
-                <%= link_to t(".subitem3"), "#" %>
+                <% @comments.each do |c| %>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <b><%= User.find_by(id: c.User_id).name %></b>
+                    </div>
+                    <div class="col-md-9">
+                      <%= c.content %>
+                    </div>
+                  </div>
+                <% end %>
               </li>
             </ul>
           </li>
         </ul>
       </div>
-      <div class="latestproducts">
-        <div class="product-one">
-          <div class="col-md-4 product-left p-left">
-            <div class="product-main simpleCart_shelfItem">
-              <%= link_to "single.html", class: "mask" do %>
-                <%= image_tag "p-1.png", class: "img-responsive zoom-img",
-                  alt: "" %>
-              <% end %>
-              <div class="product-bottom">
-                <h3><%= t ".smart_watch" %></h3>
-                <p><%= t ".Explore_now" %></p>
-                <h4>
-                  <%= link_to "#", class: "item_add" do %>
-                    <i></i>
-                  <% end %>
-                  <span class=" item_price"><%= t ".price_1" %></span>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 product-left p-left">
-            <div class="product-main simpleCart_shelfItem">
-              <%= link_to "single.html", class: "mask" do %>
-                <%= image_tag "p-2.png", class: "img-responsive zoom-img",
-                  alt: "" %>
-              <% end %>
-              <div class="product-bottom">
-                <h3><%= t ".smart_watch" %></h3>
-                <p><%= t ".Explore_now" %></p>
-                <h4>
-                  <%= link_to "#", class: "item_add" do %>
-                    <i></i>
-                  <% end %>
-                  <span class=" item_price"><%= t ".price_1" %></span>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 product-left p-left">
-            <div class="product-main simpleCart_shelfItem">
-              <%= link_to "single.html", class: "mask" do %>
-                <%= image_tag "p-2.png", class: "img-responsive zoom-img",
-                  alt: "" %>
-              <% end %>
-              <div class="product-bottom">
-                <h3><%= t ".smart_watch" %></h3>
-                <p><%= t ".Explore_now" %></p>
-                <h4>
-                  <%= link_to "#", class: "item_add" do %>
-                    <i></i>
-                  <% end %>
-                  <span class=" item_price"><%= t ".price_1" %></span>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
+      <%= render "lastproduct" %>
     </div>
-    <%= render "shared/filter" %>
     </div>
   </div>
 </div>

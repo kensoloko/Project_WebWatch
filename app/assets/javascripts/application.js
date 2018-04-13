@@ -25,5 +25,4 @@
 //= require responsiveslides.min
 //= require single
 //= require imagezoom
-//= require jquery.flexslider
 //= require checkoutcart
