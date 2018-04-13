@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180406025525) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "product_name"
+    t.string "name"
     t.integer "price"
     t.integer "quantity"
     t.text "description"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180406025525) do
     t.string "email"
     t.string "phone"
     t.text "address"
-    t.string "avatar_url"
+    t.string "avatar_url", default: "avatar_default.png"
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

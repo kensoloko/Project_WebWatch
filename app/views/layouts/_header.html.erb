@@ -1,0 +1,56 @@
+  <div class="top-header">
+    <div class="container">
+      <div class="top-header-main">
+        <div class="col-md-6 top-header-left">
+          <div class="drop">
+            <div class="box1">
+              <select tabindex="4" class="dropdown">
+                <option value="" class="label"><%= t ".English2" %></option>
+                <option value="1"><%= t ".English" %></option>
+                <option value="2"><%= t ".Vietnamese" %></option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="col-md-6 top-header-left">
+          <div class="row">
+            <div class="col-md-8 text-right">
+              <nav>
+                <ul class="nav navbar-nav navbar-right">
+                  <% if logged_in? %>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <%= t "account" %>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to t("profile"), current_user %></li>
+                        <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+                        <li>
+                          <%= link_to t("logout"), logout_path, method: :delete,
+                            :data => {:confirm => 'Are you sure?'} %>
+                        </li>
+                      </ul>
+                    </li>
+                  <% else %>
+                    <li><%= link_to t("title.login"), login_path %></li>
+                  <% end %>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-md-4 cart box_1">
+              <%= link_to "#" do %>
+                  <div class="total">
+                    <span class="simpleCart_total"></span>
+                  </div>
+                  <%= image_tag("cart-1.png", alt: "cart") %>
+              <% end %>
+              <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>

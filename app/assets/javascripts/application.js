@@ -23,7 +23,6 @@
 //= requrie fmemenu
 //= require jquery.easydropdown
 //= require responsiveslides.min
-//= require index_responsiveslides
 //= require single
 //= require imagezoom
 //= require jquery.flexslider

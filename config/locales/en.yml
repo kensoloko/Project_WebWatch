@@ -1,33 +1,177 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  users_controller:
+    log_in_success: "welcome to summoner rift"
+  layouts:
+    nav_bottom_menu:
+      Home: "Home"
+      new: "New"
+      hot: "Hot"
+      sale: "Sale"
+      contact: "Contact"
+      Search: "Search"
+      S: ""
+    footer:
+      follow_us: "Follow Us"
+      Facebook: "Facebook"
+      Twitter: "Twitter"
+      Google : "Google"
+      New_Products: "New Products"
+      Our_Stores: "Our Stores"
+      Contact_us: "Contact us"
+      Top_sellers: "Top sellers"
+      Information: "Information"
+      My_Account: "My Account"
+      My_personal_info: "My personal info"
+      Store_infomation: "Store infomation"
+      Company_name: "HKH.Inc"
+      Number_phone: "01689219785"
+      Company_Address: "Handico Tower, Pham Hung street, Nam Tu Liem District"
+      Company_email: "kensoloko@gmail.com"
+    header:
+      English2: "English :"
+      English: "English"
+      Vietnamese: "Tieng Viet"
+      Luxury_watches: "Luxury watches"
+      Empty_Cart: "Empty_Cart"
+  users:
+    load_user:
+      user_not_found: "User not found"
+    logged_in_user:
+      please_login: "Please login"
+    correct_user:
+      access_denied: "Access denied"
+    show:
+      user_profile: "USER PROFILE"
+    create:
+      create_success: "Create success"
+      create_fail: "Create fail"
+    update:
+      profile_updated: "Profile Updated"
+      update_fail: "Update Fail"
+    form:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+      password: "password"
+      password_confirmation: "password_confirmation"
+    new:
+      register: "REGISTER"
+      sign_up: "Sign Up"
+    checkout:
+      checkout: "CHECKOUT"
+      my_shop_bag: "My Shop Bag"
+      item: "Item"
+      product_name: "Product Name"
+      unit_price: "Unit Price"
+      delivery_details: "Delivery Details"
+      Analog_Watch: "Analog_Watches"
+      price_1: "$ 300.00"
+      price_2: "$ 290.00"
+      price_3: "$ 36.00"
+      free: "Free"
+      delivery: "Delivered in 2-3 business days"
+  sessions:
+    new:
+      login: "Login"
+      existing_user: "Existing User"
+      email: "Email"
+      password: "Password"
+      question: "New User? Create an Account"
+      create_account: "By creating an account with our store, you will be able
+        to move through the checkout process faster, store multiple shipping
+        addresses, view and track your orders in your account and more."
+      btn_create_account: "Create an Account"
+  static_pages:
+    contact:
+      contact_page: "CONTACT"
+      C_address: "Address"
+      C_address1: "Address 1"
+      C_name: "HKH.Inc"
+      Handico: "Handico Tower"
+      C_Address: "Pham Hung street, Nam Tu Liem District"
+      tel: "Tel:01689219785,"
+      fax: "Fax:190-4509-494"
+      C_email: "kensoloko@gmail.com"
+  products:
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+    show:
+      Lorem_Ipsum: "Lorem Ipsum"
+      customer_review: "1 customer review"
+      item_price_1: "$ 95.00"
+      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
+      tag: "TAG"
+      sex: ": Women,"
+      type: ": CK09"
+      sku: "SKU"
+      add_to_cart: "ADD TO CART"
+      Description: "Description"
+      subitem1: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
+      subitem2: " Duis autem vel eum iriure dolor in hendrerit in vulputate
+        velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+        praesent luptatum zzril delenit augue duis dolore"
+      subitem3: "Mirum est notare quam littera gothica, quam nunc putamus parum
+        claram, anteposuerit litterarum formas humanitatis per seacula quarta
+        decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum
+        clari, fiant sollemnes "
+      Additional_infomation: "Additional infomation"
+      review_10: "Review (10)"
+      Helpful_links: "Helpful Links"
+      Make_a_gift: "Make A Gift"
+    index:
+      nulla_max: "Nulla maximus nunc"
+      In_sit: "In sit amet sapien eros Integer dolore magna aliqua"
+      Mauris: "Mauris erat augue"
+      Cras_elit_mauris: "Cras elit mauris"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+  shared:
+    filter:
+      Categories: "CATEGORIES"
+      all_accessories: "All Accessories"
+      women_Watches: "Women Watches"
+      kids_watches: "Kids Watches"
+      men_watches: "Men Watches"
+      brand: "Brand"
+      kurtas: "Kurtas"
+      Sonata: "Sonata"
+      Titan: "Titan"
+      Casio: "Casio"
+      Omax: "Omax"
+      shree: "shree"
+      Fastrack: "Fastrack"
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+  sessions:
+    new:
+      login: "Login"
+      existing_user: "Existing User"
+      email: "Email"
+      password: "Password"
+      question: "New User? Create an Account"
+      create_account: "By creating an account with our store, you will be able
+                      to move through the checkout process faster, store
+                      multiple shipping addresses, view and track your orders
+                      in your account and more."
+      btn_create_account: "Create an Account"
+    create:
+      invalid: "User invalid"
+      login: "Login success"
+  shared:
+    error_messages:
+      form_errors: "Form has "
