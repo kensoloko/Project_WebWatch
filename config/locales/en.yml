@@ -177,3 +177,55 @@ en:
   shared:
     error_messages:
       form_errors: "Form has %{err}"
+  admin:
+    copyright: "Gentelella - Bootstrap Admin Template by "
+    colorlib: "ColorLib"
+    admin: "Administrator"
+    login: "Log in"
+    logout: "Log out"
+    welcome: "Welcome"
+    general: "General"
+    user: "Users"
+    brand: "Brands"
+    category: "Categories"
+    product: "Products"
+    order_detail: "Order Details"
+    order: "Order"
+    comment: "Comments"
+    rating: "Ratings"
+    id: "ID"
+    zero: "0"
+    home: "Home"
+    products:
+      headline: "Product Manager"
+      pName: "Product Name"
+      pPrice: "Product Price"
+      pQuantity: "Product Quantity"
+      pImage: "Product Image"
+      descript: "Description"
+      content: "Content"
+      brand: "Brand"
+      category: "Category"
+    categories:
+      headline: "Categories Manager"
+      cName: "Category Name"
+      descript: "Description"
+    users:
+      headline: "Users Manager"
+      name: "Username"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+      avatar: "Avatar"
+    brands:
+      headline: "Brands Manager"
+      name: "Brand Name"
+      descript: "Description"
+    orders:
+      headline: "Order Manager"
+      status: "Status"
+    comments:
+      headline: "Comments"
+    ratings:
+      headline: "Ratings"
+      value: "Rate Value"

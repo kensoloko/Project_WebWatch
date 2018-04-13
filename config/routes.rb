@@ -12,9 +12,20 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
-
   resources :users
   resources :products
   resources :categories
   resources :brands
+  namespace :admin do
+    get "base/home"
+    get "base/products"
+    get "base/categories"
+    get "base/users"
+    get "base/brands"
+    get "base/orders"
+    get "base/comments"
+    get "base/ratings"
+    get "/login", to: "session_admin#new"
+    get "/", to: "base#index"
+  end
 end
