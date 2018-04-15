@@ -64,19 +64,6 @@ en:
     new:
       register: "REGISTER"
       sign_up: "Sign Up"
-    checkout:
-      checkout: "CHECKOUT"
-      my_shop_bag: "My Shop Bag"
-      item: "Item"
-      product_name: "Product Name"
-      unit_price: "Unit Price"
-      delivery_details: "Delivery Details"
-      Analog_Watch: "Analog_Watches"
-      price_1: "$ 300.00"
-      price_2: "$ 290.00"
-      price_3: "$ 36.00"
-      free: "Free"
-      delivery: "Delivered in 2-3 business days"
   sessions:
     new:
       login: "Login"
@@ -106,6 +93,7 @@ en:
       Explore_now: "Explore Now"
       price_1: "$ 329"
     show:
+      alert: "alert('Add to Cart')"
       Lorem_Ipsum: "Lorem Ipsum"
       customer_review: "1 customer review"
       item_price_1: "$ 95.00"
@@ -233,3 +221,19 @@ en:
     ratings:
       headline: "Ratings"
       value: "Rate Value"
+  checkout:
+    index:
+      checkout: "CHECKOUT"
+      my_shop_bag: "My Shop Bag"
+      item: "Item"
+      product_name: "Product Name"
+      unit_price: "Unit Price"
+      delivery_details: "Delivery Details"
+      Analog_Watch: "Analog_Watches"
+      price_1: "$ 300.00"
+      price_2: "$ 290.00"
+      price_3: "$ 36.00"
+      free: "Free"
+      delivery: "Delivered in 2-3 business days"
+      total: "Total"
+      signup_to_checkout: "Please sign up to checkout"

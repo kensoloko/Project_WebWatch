@@ -1,17 +1,15 @@
 <div class="col-md-3 product-left">
   <div class="product-main simpleCart_shelfItem">
     <%= link_to product, class: "mask" do %>
-    <%= image_tag JSON.parse(product.image)[0], class: "img-responsive zoom-img" %>
+      <%= image_tag JSON.parse(product.image)[0], class: "img-responsive zoom-img" %>
+      <div class="product-bottom">
+        <h3><%= product.name %></h3>
+        <p><%= truncate product.description, length: 30, separator: ' ' %></p>
+        <h4>
+          <i></i>
+          <span class=" item_price"><%= product.price %></span>
+        </h4>
+      </div>
     <% end %>
-    <div class="product-bottom">
-      <h3><%= product.name %></h3>
-      <p><%= truncate product.description, length: 30, separator: ' ' %></p>
-      <h4>
-        <%= link_to  "#", class: "item_add" do %>
-        <i></i>
-        <% end %>
-        <span class=" item_price"><%= product.price %></span>
-      </h4>
-    </div>
   </div>
 </div>
