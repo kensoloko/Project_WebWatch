@@ -2,17 +2,18 @@
 <div class = "login">
   <div class="login_wrapper">
     <section class="login_content">
-      <form>
+      <%= form_for :session do |f| %>
         <h1><%= t "admin.admin" %></h1>
         <div>
-          <input type="text" class="form-control" placeholder="Username" required="" />
+          <%= f.text_field :name, class:"form-control", placeholder:"Username" %>
         </div>
         <div>
-          <input type="password" class="form-control" placeholder="Password" required="" />
+          <%= f.password_field :password, class:"form-control", placeholder:"Password" %>
         </div>
         <div>
-          <a class="btn btn-default submit" href="index.html">Log in</a>
+          <%= f.submit t(".login"), class:"btn btn-default submit" %>
         </div>
+      <% end %>
         <div class="clearfix"></div>
         <div class="separator">
           <div class="clearfix"></div>

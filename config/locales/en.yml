@@ -221,6 +221,9 @@ en:
     ratings:
       headline: "Ratings"
       value: "Rate Value"
+    session_admin:
+      new:
+        login: "Log in"
   checkout:
     index:
       checkout: "CHECKOUT"

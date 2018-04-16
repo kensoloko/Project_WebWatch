@@ -8,13 +8,17 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @category = Category.find_by id: @product.Category_id
-    @brand = Brand.find_by id: @product.Brand_id
+    @category = Category.find_by id: @product.category_id
+    @brand = Brand.find_by id: @product.brand_id
     @comments = @product.comments.all
   end
 
   def index
     @products = Product.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
