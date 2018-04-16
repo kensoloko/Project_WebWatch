@@ -91,7 +91,7 @@
                 <% @comments.each do |c| %>
                   <div class="row">
                     <div class="col-md-3">
-                      <b><%= User.find_by(id: c.User_id).name %></b>
+                      <b><%= User.find_by(id: c.user_id).name %></b>
                     </div>
                     <div class="col-md-9">
                       <%= c.content %>

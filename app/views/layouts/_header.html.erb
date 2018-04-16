@@ -26,6 +26,7 @@
                       <ul class="dropdown-menu">
                         <li><%= link_to t("profile"), current_user %></li>
                         <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+                        <li><%= link_to t("cart"), cart_url %></li>
                         <li>
                           <%= link_to t("logout"), logout_path, method: :delete,
                             :data => {:confirm => 'Are you sure?'} %>
