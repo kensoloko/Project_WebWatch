@@ -7,14 +7,17 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
-  get "/products", to: "products#products"
+  get "/fillter", to: "products#fillter"
+  get "/fillter/:status", to: "products#fillter", as: "new"
   get "/cart", to: "checkout#index"
   get "/checkout", to: "checkout#create"
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
+  delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
   resources :users
   resources :products
+  resources :comments
   resources :categories
   resources :brands
   namespace :admin do

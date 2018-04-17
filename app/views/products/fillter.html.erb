@@ -1,0 +1,14 @@
+<%= provide :title, t(".products") %>
+<div class="prdt">
+<div class="container">
+<div class="prdt-top">
+  <div class="col-md-12 prdt-left">
+    <div class="product-top">
+      <div class="product-one">
+        <%= render @products %>
+      </div>
+      <div class="clearfix"></div>
+      <div class="text-center text-paginate"><%= paginate @products, remote: true %>
+    </div>
+  </div>
+</div>

@@ -96,6 +96,7 @@ en:
       Explore_now: "Explore Now"
       price_1: "$ 329"
     show:
+      comment: "Comment"
       alert: "alert('Add to Cart')"
       Lorem_Ipsum: "Lorem Ipsum"
       customer_review: "1 customer review"
