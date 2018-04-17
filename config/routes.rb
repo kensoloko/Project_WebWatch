@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
+  get "/rate/:id/:value", to: "products#rate"
   resources :users
   resources :products
   resources :categories
