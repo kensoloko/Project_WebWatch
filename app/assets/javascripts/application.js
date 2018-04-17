@@ -25,3 +25,4 @@
 //= require single
 //= require imagezoom
 //= require checkoutcart
+//= require searchbox

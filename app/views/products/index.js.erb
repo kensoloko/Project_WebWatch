@@ -1,2 +1,3 @@
 $(".product-one").html("<%= escape_javascript(render @products) %>");
 $(".text-paginate").html("<%= escape_javascript(paginate @products, remote: true) %>");
+<%= render "shared/search", items: @users %>

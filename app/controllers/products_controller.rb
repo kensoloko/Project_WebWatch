@@ -24,6 +24,14 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.page params[:page]
+
+    q = params[:search]
+    if q
+      @products = Product.search(name_cont: q).result
+    else
+      @products = Product.all
+    end
+
     respond_to do |format|
       format.html
       format.js

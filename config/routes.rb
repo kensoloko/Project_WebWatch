@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/index", to: "products#index"
   get "/show", to: "products#show"
   get "/rate/:id/:value", to: "products#rate"
+  get "search(/:search)", to: "searches#index", as: :search
   resources :users
   resources :products
   resources :categories
