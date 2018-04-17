@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def show
     @category = Category.find_by id: @product.category_id
     @brand = Brand.find_by id: @product.brand_id
-    @comments = @product.comments
+    @comments = @product.comments.all
     @rate = @product.rates.find_by user_id: params[:id]
     @ratetotal = @product.rates
 

@@ -5,10 +5,10 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" href="#collapse<%= bill.id %>">
-            Bill id: <%= bill.id %>
+            <%= t ".bill_id" %>: <%= bill.id %>
           </a>
-           | Created at: <%= bill.created_at %>
-           | Status: <%= bill.status %>
+           | <%= t ".created_at" %>: <%= bill.created_at.strftime "%d/%m/%Y" %>
+           | <%= t ".status" %>: <%= t ".bill_status_#{bill.status}" %>
            <a class="text-right">Cancel</a>
         </h4>
       </div>

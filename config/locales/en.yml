@@ -48,6 +48,7 @@ en:
       Phone: "Phone"
       Address: "Address"
       Name: "Name"
+      general_information: "General Information"
     create:
       create_success: "Create success"
       create_fail: "Create fail"
@@ -75,6 +76,8 @@ en:
         to move through the checkout process faster, store multiple shipping
         addresses, view and track your orders in your account and more."
       btn_create_account: "Create an Account"
+    destroy:
+      logout: "Logout success, goodbye"
   static_pages:
     contact:
       contact_page: "CONTACT"
@@ -191,7 +194,7 @@ en:
     users:
       headline: "Users Manager"
       name: "Username"
-      email: "Email"
+      emaibl: "Email"
       phone: "Phone"
       address: "Address"
       avatar: "Avatar"
@@ -226,3 +229,10 @@ en:
       delivery: "Delivered in 2-3 business days"
       total: "Total"
       signup_to_checkout: "Please sign up to checkout"
+  bills:
+    bill:
+      bill_status_1: "Unpaid"
+      bill_status_2: "Not delivered"
+      bill_status_3: "Delivered"
+      bill_status_4: "Paid"
+      bill_status_5: "Abort"

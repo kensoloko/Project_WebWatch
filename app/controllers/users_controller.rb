@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @bills = @user.bills.all
+    @bills = @user.bills.order :status
   end
 
   def edit; end
