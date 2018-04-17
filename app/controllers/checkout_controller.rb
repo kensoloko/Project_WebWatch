@@ -2,12 +2,17 @@ class CheckoutController < ApplicationController
   def index; end
 
   def create
-    render html: bill_details
+    bill = current_user.bills.create(status: 1)
+    cart_params.each do |x|
+      bill.bill_details.create product_id: x[:product_id], quantity: x[:quantity]
+    end
+    flash[:success] = "checkouted"
+    redirect_to current_user
   end
 
   private
 
-  def bill_details
+  def cart_params
     arr = []
     params[:itemCount].to_i.times do |x|
       x += 1
