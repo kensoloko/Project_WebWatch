@@ -1,5 +1,3 @@
-//= require rails-ujs
-//= require turbolinks
 //= require admin/jquery
 //= require admin/bootstrap
 //= require admin/fastclick
@@ -19,3 +17,5 @@
 //= require admin/pdfmake
 //= require admin/vfs_fonts
 //= require admin/custom
+//= require rails-ujs
+//= require turbolinks

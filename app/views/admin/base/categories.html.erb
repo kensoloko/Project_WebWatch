@@ -13,8 +13,16 @@
                 <th><%= t "admin.categories.cName" %></th>
                 <th><%= t "admin.categories.descript" %></th>
               </tr>
+
             </thead>
             <tbody>
+              <% @categories.each do |category| %>
+                <tr>
+                  <td><%= category.id %></td>
+                  <td><%= category.name %></td>
+                  <td><%= category.description %></td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
