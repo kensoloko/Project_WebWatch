@@ -23,8 +23,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get "base/home"
     get "base/products"
-    get "base/categories"
-    get "base/users"
     get "base/orders"
     get "base/comments"
     get "base/ratings"
@@ -35,5 +33,9 @@ Rails.application.routes.draw do
     resources :brands  do
       get "remove"
     end
+    resources :categories do
+      get "remove"
+    end
+    resources :users
   end
 end
