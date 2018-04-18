@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :load_product, only: :show
+  before_action :load_product, only: %i(show rate)
 
   def products
     @product = Product.new
@@ -8,13 +8,49 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @category = Category.find_by id: @product.Category_id
-    @brand = Brand.find_by id: @product.Brand_id
-    @comments = @product.comments.all
+    @category = Category.find_by id: @product.category_id
+    @brand = Brand.find_by id: @product.brand_id
+    @rate = @product.rates.find_by user_id: params[:id]
+    @ratetotal = @product.rates
+
+    if @ratetotal.blank?
+      @averate = t ".No_Rate"
+    else
+      @averate = @ratetotal.reduce(0.0){|sum, el| sum + el.rate_value} /
+        @ratetotal.size
+    end
   end
 
   def index
     @products = Product.page params[:page]
+  end
+
+  def rate
+    @rate = @product.rates.new rate_value: params[:value],
+      user_id: current_user.id
+    if @rate.save
+      respond_to do |format|
+        format.html{render html: @rate.rate_value}
+        format.js
+      end
+    end
+  end
+
+  def fillter
+    case params[:status]
+    when "new"
+      @products = Product.order(updated_at: :desc).page params[:page]
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    when "hot"
+      @products = Product\
+      .joins("inner join bill_details on products.id = bill_details.product_id")
+      .select('products.id, name, price, image, description, count(bill_details.id) as "count"')\
+      .group('products.id, bill_details.product_id').order("count desc")\
+      .page params[:page]
+    end
   end
 
   private

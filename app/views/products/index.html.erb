@@ -55,8 +55,9 @@
       <div class="product-top">
         <div class="product-one">
           <%= render @products %>
-      </div>
-      <div class="clearfix"></div>
-      <div class="text-center text-paginate"><%= paginate @products %></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="text-center text-paginate"><%= paginate @products, remote: true %>
+        </div>
     </div>
   </div>

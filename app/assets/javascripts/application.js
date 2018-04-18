@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
@@ -26,3 +25,4 @@
 //= require single
 //= require imagezoom
 //= require checkoutcart
+//= require searchbox

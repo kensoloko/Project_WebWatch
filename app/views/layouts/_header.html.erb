@@ -26,6 +26,7 @@
                       <ul class="dropdown-menu">
                         <li><%= link_to t("profile"), current_user %></li>
                         <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+                        <li><%= link_to t("cart"), cart_url %></li>
                         <li>
                           <%= link_to t("logout"), logout_path, method: :delete,
                             :data => {:confirm => 'Are you sure?'} %>
@@ -39,7 +40,7 @@
               </nav>
             </div>
             <div class="col-md-4 cart box_1">
-              <%= link_to "#" do %>
+              <%= link_to cart_url do %>
                   <div class="total">
                     <span class="simpleCart_total"></span>
                   </div>

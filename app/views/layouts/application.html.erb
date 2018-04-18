@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <%= yield :script %>
   </head>
-  <body>
+  <body data-turbolinks="false">
     <%= render "layouts/header" %>
     <%= render "layouts/logo" %>
     <%= render "layouts/nav_bottom_menu" %>
