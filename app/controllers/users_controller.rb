@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
     @bills = @user.bills.order :status
+=======
+    @bills = @user.bills.all
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
   end
 
   def edit; end

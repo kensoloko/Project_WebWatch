@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
+<<<<<<< HEAD
   delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
+=======
+  get "/rate/:id/:value", to: "products#rate"
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
   resources :users
   resources :products
   resources :comments

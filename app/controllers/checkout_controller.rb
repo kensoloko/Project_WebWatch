@@ -23,5 +23,4 @@ class CheckoutController < ApplicationController
     end
     return arr
   end
-
 end

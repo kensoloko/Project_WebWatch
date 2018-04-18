@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :load_product, only: :show
+  before_action :load_product, only: %i(show rate)
 
   def products
     @product = Product.new
@@ -10,6 +10,19 @@ class ProductsController < ApplicationController
   def show
     @category = Category.find_by id: @product.category_id
     @brand = Brand.find_by id: @product.brand_id
+<<<<<<< HEAD
+=======
+    @comments = @product.comments
+    @rate = @product.rates.find_by user_id: params[:id]
+    @ratetotal = @product.rates
+
+    if @ratetotal.blank?
+      @averate = t ".No_Rate"
+    else
+      @averate = @ratetotal.reduce(0.0){|sum, el| sum + el.rate_value} /
+        @ratetotal.size
+    end
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
   end
 
   def index
@@ -20,6 +33,7 @@ class ProductsController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def fillter
     case params[:status]
     when 'new'
@@ -36,6 +50,14 @@ class ProductsController < ApplicationController
       .page params[:page]
       respond_to do |format|
         format.html
+=======
+  def rate
+    @rate = @product.rates.new rate_value: params[:value],
+      user_id: current_user.id
+    if @rate.save
+      respond_to do |format|
+        format.html{render html: @rate.rate_value}
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
         format.js
       end
     end

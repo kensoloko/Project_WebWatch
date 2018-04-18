@@ -1,3 +1,5 @@
+<%= javascript_include_tag "rating_star" %>
+<%= stylesheet_link_tag "rating_star" %>
 <div class="single contact">
   <div class="container">
     <div class="single-main">
@@ -22,6 +24,7 @@
             <div class="item_pid" style="display:none;"><%= @product.id %></div>
             <h2 class="item_name"><%= @product.name %></h2>
             <div class="star-on">
+<<<<<<< HEAD
               <ul class="star-footer">
                 <li>
                   <%= link_to "#" do %>
@@ -50,10 +53,36 @@
                 </li>
               </ul>
               <div class="review">
+=======
+             <div id="pid"><%= @product.id %></div>
+              <div class="rating-stars text-center">
+                <ul id="stars">
+                  <li class="star" title="Poor" data-value="1">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Fair" data-value="2">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Good" data-value="3">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Excellent" data-value="4">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="WOW!!!" data-value="5">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                </ul>
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
               </div>
               <div class="clearfix"> </div>
+              <div class= "rating_star"><%= t ".averate_rate" %>
+                <%= @averate.round 1 %>
+              </div>
             </div>
-            <h5 class="item_price"><%= pluralize @product.price, "$", "$" %></h5>
+            <h5 class="item_price">
+              <%= pluralize @product.price, "$", "$" %>
+            </h5>
             <p><%= @product.description %></p>
             <ul class="tag-men">
               <li><span class="tag"><%= t ".category" %></span>
@@ -86,8 +115,22 @@
               <%=  t(".review") %> <span id="count_comment">(<%= @product.comments.size %>)</span>
             <% end %>
             <ul>
+<<<<<<< HEAD
               <li class="subitem1" id="comments">
                 <%= render @product.comments %>
+=======
+              <li class="subitem1">
+                <% @comments.each do |c| %>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <b><%= User.find_by(id: c.user_id).name %></b>
+                    </div>
+                    <div class="col-md-9">
+                      <%= c.content %>
+                    </div>
+                  </div>
+                <% end %>
+>>>>>>> f44c4447e214350999326ef08cc3c279be08666b
               </li>
             </ul>
           </li>
