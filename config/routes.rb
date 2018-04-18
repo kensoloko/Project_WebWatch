@@ -10,31 +10,31 @@ Rails.application.routes.draw do
   get "/fillter", to: "products#fillter"
   get "/new", to: "products#fillter", status: "new"
   get "/hot", to: "products#fillter", status: "hot"
+  get "/categories", to: "products#fillter", status: "categories"
+  get "/brands", to: "products#fillter", status: "brands"
   get "/cart", to: "checkout#index"
   get "/checkout", to: "checkout#create"
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
-<<<<<<< HEAD
   delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
-=======
   get "/rate/:id/:value", to: "products#rate"
->>>>>>> f44c4447e214350999326ef08cc3c279be08666b
   resources :users
   resources :products
   resources :comments
-  resources :categories
-  resources :brands
+  get "/admin", to: "admin/base#home"
   namespace :admin do
-    get "base/home"
-    get "base/products"
-    get "base/categories"
-    get "base/users"
-    get "base/brands"
-    get "base/orders"
-    get "base/comments"
-    get "base/ratings"
+    get "/home", to: "base#home"
+    get "/products", to: "base#products"
+    get "/categories", to: "base#categories"
+    get "/users", to: "base#users"
+    get "/orders", to: "base#orders"
+    get "/comments", to: "base#comments"
+    get "/ratings", to: "base#ratings"
     get "/login", to: "session_admin#new"
-    get "/", to: "base#index"
+    post "/login", to: "session_admin#create"
+    # get "brands/index"
+    resources :brands
+    resources :bills
   end
 end

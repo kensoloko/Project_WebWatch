@@ -17,8 +17,9 @@ $(document).ready(function(){
     $(this).parent().children('li.star').each(function(e){
       $(this).removeClass('hover');
     });
+    draw();
   });
-
+  draw();
   /* 2. Action to perform on click */
   $('#stars li').on('click', function(){
     var onStar = parseInt($(this).data('value')); // The star currently selected
@@ -39,7 +40,17 @@ $(document).ready(function(){
       data: {},
       dataType: 'html'
     }).done(function(html){
-
+      console.log(html);
+      html = parseFloat(Math.round(html * 100) / 100).toFixed(1);
+      $('#averate').html(html);
     });
   });
 });
+
+function draw(){
+  var averate = Math.round(parseFloat($('#averate').html()));
+  for (i = 0; i < averate; i++)
+  {
+    $('li.star:eq('+i+')').addClass('hover');
+  }
+}

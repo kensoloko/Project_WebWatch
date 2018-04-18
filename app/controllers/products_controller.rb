@@ -1,28 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :load_product, only: %i(show rate)
-
-  def products
-    @product = Product.new
-    @category = Category.new
-    @brand = Brand.new
-  end
+  before_action :load_product, only: %i(show rate fillter)
+  before_action :rate_total, only: %i(show rate)
 
   def show
     @category = Category.find_by id: @product.category_id
     @brand = Brand.find_by id: @product.brand_id
-<<<<<<< HEAD
-=======
-    @comments = @product.comments
-    @rate = @product.rates.find_by user_id: params[:id]
-    @ratetotal = @product.rates
-
-    if @ratetotal.blank?
-      @averate = t ".No_Rate"
-    else
-      @averate = @ratetotal.reduce(0.0){|sum, el| sum + el.rate_value} /
-        @ratetotal.size
-    end
->>>>>>> f44c4447e214350999326ef08cc3c279be08666b
   end
 
   def index
@@ -33,7 +15,6 @@ class ProductsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def fillter
     case params[:status]
     when 'new'
@@ -50,14 +31,22 @@ class ProductsController < ApplicationController
       .page params[:page]
       respond_to do |format|
         format.html
-=======
+        format.js
+      end
+    when 'categories'
+      @category = Category.find_by id: @product.id
+      @products = Category.products.page params[:page]
+    when 'brands'
+      @products = Brand.products.page params[:page]
+    end
+  end
+
   def rate
     @rate = @product.rates.new rate_value: params[:value],
       user_id: current_user.id
     if @rate.save
       respond_to do |format|
-        format.html{render html: @rate.rate_value}
->>>>>>> f44c4447e214350999326ef08cc3c279be08666b
+        format.html {render html: rate_total}
         format.js
       end
     end
@@ -66,7 +55,20 @@ class ProductsController < ApplicationController
   private
 
   def load_product
-    redirect_to root_url, flash: {danger: t(".product_not_found")}\
     unless @product = Product.find_by(id: params[:id])
+      flash[:danger] = t ".product_not_found"
+      redirect_to root_url
+    end
+  end
+
+  def rate_total
+    @ratetotal = @product.rates
+    if @ratetotal.blank?
+      @averate = 0
+    else
+      @averate = @ratetotal.reduce(0.0){|sum, el| sum + el.rate_value} /
+        @ratetotal.size
+    end
+    return @averate
   end
 end

@@ -178,6 +178,7 @@ en:
     id: "ID"
     zero: "0"
     home: "Home"
+    no_info: "No info"
     products:
       headline: "Product Manager"
       pName: "Product Name"

@@ -24,36 +24,6 @@
             <div class="item_pid" style="display:none;"><%= @product.id %></div>
             <h2 class="item_name"><%= @product.name %></h2>
             <div class="star-on">
-<<<<<<< HEAD
-              <ul class="star-footer">
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-              </ul>
-              <div class="review">
-=======
              <div id="pid"><%= @product.id %></div>
               <div class="rating-stars text-center">
                 <ul id="stars">
@@ -73,11 +43,10 @@
                     <i class="fa fa-star fa-fw"></i>
                   </li>
                 </ul>
->>>>>>> f44c4447e214350999326ef08cc3c279be08666b
               </div>
               <div class="clearfix"> </div>
               <div class= "rating_star"><%= t ".averate_rate" %>
-                <%= @averate.round 1 %>
+                <span id="averate"><%= @averate.round 1 %></span>
               </div>
             </div>
             <h5 class="item_price">
@@ -115,22 +84,8 @@
               <%=  t(".review") %> <span id="count_comment">(<%= @product.comments.size %>)</span>
             <% end %>
             <ul>
-<<<<<<< HEAD
               <li class="subitem1" id="comments">
                 <%= render @product.comments %>
-=======
-              <li class="subitem1">
-                <% @comments.each do |c| %>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <b><%= User.find_by(id: c.user_id).name %></b>
-                    </div>
-                    <div class="col-md-9">
-                      <%= c.content %>
-                    </div>
-                  </div>
-                <% end %>
->>>>>>> f44c4447e214350999326ef08cc3c279be08666b
               </li>
             </ul>
           </li>

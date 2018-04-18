@@ -1,5 +1,6 @@
 <% provide :title, t("admin.categories.headline") %>
 <% provide :page_headline, t("admin.categories.headline") %>
+<% provide :url, new_brand_path %>
 <div class="clearfix">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -13,8 +14,16 @@
                 <th><%= t "admin.categories.cName" %></th>
                 <th><%= t "admin.categories.descript" %></th>
               </tr>
+
             </thead>
             <tbody>
+              <% @categories.each do |category| %>
+                <tr>
+                  <td><%= category.id %></td>
+                  <td><%= category.name %></td>
+                  <td><%= category.description %></td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
