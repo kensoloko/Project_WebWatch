@@ -1,0 +1,33 @@
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <div class="nav toggle">
+        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="">
+          <%= link_to "javascript:;", class: "user-profile dropdown-toggle",
+            data: {toggle: "dropdown"}, aria: {expanded: false} do %>
+            <%= image_tag "img.jpg", alt: "" %><%= t "admin.admin" %>
+            <span class=" fa fa-angle-down"></span>
+          <% end %>
+          <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li>
+              <%= link_to t(".logout"), logout_path, method: :delete,
+                :data => {:confirm => 'Are you sure?'}%>
+            </li>
+          </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+          <%= link_to "javascript", class: "dropdown-toggle info-number",
+            data: {toggle: "dropdown"}, aria: {expanded: false} do %>
+            <i class="fa fa-envelope-o"></i>
+            <span class="badge bg-green"><%= t "admin.zero" %></span>
+          <% end %>
+          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

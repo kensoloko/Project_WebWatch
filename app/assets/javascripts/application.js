@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
@@ -23,8 +22,7 @@
 //= requrie fmemenu
 //= require jquery.easydropdown
 //= require responsiveslides.min
-//= require index_responsiveslides
 //= require single
 //= require imagezoom
-//= require jquery.flexslider
 //= require checkoutcart
+//= require searchbox

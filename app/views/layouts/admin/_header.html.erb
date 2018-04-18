@@ -1,0 +1,87 @@
+<div class="col-md-3 left_col">
+  <div class="left_col scroll-view">
+    <div class="navbar nav_title" style="border: 0;">
+      <%= link_to "#", class: "site_title" do %>
+      <i class="fa fa-home"></i> <span><%= t "admin.admin" %> </span>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+    <!-- menu profile quick info -->
+    <div class="profile clearfix">
+      <div class="profile_pic">
+        <%= image_tag "img.jpg", alt: "", class: "img-circle profile_img" %>
+      </div>
+      <div class="profile_info">
+        <span><%= t "admin.welcome" %></span>
+        <h2><%= t "admin.admin" %></h2>
+      </div>
+    </div>
+    <!-- /menu profile quick info -->
+    <br />
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+      <div class="menu_section">
+        <h3><%= t "admin.gerneral" %></h3>
+        <ul class="nav side-menu">
+          <li>
+            <%= link_to admin_base_home_path do %>
+            <i class="fa fa-home"></i> <%= t "admin.home" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_users_path do %>
+            <i class="fa fa-user"></i> <%= t "admin.user" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_brands_path do %>
+            <i class="fa fa-institution"></i> <%= t "admin.brand" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_categories_path do %>
+            <i class="fa fa-desktop"></i> <%= t "admin.category" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_products_path do %>
+            <i class="fa fa-database"></i> <%= t "admin.product" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_orders_path do %>
+            <i class="fa fa-shopping-cart"></i> <%= t "admin.order" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_comments_path do %>
+            <i class="fa fa-envelope-o"></i> <%= t "admin.comment" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_base_ratings_path do %>
+            <i class="fa fa-trophy"></i> <%= t "admin.rating" %>
+            <% end %>
+          </li>
+        </div>
+      </div>
+      <div class="sidebar-footer hidden-small">
+        <a data-toggle="tooltip" data-placement="top" title="Settings">
+          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+          <span class="glyphicon glyphicon-fullscreen" aria-hidden="true">
+          </span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Lock">
+          <span class="glyphicon glyphicon-eye-close" aria-hidden="true">
+          </span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top"
+          title="Logout" href="login.html">
+          <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
