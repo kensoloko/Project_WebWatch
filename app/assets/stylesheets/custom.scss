@@ -120,6 +120,7 @@ a.my-btn{
     color: black;
   }
 }
+
 h4 a.text-right{
   float:right;
 }
@@ -127,3 +128,11 @@ h4 a.text-right{
   margin: 10 0 0 0;
 }
 
+.li-search{
+  list-style: none !important;
+}
+.account-left{
+  p{
+    margin: 0;
+  }
+}

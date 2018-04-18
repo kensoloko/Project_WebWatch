@@ -55,9 +55,9 @@
             <p><%= @product.description %></p>
             <ul class="tag-men">
               <li><span class="tag"><%= t ".category" %></span>
-              <span><%= @category.name %></span></li>
+              <span><%= @product.category.name %></span></li>
               <li><span class="tag"><%= t ".brand" %></span>
-              <span><%= @brand.name %></span></li>
+              <span><%= @product.brand.name %></span></li>
             </ul>
             <%= link_to t(".add_to_cart"), "javascript:;",
              class: "add-cart item_add", onclick: t(".alert") %>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i(checkout new create)
+  before_action :logged_in_user, except: %i(new create)
   before_action :correct_user, only: %i(edit update show)
-  before_action :load_user, except: %i(checkout new index create)
+  before_action :load_user, except: %i(new index create)
 
   def new
     @user = User.new
@@ -20,18 +20,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @bills = @user.bills.order :status
+    @bills = @user.bills_order
   end
 
   def edit; end
 
   def update
     if @user.update_attributes user_params
-      redirect_to @user, flash: {success: t(".profile_updated")}
+      flash[:success] = t ".profile_updated"
     else
       flash[:danger] = t ".update_fail"
-      redirect_to @user
     end
+    redirect_to @user
   end
 
   private
@@ -42,17 +42,24 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    redirect_to root_url, flash: {danger: t(".user_not_found")}\
     unless @user = User.find_by(id: params[:id])
+      flash[:danger] = t ".user_not_found"
+      redirect_to root_url
+    end
   end
 
   def logged_in_user
-    redirect_to login_url, flash: {danger: t(".please_login")} unless logged_in?
+    unless logged_in?
+      flash[:danger] = t ".please_login"
+      redirect_to login_url
+    end
   end
 
   def correct_user
     @user = User.find_by id: params[:id]
-    redirect_to root_url, flash: {danger: t(".access_denied")}\
     if @user != current_user
+      flash[:danger] = t ".access_denied"
+      redirect_to root_url
+    end
   end
 end

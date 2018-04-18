@@ -17,65 +17,44 @@
               <div class="clear-fix"></div>
               <div class="information-profile">
                 <div class="row">
-                  <b class="unbold"><%= image_tag "avatar.png", alt: "",
-                  class: "image-size" %>
-                  <%= t ".Name" %>
-                </b>
-                <%= @user.name %>
-                  </div>
-                  <div class="row">
-                    <b class="unbold"><%= image_tag "003-gmail.png", alt: "",
-                    class: "image-size" %>
+                  <b class="unbold">
+                    <%= image_tag "avatar.png", alt: "",class: "image-size" %>
+                    <%= t ".Name" %>
+                  </b>
+                  <%= @user.name %>
+                </div>
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "003-gmail.png", class: "image-size" %>
                     <%= t ".Email" %>
                   </b>
                   <%= @user.email %>
                 </div>
                 <div class="row">
-                  <b class="unbold"><%= image_tag "002-phone-book.png", alt: "",
-                  class: "image-size" %>
-                  <%= t ".Phone" %>
-                </b>
-                <%= @user.phone %>
+                  <b class="unbold">
+                    <%= image_tag "002-phone-book.png", class: "image-size" %>
+                    <%= t ".Phone" %>
+                  </b>
+                  <%= @user.phone %>
+                </div>
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "001-location-pin.png", class: "image-size" %>
+                    <%= t ".Address" %>
+                  </b>
+                  <%= @user.address %>
+                </div>
               </div>
-              <div class="row">
-                <b class="unbold"><%= image_tag "001-location-pin.png",
-                alt: "", class: "image-size" %>
-                <%= t ".Address" %>
-                </b>
-                <%= @user.address %>
-              </div>
-               </div>
             </div>
-            <div class="row">
-              <b class="unbold"><%= image_tag "002-phone-book.png", alt: "",
-              class: "image-size" %>
-              <%= t ".Phone" %>
-            </b>
-            <%= @user.phone %>
           </div>
-          <div class="row">
-            <b class="unbold"><%= image_tag "001-location-pin.png",
-            alt: "", class: "image-size" %>
-            <%= t ".Address" %>
-          </b>
-          <%= @user.address %>
         </div>
       </div>
     </div>
     <div class="row">
-      <% if @bills.size > 0%>
+      <% if @bills.size > 0 %>
       <%= render @bills %>
       <% end %>
     </div>
   </div>
-</div>
-</div>
-</div>
-<div class="row">
-  <% if @bills.size > 0%>
-  <%= render @bills %>
-  <% end %>
-</div>
-</div>
 </div>
 
