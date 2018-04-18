@@ -33,6 +33,9 @@ en:
       Vietnamese: "Tieng Viet"
       Luxury_watches: "Luxury watches"
       Empty_Cart: "Empty_Cart"
+  search:
+    index:
+      search: "Search"
   users:
     edit:
       save: "Save"
@@ -48,6 +51,7 @@ en:
       Phone: "Phone"
       Address: "Address"
       Name: "Name"
+      general_information: "General Information"
     create:
       create_success: "Create success"
       create_fail: "Create fail"
@@ -64,19 +68,6 @@ en:
     new:
       register: "REGISTER"
       sign_up: "Sign Up"
-    checkout:
-      checkout: "CHECKOUT"
-      my_shop_bag: "My Shop Bag"
-      item: "Item"
-      product_name: "Product Name"
-      unit_price: "Unit Price"
-      delivery_details: "Delivery Details"
-      Analog_Watch: "Analog_Watches"
-      price_1: "$ 300.00"
-      price_2: "$ 290.00"
-      price_3: "$ 36.00"
-      free: "Free"
-      delivery: "Delivered in 2-3 business days"
   sessions:
     new:
       login: "Login"
@@ -88,6 +79,8 @@ en:
         to move through the checkout process faster, store multiple shipping
         addresses, view and track your orders in your account and more."
       btn_create_account: "Create an Account"
+    destroy:
+      logout: "Logout success, goodbye"
   static_pages:
     contact:
       contact_page: "CONTACT"
@@ -106,35 +99,23 @@ en:
       Explore_now: "Explore Now"
       price_1: "$ 329"
     show:
+      comment: "Comment"
+      alert: "alert('Add to Cart')"
       Lorem_Ipsum: "Lorem Ipsum"
       customer_review: "1 customer review"
       item_price_1: "$ 95.00"
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
       tag: "TAG"
       sex: ": Women,"
       type: ": CK09"
       sku: "SKU"
       add_to_cart: "ADD TO CART"
       Description: "Description"
-      subitem1: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-        erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."
-      subitem2: " Duis autem vel eum iriure dolor in hendrerit in vulputate
-        velit esse molestie consequat, vel illum dolore eu feugiat nulla
-        facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-        praesent luptatum zzril delenit augue duis dolore"
-      subitem3: "Mirum est notare quam littera gothica, quam nunc putamus parum
-        claram, anteposuerit litterarum formas humanitatis per seacula quarta
-        decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum
-        clari, fiant sollemnes "
       Additional_infomation: "Additional infomation"
       review_10: "Review (10)"
       Helpful_links: "Helpful Links"
       Make_a_gift: "Make A Gift"
+      No_Rate: "No Rate"
+      averate_rate: "Averate Rate: "
     index:
       nulla_max: "Nulla maximus nunc"
       In_sit: "In sit amet sapien eros Integer dolore magna aliqua"
@@ -218,7 +199,7 @@ en:
     users:
       headline: "Users Manager"
       name: "Username"
-      email: "Email"
+      emaibl: "Email"
       phone: "Phone"
       address: "Address"
       avatar: "Avatar"
@@ -234,3 +215,29 @@ en:
     ratings:
       headline: "Ratings"
       value: "Rate Value"
+    session_admin:
+      new:
+        login: "Log in"
+  checkout:
+    index:
+      checkout: "CHECKOUT"
+      my_shop_bag: "My Shop Bag"
+      item: "Item"
+      product_name: "Product Name"
+      unit_price: "Unit Price"
+      delivery_details: "Delivery Details"
+      Analog_Watch: "Analog_Watches"
+      price_1: "$ 300.00"
+      price_2: "$ 290.00"
+      price_3: "$ 36.00"
+      free: "Free"
+      delivery: "Delivered in 2-3 business days"
+      total: "Total"
+      signup_to_checkout: "Please sign up to checkout"
+  bills:
+    bill:
+      bill_status_1: "Unpaid"
+      bill_status_2: "Not delivered"
+      bill_status_3: "Delivered"
+      bill_status_4: "Paid"
+      bill_status_5: "Abort"

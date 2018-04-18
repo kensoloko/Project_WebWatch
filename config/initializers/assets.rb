@@ -5,6 +5,7 @@ Rails.application.config.assets.precompile += %w(jquery.flexslider.js)
 Rails.application.config.assets.precompile += %w(flexslider.css)
 Rails.application.config.assets.precompile += %w(single_animation.js)
 Rails.application.config.assets.precompile += %w(User_profile.scss)
-
+Rails.application.config.assets.precompile += %w(rating_star.js)
+Rails.application.config.assets.precompile += %w(rating_star.css)
 Rails.application.config.assets.precompile += %w( admin.css admin.js )
 Rails.application.config.assets.paths << Rails.root.join("node_modules")

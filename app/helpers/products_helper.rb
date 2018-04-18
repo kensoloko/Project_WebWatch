@@ -16,4 +16,13 @@ module ProductsHelper
       return @brand.name
     end
   end
+
+  def fetch_product_name id
+    @product = Product.find_by id: id
+    if @product.nil?
+      return t("admin.no_info")
+    else
+      return @product.name
+    end
+  end
 end

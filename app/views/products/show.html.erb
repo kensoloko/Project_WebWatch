@@ -1,3 +1,5 @@
+<%= javascript_include_tag "rating_star" %>
+<%= stylesheet_link_tag "rating_star" %>
 <div class="single contact">
   <div class="container">
     <div class="single-main">
@@ -9,55 +11,47 @@
               <% JSON.parse(@product.image).each do |p| %>
               <li data-thumb="<%= p %>">
               <div class="thumb-image">
-                  <%= image_tag p, alt: "zxc",
+                  <%= image_tag p, alt: "",
                   class: "img-responsive", data: {imagezoom: true} %>
                 </div>
               </li>
               <% end %>
             </ul>
           </div>
-          <%= javascript_include_tag "imagezoom" %>
-          <%= javascript_include_tag "jquery.flexslider" %>
-          <%= stylesheet_link_tag "flexslider" %>
-          <%= javascript_include_tag "single_animation" %>
         </div>
         <div class="col-md-7 single-top-right">
           <div class="single-para simpleCart_shelfItem">
-            <h2><%= @product.name %></h2>
+            <div class="item_pid" style="display:none;"><%= @product.id %></div>
+            <h2 class="item_name"><%= @product.name %></h2>
             <div class="star-on">
-              <ul class="star-footer">
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to "#" do %>
-                    <i> </i>
-                  <% end %>
-                </li>
-              </ul>
-              <div class="review">
-                <%= pluralize @comments.size, "review", "reviews" %>
+             <div id="pid"><%= @product.id %></div>
+              <div class="rating-stars text-center">
+                <ul id="stars">
+                  <li class="star" title="Poor" data-value="1">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Fair" data-value="2">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Good" data-value="3">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="Excellent" data-value="4">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                  <li class="star" title="WOW!!!" data-value="5">
+                    <i class="fa fa-star fa-fw"></i>
+                  </li>
+                </ul>
               </div>
               <div class="clearfix"> </div>
+              <div class= "rating_star"><%= t ".averate_rate" %>
+                <span id="averate"><%= @averate.round 1 %></span>
+              </div>
             </div>
-            <h5 class="item_price"><%= pluralize @product.price, "$", "$" %></h5>
+            <h5 class="item_price">
+              <%= pluralize @product.price, "$", "$" %>
+            </h5>
             <p><%= @product.description %></p>
             <ul class="tag-men">
               <li><span class="tag"><%= t ".category" %></span>
@@ -65,7 +59,8 @@
               <li><span class="tag"><%= t ".brand" %></span>
               <span><%= @brand.name %></span></li>
             </ul>
-            <%= link_to t(".add_to_cart"), "#", class: "add-cart item_add" %>
+            <%= link_to t(".add_to_cart"), "javascript:;",
+             class: "add-cart item_add", onclick: t(".alert") %>
           </div>
         </div>
         <div class="clearfix"> </div>
@@ -86,24 +81,24 @@
           <li class="item2">
             <%= link_to "#" do %>
               <%= image_tag("arrow.png") %>
-              <%=  t(".review") %> (<%= @comments.size %>)
+              <%=  t(".review") %> <span id="count_comment">(<%= @product.comments.size %>)</span>
             <% end %>
             <ul>
-              <li class="subitem1">
-                <% @comments.each do |c| %>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <b><%= User.find_by(id: c.User_id).name %></b>
-                    </div>
-                    <div class="col-md-9">
-                      <%= c.content %>
-                    </div>
-                  </div>
-                <% end %>
+              <li class="subitem1" id="comments">
+                <%= render @product.comments %>
               </li>
             </ul>
           </li>
         </ul>
+        <% if logged_in? %>
+          <%= form_for @product.comments.new, remote: true do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <p><%= f.label :content, t(".review_product") %></p>
+            <p><%= f.text_area :content, cols: 50, rows: 5, require: "" %></p>
+            <p><%= f.submit t(".comment"), class: "btn btn-primary"%></p>
+          <% end %>
+        <% end %>
       </div>
       <%= render "lastproduct" %>
     </div>
