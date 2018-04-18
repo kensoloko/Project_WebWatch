@@ -5,7 +5,7 @@
     <td><%= brand.description %></td>
     <td><%= link_to "Edit", edit_admin_brand_path(brand), remote: true, class:
       "btn btn-info" %></td>
-    <td><%= link_to "Delete", admin_brand_path(brand), remote: true, class:
+    <td><%= link_to "Delete", admin_brand_remove_path(brand), remote: true, class:
       "btn btn-danger" %></td>
   </tr>
 <% end %>

@@ -14,7 +14,6 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-
 //= require jquery-1.11.0.min
 //= require load_default
 //= require simpleCart.min
@@ -25,3 +24,4 @@
 //= require single
 //= require imagezoom
 //= require checkoutcart
+//= require searchbox

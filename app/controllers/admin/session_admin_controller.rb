@@ -7,7 +7,7 @@ class Admin::SessionAdminController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password]) && user.is_admin?
       login user
-      redirect_to admin_url
+      redirect_to admin_base_products_url
     else
       flash.now[:danger] = t "sessions.create.invalid"
       render :new

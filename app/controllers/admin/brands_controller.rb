@@ -23,20 +23,19 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def update
-    @brands = Brand.all
     @brand = Brand.find_by id: params[:id]
-
     @brand.update_attributes(brand_params)
+    @brands = Brand.all
   end
 
-  def delete
-    @brand = Brand.find_by id: params[:id]
+  def remove
+    @brand = Brand.find_by id: params[:brand_id]
   end
 
   def destroy
-    @brands = Brand.all
     @brand = Brand.find_by id: params[:id]
     @brand.destroy
+    @brands = Brand.all
   end
 
   private

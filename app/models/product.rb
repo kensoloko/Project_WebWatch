@@ -9,4 +9,17 @@ class Product < ApplicationRecord
     length: {maximum: Settings.max_length}, uniqueness: true
   validates :price, :quantity, presence: true, numericality: true
   validates :content, :description, :image, presence: true
+
+  class << self
+    def news
+      Product.order updated_at: :desc
+    end
+
+    def hots
+      Product.joins("inner join bill_details on products.id =
+        bill_details.product_id").select('products.id, name, price, image,
+        description, count(bill_details.id) as "count"')
+        .group("products.id, bill_details.product_id").order("count desc")
+    end
+  end
 end
