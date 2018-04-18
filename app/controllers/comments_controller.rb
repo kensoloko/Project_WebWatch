@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def load_product
     @product = Product.find_by id: params[:comment][:product_id]
     unless @product
-      flash[:danger] = t ".product_not_found"
+      flash[:danger] = t "product_not_found"
       redirect_to root_path
     end
   end

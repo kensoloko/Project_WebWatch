@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
     cart_params.each do |x|
       bill.bill_details.create product_id: x[:product_id], quantity: x[:quantity]
     end
-    flash[:success] = "checkouted"
+    flash[:success] = t "checkouted"
     redirect_to current_user
   end
 

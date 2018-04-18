@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
   private
 
   def load_product
-    redirect_to root_url, flash: {danger: t(".product_not_found")}\
+    redirect_to root_url, flash: {danger: t("product_not_found")}\
     unless @product = Product.find_by(id: params[:id])
   end
 end

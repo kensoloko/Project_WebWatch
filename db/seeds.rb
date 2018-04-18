@@ -5,7 +5,8 @@
     address: Faker::HarryPotter.location,
     email: Faker::Internet.email, phone: fakephone,
     password: "123123",
-    password_confirmation: "123123"
+    password_confirmation: "123123",
+    is_admin: true
   )
 end
 
