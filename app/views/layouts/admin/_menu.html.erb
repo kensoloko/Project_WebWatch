@@ -13,9 +13,8 @@
           <% end %>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-sign-out pull-right"></i><%= t "admin.logout" %>
-              <% end %>
+              <%= link_to t(".logout"), logout_path, method: :delete,
+                :data => {:confirm => 'Are you sure?'}%>
             </li>
           </ul>
         </li>
