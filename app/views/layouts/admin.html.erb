@@ -6,16 +6,18 @@
   </head>
 
   <body class = "nav-md">
+    <%= render "layouts/flash" %>
     <div class="container body">
       <div class="main_container">
         <%= render "/layouts/admin/header" %>
         <%= render "/layouts/admin/menu" %>
         <div class="right_col" role="main">
-          <%= render "layouts/admin/page_title"%>
+
           <%= yield %>
 
         </div>
       </div>
+      <%= render "layouts/admin/footer" %>
   </div>
   </body>
 </html>
