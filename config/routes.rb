@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
   root "products#index"
-  get "/search", to: "search#index"
-  post "/search", to: "search#index"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
-  get "/products", to: "products#products"
+  get "/fillter", to: "products#fillter"
+  get "/fillter/:status", to: "products#fillter", as: "new"
   get "/cart", to: "checkout#index"
   get "/checkout", to: "checkout#create"
   get "/contact", to: "static_pages#contact"
   get "/index", to: "products#index"
   get "/show", to: "products#show"
   get "/rate/:id/:value", to: "products#rate"
-  get "search(/:search)", to: "searches#index", as: :search
+  get "search(/:search)", to: "search#index", as: :search
+  delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
   resources :users
   resources :products
+  resources :comments
   resources :categories
   resources :brands
   namespace :admin do

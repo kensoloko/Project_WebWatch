@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   def show
     @category = Category.find_by id: @product.category_id
     @brand = Brand.find_by id: @product.brand_id
-    @comments = @product.comments.all
     @rate = @product.rates.find_by user_id: params[:id]
     @ratetotal = @product.rates
 
@@ -24,18 +23,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.page params[:page]
-
-    q = params[:search]
-    if q
-      @products = Product.search(name_cont: q).result
-    else
-      @products = Product.all
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def rate
@@ -46,6 +33,23 @@ class ProductsController < ApplicationController
         format.html{render html: @rate.rate_value}
         format.js
       end
+    end
+  end
+
+  def fillter
+    case params[:status]
+    when "new"
+      @products = Product.order(updated_at: :desc).page params[:page]
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    when "hot"
+      @products = Product\
+      .joins("inner join bill_details on products.id = bill_details.product_id")
+      .select('products.id, name, price, image, description, count(bill_details.id) as "count"')\
+      .group('products.id, bill_details.product_id').order("count desc")\
+      .page params[:page]
     end
   end
 

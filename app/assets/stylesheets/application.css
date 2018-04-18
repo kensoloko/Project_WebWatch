@@ -16,6 +16,7 @@
  *= require memenu
  *= require flexslider
  *= require custom.scss
+ *= require livesearch.scss
  */
  @import "font-awesome-sprockets";
  @import "font-awesome";
