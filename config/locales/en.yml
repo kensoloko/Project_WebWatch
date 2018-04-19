@@ -98,7 +98,11 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
+    fillter:
+      product_not_found: "Product not found"
+      products: "Products"
     show:
+      product_not_found: "Product not found"
       comment: "Comment"
       alert: "alert('Add to Cart')"
       Lorem_Ipsum: "Lorem Ipsum"

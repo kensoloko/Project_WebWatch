@@ -1,31 +1,25 @@
 class Admin::BrandsController < Admin::BaseController
-  before_action :load_brand, only: %i(edit update destroy)
+  before_action :load_brand, except: %i(index new)
 
   def index
     @brands = Brand.all
   end
 
-  def show
-    @brand = Brand.find_by id: params[:id]
-  end
+  def show; end
 
   def new
     @brand = Brand.new
   end
 
   def create
-    @brand = Brand.create(brand_params)
     @brands = Brand.all
+    @brand = Brand.create brand_params
   end
 
-  def edit
-    @brand = Brand.find_by id: params[:id]
-  end
+  def edit; end
 
   def update
-    @brand = Brand.find_by id: params[:id]
-
-    @brand.update_attributes(brand_params)
+    @brand.update_attributes brand_params
     @brands = Brand.all
   end
 
@@ -34,7 +28,6 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def destroy
-    @brand = Brand.find_by id: params[:id]
     @brand.destroy
     @brands = Brand.all
   end
@@ -46,6 +39,6 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def brand_params
-    params.require(:brand).permit(:name, :description)
+    params.require(:brand).permit :name, :description
   end
 end

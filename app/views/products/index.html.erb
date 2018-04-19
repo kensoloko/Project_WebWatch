@@ -1,63 +1,64 @@
 <div class="bnr" id="home">
-    <div  id="top" class="callbacks_container">
-      <ul class="rslides" id="slider4">
-        <%= content_tag :li do %>
-          <%= image_tag "bnr-1.jpg", alt: "" %>
-        <% end %>
-        <%= content_tag :li do %>
-          <%= image_tag "bnr-2.jpg", alt: "" %>
-        <% end %>
-        <%= content_tag :li do %>
-          <%= image_tag "bnr-3.jpg", alt: "" %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="clearfix"> </div>
+  <div  id="top" class="callbacks_container">
+    <ul class="rslides" id="slider4">
+      <%= content_tag :li do %>
+      <%= image_tag "bnr-1.jpg", alt: "" %>
+      <% end %>
+      <%= content_tag :li do %>
+      <%= image_tag "bnr-2.jpg", alt: "" %>
+      <% end %>
+      <%= content_tag :li do %>
+      <%= image_tag "bnr-3.jpg", alt: "" %>
+      <% end %>
+    </ul>
   </div>
-  <%= javascript_include_tag "index_responsiveslides" %>
-  <div class="about">
-    <div class="container">
-      <div class="about-top grid-1">
-        <div class="col-md-4 about-left">
-          <figure class="effect-bubba">
-            <%= image_tag "abt-1.jpg", alt: "", class: "img-responsive" %>
-            <figcaption>
-              <h2><%= t ".nulla_max" %></h2>
-              <p><%= t ".In_sit" %></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 about-left">
-          <figure class="effect-bubba">
-            <%= image_tag "abt-2.jpg", alt: "", class: "img-responsive" %>
-            <figcaption>
-              <h4><%= t ".Mauris" %></h4>
-              <p><%= t ".In_sit" %></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-md-4 about-left">
-          <figure class="effect-bubba">
-            <%= image_tag "abt-3.jpg", alt: "", class: "img-responsive" %>
-            <figcaption>
-              <h4><%= t ".Cras_elit_mauris" %></h4>
-              <p><%= t ".In_sit" %></p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="clearfix"></div>
+  <div class="clearfix"> </div>
+</div>
+<%= javascript_include_tag "index_responsiveslides" %>
+<div class="about">
+  <div class="container">
+    <div class="about-top grid-1">
+      <div class="col-md-4 about-left">
+        <figure class="effect-bubba">
+          <%= image_tag "abt-1.jpg", alt: "", class: "img-responsive" %>
+          <figcaption>
+            <h2><%= t ".nulla_max" %></h2>
+            <p><%= t ".In_sit" %></p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4 about-left">
+        <figure class="effect-bubba">
+          <%= image_tag "abt-2.jpg", alt: "", class: "img-responsive" %>
+          <figcaption>
+            <h4><%= t ".Mauris" %></h4>
+            <p><%= t ".In_sit" %></p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4 about-left">
+        <figure class="effect-bubba">
+          <%= image_tag "abt-3.jpg", alt: "", class: "img-responsive" %>
+          <figcaption>
+            <h4><%= t ".Cras_elit_mauris" %></h4>
+            <p><%= t ".In_sit" %></p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<div class="product">
+  <div class="container">
+    <div class="product-top">
+      <div class="product-one">
+        <%= render @products %>
+      </div>
+      <div class="clearfix"></div>
+      <div class="text-center text-paginate">
+        <%= paginate @products, remote: true %>
       </div>
     </div>
   </div>
-
-  <div class="product">
-    <div class="container">
-      <div class="product-top">
-        <div class="product-one">
-          <%= render @products %>
-        </div>
-        <div class="clearfix"></div>
-        <div class="text-center text-paginate"><%= paginate @products, remote: true %>
-        </div>
-    </div>
-  </div>
+</div>

@@ -1,8 +1,6 @@
 class SearchController < ApplicationController
   def index
-    q = params[:search]
-    products = Product.search(name_cont: q).result
-    @items = products
+    @items = Product.search(name_cont: params[:search]).result
     respond_to do |format|
       format.html
       format.js

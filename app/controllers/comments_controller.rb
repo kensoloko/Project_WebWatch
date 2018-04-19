@@ -5,13 +5,11 @@ class CommentsController < ApplicationController
     @comment = @product.comments.new comment_params
     if @comment.save
       respond_to do |format|
-        format.html {redirect_to @product}
+        format.html{redirect_to @product}
         format.js
       end
     else
-      respond_to do |format|
-        format.html {redirect_to root_path}
-      end
+      redirect_to root_url
     end
   end
 

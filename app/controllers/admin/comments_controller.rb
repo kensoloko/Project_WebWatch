@@ -9,24 +9,19 @@ class Admin::CommentsController < Admin::BaseController
     @comment = Comment.find_by id: params[:id]
   end
 
-  def new
-  end
+  def new; end
 
-  def create
-  end
+  def create; end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
   def remove
     @comment = Comment.find_by id: params[:comment_id]
   end
 
   def destroy
-    @comment = Comment.find_by id: params[:id]
     @comment.destroy
     @comments = Comment.all
   end
@@ -37,6 +32,6 @@ class Admin::CommentsController < Admin::BaseController
   end
 
   def comment_params
-    params.require(:category).permit(:product_id, :user_id, :content)
+    params.require(:category).permit :product_id, :user_id, :content
   end
 end
