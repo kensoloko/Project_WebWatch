@@ -2,13 +2,17 @@ class Product < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bill_details
+  has_many :product_images
   belongs_to :category
   belongs_to :brand
+  accepts_nested_attributes_for :product_images
+
+  default_scope {order created_at: :desc}
 
   validates :name, presence: true,
     length: {maximum: Settings.max_length}, uniqueness: true
   validates :price, :quantity, presence: true, numericality: true
-  validates :content, :description, :image, presence: true
+  validates :content, :description, presence: true
 
   def averate
     rates = self.rates
