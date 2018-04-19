@@ -17,5 +17,7 @@
 //= require admin/pdfmake
 //= require admin/vfs_fonts
 //= require admin/custom
+//= require admin/preview_images
 //= require rails-ujs
 //= require turbolinks
+

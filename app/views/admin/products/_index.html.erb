@@ -4,7 +4,7 @@
     <td><%= product.brand.name %></td>
     <td><%= product.category.name %></td>
     <td><%= product.price %></td>
-    <td><%= image_tag JSON.parse(product.image)[0], class: "image_size" %></td>
+    <td><%= image_tag product.product_images.first, alt: "", class: "image_size" %></td>
     <td><%= product.quantity %></td>
     <td><%= product.description %></td>
     <td><%= product.content %></td>

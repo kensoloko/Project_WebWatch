@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get "/login", to: "session_admin#new"
     post "/login", to: "session_admin#create"
     resources :products
+    resources :product_images
     resources :bills
     resources :users
     resources :rates

@@ -2,7 +2,7 @@
   <div class="title_left">
     <h3>
       <%= yield :page_headline %>
-      <%= link_to "Create" , "#my-modal", :class => "btn", "data-toggle" => "modal" %>
+      <%= link_to "Create" , yield[:url], :class => "btn", "data-toggle" => "modal" %>
 
     </h3>
   </div>
