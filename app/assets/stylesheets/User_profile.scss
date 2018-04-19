@@ -1,0 +1,51 @@
+@import 'color_name';
+
+.Username{
+  margin-bottom: 20px !important;
+  color: $color_dodger_blue_approx !important;
+}
+.img-thumbnail{
+  margin-top: 30px;
+}
+
+.patding{
+  padding-bottom: 100px !important;
+  margin-bottom: 10px;
+}
+.user-font{
+  font-weight: bold;
+}
+.profile{
+  margin: 0 0 0 30px;
+  margin-top: 30px;
+  border-radius: 3px;
+  border: 2px solid $color_mine_shaft_approx;
+}
+.background-profile{
+  background-color: $color_suva_gray_approx;
+  border-radius: 3px;
+  height: 65px;
+}
+.text-css{
+  width: 190px;
+  height: 40px;
+  line-high: 40px;
+  background-color: white;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 2px;
+}
+.information-profile{
+  padding: 0 20px 0 20px;
+
+  .row{
+  border-top: 1px solid $color_mine_shaft_approx;
+  border-bottom: 1px solid $color_mine_shaft_approx
+  }
+}
+.image-size{
+  width:20px;
+  margin-right: 10px;
+}
+.unbold{
+  font-weight:1;
+}

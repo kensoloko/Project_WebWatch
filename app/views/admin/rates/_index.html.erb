@@ -1,0 +1,8 @@
+<% @rates.each do |rate| %>
+  <tr>
+    <td><%= rate.id %></td>
+    <td><%= rate.product.name %></td>
+    <td><%= rate.user.name %></td>
+    <td><%= rate.rate_value %></td>
+  </tr>
+<% end %>

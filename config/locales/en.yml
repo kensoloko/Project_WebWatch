@@ -1,33 +1,247 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  users_controller:
+    log_in_success: "welcome to summoner rift"
+  layouts:
+    nav_bottom_menu:
+      Home: "Home"
+      new: "New"
+      hot: "Hot"
+      sale: "Sale"
+      contact: "Contact"
+      Search: "Search"
+      S: ""
+    footer:
+      follow_us: "Follow Us"
+      Facebook: "Facebook"
+      Twitter: "Twitter"
+      Google : "Google"
+      New_Products: "New Products"
+      Our_Stores: "Our Stores"
+      Contact_us: "Contact us"
+      Top_sellers: "Top sellers"
+      Information: "Information"
+      My_Account: "My Account"
+      My_personal_info: "My personal info"
+      Store_infomation: "Store infomation"
+      Company_name: "HKH.Inc"
+      Number_phone: "01689219785"
+      Company_Address: "Handico Tower, Pham Hung street, Nam Tu Liem District"
+      Company_email: "kensoloko@gmail.com"
+    header:
+      English2: "English :"
+      English: "English"
+      Vietnamese: "Tieng Viet"
+      Luxury_watches: "Luxury watches"
+      Empty_Cart: "Empty_Cart"
+  search:
+    index:
+      search: "Search"
+  users:
+    edit:
+      save: "Save"
+    load_user:
+      user_not_found: "User not found"
+    logged_in_user:
+      please_login: "Please login"
+    correct_user:
+      access_denied: "Access denied"
+    show:
+      user_profile: "USER PROFILE"
+      Email: "Email"
+      Phone: "Phone"
+      Address: "Address"
+      Name: "Name"
+      general_information: "General Information"
+    create:
+      create_success: "Create success"
+      create_fail: "Create fail"
+    update:
+      profile_updated: "Profile Updated"
+      update_fail: "Update Fail"
+    form:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+      password: "password"
+      password_confirmation: "password_confirmation"
+    new:
+      register: "REGISTER"
+      sign_up: "Sign Up"
+  sessions:
+    new:
+      login: "Login"
+      existing_user: "Existing User"
+      email: "Email"
+      password: "Password"
+      question: "New User? Create an Account"
+      create_account: "By creating an account with our store, you will be able
+        to move through the checkout process faster, store multiple shipping
+        addresses, view and track your orders in your account and more."
+      btn_create_account: "Create an Account"
+    destroy:
+      logout: "Logout success, goodbye"
+  static_pages:
+    contact:
+      contact_page: "CONTACT"
+      C_address: "Address"
+      C_address1: "Address 1"
+      C_name: "HKH.Inc"
+      Handico: "Handico Tower"
+      C_Address: "Pham Hung street, Nam Tu Liem District"
+      tel: "Tel:01689219785,"
+      fax: "Fax:190-4509-494"
+      C_email: "kensoloko@gmail.com"
+  products:
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+    fillter:
+      product_not_found: "Product not found"
+      products: "Products"
+    show:
+      product_not_found: "Product not found"
+      comment: "Comment"
+      alert: "alert('Add to Cart')"
+      Lorem_Ipsum: "Lorem Ipsum"
+      customer_review: "1 customer review"
+      item_price_1: "$ 95.00"
+      tag: "TAG"
+      sex: ": Women,"
+      type: ": CK09"
+      sku: "SKU"
+      add_to_cart: "ADD TO CART"
+      Description: "Description"
+      Additional_infomation: "Additional infomation"
+      review_10: "Review (10)"
+      Helpful_links: "Helpful Links"
+      Make_a_gift: "Make A Gift"
+      No_Rate: "No Rate"
+      averate_rate: "Averate Rate: "
+    index:
+      nulla_max: "Nulla maximus nunc"
+      In_sit: "In sit amet sapien eros Integer dolore magna aliqua"
+      Mauris: "Mauris erat augue"
+      Cras_elit_mauris: "Cras elit mauris"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+  shared:
+    filter:
+      Categories: "CATEGORIES"
+      all_accessories: "All Accessories"
+      women_Watches: "Women Watches"
+      kids_watches: "Kids Watches"
+      men_watches: "Men Watches"
+      brand: "Brand"
+      kurtas: "Kurtas"
+      Sonata: "Sonata"
+      Titan: "Titan"
+      Casio: "Casio"
+      Omax: "Omax"
+      shree: "shree"
+      Fastrack: "Fastrack"
+    products:
+      products: "Products"
+      smart_watch: "Smart Watches"
+      Explore_now: "Explore Now"
+      price_1: "$ 329"
+  sessions:
+    new:
+      login: "Login"
+      existing_user: "Existing User"
+      email: "Email"
+      password: "Password"
+      question: "New User? Create an Account"
+      create_account: "By creating an account with our store, you will be able
+                      to move through the checkout process faster, store
+                      multiple shipping addresses, view and track your orders
+                      in your account and more."
+      btn_create_account: "Create an Account"
+    create:
+      invalid: "User invalid"
+      login: "Login success"
+  shared:
+    error_messages:
+      form_errors: "Form has %{err}"
+  admin:
+    copyright: "Gentelella - Bootstrap Admin Template by "
+    colorlib: "ColorLib"
+    admin: "Administrator"
+    login: "Log in"
+    logout: "Log out"
+    welcome: "Welcome"
+    general: "General"
+    user: "Users"
+    brand: "Brands"
+    category: "Categories"
+    product: "Products"
+    order_detail: "Order Details"
+    order: "Order"
+    comment: "Comments"
+    rating: "Ratings"
+    id: "ID"
+    zero: "0"
+    home: "Home"
+    no_info: "No info"
+    products:
+      headline: "Product Manager"
+      pName: "Product Name"
+      pPrice: "Product Price"
+      pQuantity: "Product Quantity"
+      pImage: "Product Image"
+      descript: "Description"
+      content: "Content"
+      brand: "Brand"
+      category: "Category"
+    categories:
+      headline: "Categories Manager"
+      cName: "Category Name"
+      descript: "Description"
+    users:
+      headline: "Users Manager"
+      name: "Username"
+      emaibl: "Email"
+      phone: "Phone"
+      address: "Address"
+      avatar: "Avatar"
+    brands:
+      headline: "Brands Manager"
+      name: "Brand Name"
+      descript: "Description"
+    orders:
+      headline: "Order Manager"
+      status: "Status"
+    comments:
+      headline: "Comments"
+    ratings:
+      headline: "Ratings"
+      value: "Rate Value"
+    session_admin:
+      new:
+        login: "Log in"
+  checkout:
+    index:
+      checkout: "CHECKOUT"
+      my_shop_bag: "My Shop Bag"
+      item: "Item"
+      product_name: "Product Name"
+      unit_price: "Unit Price"
+      delivery_details: "Delivery Details"
+      Analog_Watch: "Analog_Watches"
+      price_1: "$ 300.00"
+      price_2: "$ 290.00"
+      price_3: "$ 36.00"
+      free: "Free"
+      delivery: "Delivered in 2-3 business days"
+      total: "Total"
+      signup_to_checkout: "Please sign up to checkout"
+  bills:
+    bill:
+      bill_status_1: "Unpaid"
+      bill_status_2: "Not delivered"
+      bill_status_3: "Delivered"
+      bill_status_4: "Paid"
+      bill_status_5: "Abort"

@@ -1,0 +1,15 @@
+/*
+ *= require admin/bootstrap
+ *= require admin/custom
+ *= require admin/nprogress
+ *= require admin/green
+ *= require admin/dataTables.bootstrap
+ *= require admin/buttons.bootstrap
+ *= require admin/fixedHeader.bootstrap
+ *= require admin/responsive.bootstrap
+ *= require admin/scroller.bootstrap
+ *= require font-awesome
+ *= require_self
+ */
+ @import "font-awesome";
+

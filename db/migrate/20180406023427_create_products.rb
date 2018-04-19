@@ -7,8 +7,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.text :description
       t.text :image
       t.text :content
-      t.references :Category, foreign_key: true
-      t.references :Brand, foreign_key: true
+      t.references :category, foreign_key: true
+      t.references :brand, foreign_key: true
 
       t.timestamps
     end

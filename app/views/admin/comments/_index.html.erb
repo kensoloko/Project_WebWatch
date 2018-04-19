@@ -1,0 +1,10 @@
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.id %></td>
+    <td><%= comment.product.name %></td>
+    <td><%= comment.user.name %></td>
+    <td><%= comment.content %></td>
+    <td><%= link_to "Delete", admin_comment_remove_path(comment), remote: true,
+      class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

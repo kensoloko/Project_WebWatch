@@ -1,0 +1,17 @@
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.brand.name %></td>
+    <td><%= product.category.name %></td>
+    <td><%= product.price %></td>
+    <td><%= image_tag JSON.parse(product.image)[0], class: "image_size" %></td>
+    <td><%= product.quantity %></td>
+    <td><%= product.description %></td>
+    <td><%= product.content %></td>
+
+    <td><%= link_to "Edit", "#",
+      remote: true, class: "btn btn-info" %></td>
+    <td><%= link_to "Delete", "#",
+      remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

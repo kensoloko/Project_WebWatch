@@ -1,23 +1,32 @@
-$(document).ready(function(c) {
-  $('.close1').on('click', function(c){
-    $('.cart-header').fadeOut('slow', function(c){
-      $('.cart-header').remove();
-    });
-  });
+simpleCart({
+  cartColumns: [
+    {view: function(item, column){
+      str = '<a href="/products/' + item.get('pid') +'" >' +
+        item.get('name') + '</a>';
+      return str;
+    },
+    attr: "custom",
+    label: "Product name"
+    },
+    {attr: "price" , label: "Price", view: 'currency'} ,
+    {view: function(item, column){
+      return '<button href="javascript:;" class="simpleCart_increment btn btn-primary">+</button>' +
+        '<span class="quantity">' + item.quantity() + '</span>' +
+        '<button href="javascript:;" class="simpleCart_decrement btn btn-primary">-</button>';
+      },
+      attr: "quantity" ,
+      label: "Quantity"
+    },
+    {attr: "total" , label: "SubTotal", view: 'currency'} ,
+    {view: "remove" , text: "Remove" , label: false}
+  ],
+  checkout: {
+  type: "SendForm",
+  url: "/checkout",
+  method: "GET"
+  }
 });
 
-$(document).ready(function(c) {
-  $('.close2').on('click', function(c){
-    $('.cart-header1').fadeOut('slow', function(c){
-      $('.cart-header1').remove();
-    });
-  });
-});
-
-$(document).ready(function(c) {
-  $('.close3').on('click', function(c){
-    $('.cart-header2').fadeOut('slow', function(c){
-      $('.cart-header2').remove();
-    });
-  });
+simpleCart.bind('beforeCheckout', function(data){
+  simpleCart.empty();
 });
