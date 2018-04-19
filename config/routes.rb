@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resources :brands
   namespace :admin do
     get "base/home"
-    get "base/products"
     get "base/orders"
     get "/login", to: "session_admin#new"
     get "/", to: "base#index"
@@ -39,5 +38,6 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :rates
+    resources :products
   end
 end

@@ -2,29 +2,7 @@ class Admin::BaseController < ApplicationController
   layout "admin"
   before_action :ensure_admin_user
 
-  def products
-    @products = Product.all
-  end
-
-  def brands
-    @brands = Brand.all
-  end
-
-  def ratings
-  end
-
-  def categories
-    @categories = Category.all
-  end
-
   def home
-  end
-
-  def comments
-  end
-
-  def users
-    @users = User.all
   end
 
   private

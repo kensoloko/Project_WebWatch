@@ -1,10 +1,8 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.id %></td>
-    <td class = "hidden" ><%= comment.Product_id %></td>
-    <td><%= fetch_product_name(comment.Product_id) %></td>
-    <td class = "hidden" ><%= comment.User_id %></td>
-    <td><%= fetch_user_name(comment.User_id) %></td>
+    <td><%= fetch_product_name(comment.product_id) %></td>
+    <td><%= fetch_user_name(comment.user_id) %></td>
     <td><%= comment.content %></td>
     <td><%= link_to "Delete", admin_comment_remove_path(comment), remote: true,
       class: "btn btn-danger" %></td>
