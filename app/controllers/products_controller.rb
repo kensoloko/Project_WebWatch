@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show rate)
-  before_action :rate_total, only: %i(show rate)
 
   def show; end
 
@@ -49,7 +48,4 @@ class ProductsController < ApplicationController
     end
   end
 
-  def rate_total
-
-  end
 end

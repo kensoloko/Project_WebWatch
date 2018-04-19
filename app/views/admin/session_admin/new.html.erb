@@ -1,28 +1,26 @@
-<% provide :title, t("admin.login") %
-<div class = "login">
-  <div class="login_wrapper">
-    <section class="login_content">
-      <%= form_for :session do |f| %>
-        <h1><%= t "admin.admin" %></h1>
-        <div>
-          <%= f.text_field :name, class:"form-control", placeholder:"Username" %>
-        </div>
-        <div>
-          <%= f.password_field :password, class:"form-control", placeholder:"Password" %>
-        </div>
-        <div>
-          <%= f.submit t(".login"), class:"btn btn-default submit" %>
-        </div>
-      <% end %>
-        <div class="clearfix"></div>
-        <div class="separator">
-          <div class="clearfix"></div>
-          <br />
-          <div>
-            <h1><i class="fa fa-database"></i> <%= t "admin.welcome" %> </h1>
-          </div>
-        </div>
-      </form>
-    </section>
-  </div>
+<% provide :title, t("admin.login") %>
+<div class="login_wrapper">
+  <section class="login_content">
+    <h1><%= t "admin.admin" %></h1>
+    <%= form_for :session do |f| %>
+    <div>
+      <%= f.text_field :email, class: "form-control",
+        placeholder: t("sessions.new.email") %>
+    </div>
+    <div>
+      <%= f.password_field :password, class: "form-control", placeholder: t("sessions.new.password") %>
+    </div>
+    <div>
+      <%= f.submit t "sessions.new.login", class: "btn btn-default submit" %>
+    </div>
+    <% end %>
+    <div class="clearfix"></div>
+    <div class="separator">
+      <div class="clearfix"></div>
+      <br />
+      <div>
+        <h1><i class="fa fa-database"></i> <%= t "admin.welcome" %> </h1>
+      </div>
+    </div>
+  </section>
 </div>
