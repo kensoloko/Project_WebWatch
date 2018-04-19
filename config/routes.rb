@@ -17,23 +17,16 @@ Rails.application.routes.draw do
   resources :users
   resources :products
   resources :comments
+  get "/admin", to: "admin/base#index"
   namespace :admin do
-    get "base/home"
-    get "base/products"
-    get "base/orders"
     get "/login", to: "session_admin#new"
-    get "/", to: "base#index"
     post "/login", to: "session_admin#create"
-    resources :comments do
-      get "remove"
-    end
-    resources :brands do
-      get "remove"
-    end
-    resources :categories do
-      get "remove"
-    end
+    resources :products
+    resources :bills
     resources :users
     resources :rates
+    resources :comments, :brands, :categories do
+      get "remove"
+    end
   end
 end
