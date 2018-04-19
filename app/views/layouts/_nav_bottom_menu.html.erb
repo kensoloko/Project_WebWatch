@@ -1,0 +1,27 @@
+<div class="header-bottom">
+    <div class="container">
+      <div class="header">
+        <div class="col-md-9 header-left">
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+            <li class="active"><%= link_to t(".Home"), root_url %></li>
+            <li class="grid"><%= link_to t(".new"), "#" %></li>
+            <li class="grid"><%= link_to t(".hot"), "#" %></li>
+            <li class="grid"><%= link_to t(".sale"), "#" %></li>
+            <li class="grid"><%= link_to t(".contact"), contact_url %></li>
+          </ul>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-3 header-right">
+        <div class="search-bar">
+          <%= form_for :search, url: "/search" do |f| %>
+            <%= f.text_field :name, placeholder: t(".Search") %>
+            <%= f.submit t(".S"), class: "btn-submit" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>

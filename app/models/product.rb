@@ -2,8 +2,8 @@ class Product < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bill_details
-  belongs_to :Category
-  belongs_to :Brand
+  belongs_to :category
+  belongs_to :brand
 
   validates :name, presence: true,
     length: {maximum: Settings.max_length}, uniqueness: true

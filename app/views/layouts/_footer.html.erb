@@ -1,0 +1,83 @@
+<div class="information">
+    <div class="container">
+      <div class="infor-top">
+        <div class="col-md-3 infor-left">
+          <h3><%= t "follow_us" %></h3>
+          <ul>
+            <li><%= link_to "#" do %>
+              <span class="fb">
+                <%= image_tag "icon-facebook.png" %>
+              </span>
+              <h6><%= t ".Facebook" %></h6>
+              <% end %>
+            </li>
+            <li><%= link_to "#" do %>
+              <span class="fb">
+                <%= image_tag "icon-twitter.png" %>
+              </span>
+              <h6><%= t ".Twitter" %></h6>
+              <% end %>
+            </li>
+            <li><%= link_to "#" do %>
+              <span class="fb">
+                <%= image_tag "icon-google.png" %>
+              </span>
+              <h6><%= t ".Google" %></h6>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 infor-left">
+          <h3><%= t ".Information" %></h3>
+          <ul>
+            <li>
+              <%= link_to "#" do %>
+                <p><%= t(".New_Products") %></p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <p><%= t(".Our_Stores") %></p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <p><%= t(".Contact_us") %></p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <p><%= t(".Top_sellers") %></p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 infor-left">
+          <h3><%= t ".My_Account" %></h3>
+          <ul>
+            <li>
+              <%= link_to current_user do %>
+                <p><%= t(".My_Account") %></p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <p><%= t(".My_personal_info") %></p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 infor-left">
+          <h3><%= t ".Store_infomation" %></h3>
+          <h4><%= t ".Company_name" %>
+          <h4><%= t ".Company_Address" %>
+          <h5><%= t ".Number_phone" %></h5>
+          <p><%= link_to t(".Company_email"),
+            "mailto:kensoloko@email.com" %></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>

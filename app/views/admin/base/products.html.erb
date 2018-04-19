@@ -1,0 +1,33 @@
+<% provide :title, t("admin.products.headline") %>
+<% provide :page_headline, t("admin.products.headline") %>
+<div class="clearfix">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_content">
+          <table id="tblProducts" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+            width="100%">
+            <thead>
+              <tr>
+                <th><%= t "admin.id" %></th>
+                <th><%= t "admin.products.pName" %></th>
+                <th><%= t "admin.products.pPrice" %></th>
+                <th><%= t "admin.products.pQuantity" %></th>
+                <th><%= t "admin.products.pImage" %></th>
+                <th><%= t "admin.products.descript" %></th>
+                <th><%= t "admin.products.content" %></th>
+                <th><%= t "admin.products.brand" %></th>
+                <th><%= t "admin.products.category" %></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $("#tblProducts").dataTable();
+</script>

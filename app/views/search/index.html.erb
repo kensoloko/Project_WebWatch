@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">SEARCH</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="search-bar">
+          <%= form_for :search, url: "/search" do |f| %>
+            <%= f.text_field :name,
+              placeholder: t("layouts.nav_bottom_menu.Search") %>
+            <%= f.submit t("layouts.nav_bottom_menu.S"), class: "btn-submit" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
