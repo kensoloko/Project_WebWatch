@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180419030317) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -67,7 +68,6 @@ ActiveRecord::Schema.define(version: 20180419030317) do
     t.integer "price"
     t.integer "quantity"
     t.text "description"
-    t.text "image"
     t.text "content"
     t.integer "category_id"
     t.integer "brand_id"

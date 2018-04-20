@@ -19,12 +19,10 @@ end
 end
 
 # 20.times do
-#   image_url = %W(#{Faker::Avatar.image} #{Faker::Avatar.image}\
-#     #{Faker::Avatar.image})
 #   Product.create name: Faker::DragonBall.character, price: rand(1000..10_000),
 #     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
 #     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
-#     brand_id: rand(1..5), image: image_url
+#     brand_id: rand(1..5)
 # end
 
 # 100.times do
@@ -50,7 +48,7 @@ end
 #   )
 # end
 
-# 500.times do
+# 100.times do
 #   bill = Bill.find_by id: rand(1..100)
 #   bill.bill_details.create product_id: rand(1..20), quantity: rand(1..10)
 # end

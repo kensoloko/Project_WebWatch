@@ -8,12 +8,8 @@
           <%= f.text_field :name, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :description, class:"control-label" %>
-          <%= f.text_field :description, class: "form-control" %>
-        </div>
-        <div class="form-group">
           <%= f.label :price, class: "control-label" %>
-          <%= f.text_field :price, class: "form-control" %>
+          <%= f.number_field :price, class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.label :quantity, class: "control-label" %>
@@ -41,9 +37,8 @@
         <div class="form-group" >
           <%= f.fields_for :product_images do |p| %>
           <div class="field">
-            <%= p.label :p_image %><br>
-            <%= p.file_field :p_image, multiple: true,
-              name: "product[product_images_attributes][][image]", class: "upload-image" %>
+            <%= p.label :image %><br>
+            <%= p.file_field :image, multiple: true, class: "upload-image" %>
           </div>
           <% end %>
           <div id="preview"></div>
