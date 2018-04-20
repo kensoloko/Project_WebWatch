@@ -18,39 +18,39 @@ end
   Brand.create name: Faker::Company.name, description: Faker::ChuckNorris.fact
 end
 
-20.times do
-  image_url = %W(#{Faker::Avatar.image} #{Faker::Avatar.image}\
-    #{Faker::Avatar.image})
-  Product.create name: Faker::DragonBall.character, price: rand(1000..10_000),
-    quantity: rand(1..500), description: Faker::ChuckNorris.fact,
-    content: Faker::ChuckNorris.fact, category_id: rand(1..5),
-    brand_id: rand(1..5), image: image_url
-end
+# 20.times do
+#   image_url = %W(#{Faker::Avatar.image} #{Faker::Avatar.image}\
+#     #{Faker::Avatar.image})
+#   Product.create name: Faker::DragonBall.character, price: rand(1000..10_000),
+#     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
+#     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
+#     brand_id: rand(1..5), image: image_url
+# end
 
-100.times do
-  Comment.create(
-    user_id: rand(1..20),
-    product_id: rand(1..20),
-    content: Faker::BackToTheFuture.quote
-  )
-end
+# 100.times do
+#   Comment.create(
+#     user_id: rand(1..20),
+#     product_id: rand(1..20),
+#     content: Faker::BackToTheFuture.quote
+#   )
+# end
 
-100.times do
-  Rate.create(
-    user_id: rand(1..20),
-    product_id: rand(1..20),
-    rate_value: rand(1..5)
-  )
-end
+# 100.times do
+#   Rate.create(
+#     user_id: rand(1..20),
+#     product_id: rand(1..20),
+#     rate_value: rand(1..5)
+#   )
+# end
 
-100.times do
-  Bill.create(
-    user_id: rand(1..20),
-    status: rand(1..5)
-  )
-end
+# 100.times do
+#   Bill.create(
+#     user_id: rand(1..20),
+#     status: rand(1..5)
+#   )
+# end
 
-500.times do
-  bill = Bill.find_by id: rand(1..100)
-  bill.bill_details.create product_id: rand(1..20), quantity: rand(1..10)
-end
+# 500.times do
+#   bill = Bill.find_by id: rand(1..100)
+#   bill.bill_details.create product_id: rand(1..20), quantity: rand(1..10)
+# end
