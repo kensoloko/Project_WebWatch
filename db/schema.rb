@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20180419030317) do
     t.integer "price"
     t.integer "quantity"
     t.text "description"
-    t.text "image"
     t.text "content"
     t.integer "category_id"
     t.integer "brand_id"

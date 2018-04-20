@@ -5,14 +5,14 @@ class Product < ApplicationRecord
   has_many :product_images
   belongs_to :category
   belongs_to :brand
-  accepts_nested_attributes_for :product_images
   validates :name, presence: true,
     length: {maximum: Settings.max_length}, uniqueness: true
   validates :price, :quantity, presence: true, numericality: true
   validates :content, :description, presence: true
-
+  accepts_nested_attributes_for :product_images
   def averate
     rates = self.rates
+
     if rates.blank?
       averate = 0
     else
@@ -35,6 +35,5 @@ class Product < ApplicationRecord
         description, count(bill_details.id) as "count"')
         .group("products.id, bill_details.product_id").order("count desc")
     end
-
   end
 end

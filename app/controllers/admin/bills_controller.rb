@@ -7,7 +7,7 @@ class Admin::BillsController < Admin::BaseController
   def edit
     @options = []
     5.times do |x|
-      option = [t("bills.bill.bill_status_#{x+1}"),x+1]
+      option = [t("bills.bill.bill_status_#{x + 1}"), x + 1]
       @options << option
     end
   end
