@@ -8,7 +8,7 @@ class CheckoutController < ApplicationController
     end
     bill = current_user.bills.new status: 1, bill_details_attributes: array
     if bill.save
-      flash[:success] = "checkouted"
+      flash[:success] = t "checkouted"
       redirect_to current_user
     else
       flash.now[:danger] = t ".fail"

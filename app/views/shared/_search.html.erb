@@ -2,7 +2,7 @@
   <li class="li-search">
     <%= link_to search_path(params[:search]),
       class: "btn btn-default btn-block" do %>
-      <%= "No results for #{params[:search]}" %>
+      <%= t ".noresult" %>
     <% end %>
   </li>
 <% else %>

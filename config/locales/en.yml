@@ -1,4 +1,11 @@
 en:
+  cancel_bill_success: "Cancel Bill Success"
+  bill_not_found: "Bill Not Found"
+  checkouted: "Check Outed"
+  product_not_found: "Product Not Found"
+  login: "Log In"
+  invalid: Invalid
+  logout: "Log Out"
   users_controller:
     log_in_success: "welcome to summoner rift"
   layouts:
@@ -8,7 +15,7 @@ en:
       hot: "Hot"
       sale: "Sale"
       contact: "Contact"
-      Search: "Search"
+      Search: "Search..."
       S: ""
     footer:
       follow_us: "Follow Us"
@@ -120,6 +127,7 @@ en:
       Make_a_gift: "Make A Gift"
       No_Rate: "No Rate"
       averate_rate: "Averate Rate: "
+      No_Rate: "No Rate"
     index:
       nulla_max: "Nulla maximus nunc"
       In_sit: "In sit amet sapien eros Integer dolore magna aliqua"
@@ -148,6 +156,8 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
+    search:
+      noresult: "No results for #{params[:search]}"
   sessions:
     new:
       login: "Login"
@@ -211,9 +221,10 @@ en:
       headline: "Brands Manager"
       name: "Brand Name"
       descript: "Description"
-    orders:
-      headline: "Order Manager"
+    bills:
+      headline: "Bill Manager"
       status: "Status"
+      user_name: user name
     comments:
       headline: "Comments"
     ratings:

@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
   belongs_to :category
   belongs_to :brand
-
+  accepts_nested_attributes_for :product_images
   validates :name, presence: true,
     length: {maximum: Settings.max_length}, uniqueness: true
   validates :price, :quantity, presence: true, numericality: true
@@ -20,6 +20,10 @@ class Product < ApplicationRecord
       averate = rates.reduce(0.0){|s, e| s + e.rate_value} / rates.size
     end
     averate
+  end
+
+  def first_image
+    self.product_images.first.image
   end
 
   class << self

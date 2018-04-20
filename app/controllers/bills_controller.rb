@@ -3,13 +3,12 @@ class BillsController < ApplicationController
 
   def destroy
     if @bill.update_attributes status: 5
-      flash[:success] = t ".cancel_bill_success"
+      flash[:success] = t "cancel_bill_success"
       redirect_to current_user
     end
   end
 
   private
-
   def load_bill
     @bill = Bill.find_by id: params[:id]
     unless @bill

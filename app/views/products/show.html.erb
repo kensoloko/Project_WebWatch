@@ -8,10 +8,10 @@
         <div class="col-md-5 single-top-left">
           <div class="flexslider">
             <ul class="slides">
-              <% JSON.parse(@product.image).each do |p| %>
-              <li data-thumb="<%= p %>">
+              <% @product.product_images.each do |p| %>
+              <li data-thumb="<%= p.image %>">
               <div class="thumb-image">
-                  <%= image_tag p, alt: "",
+                  <%= image_tag p.image, alt: "",
                   class: "img-responsive", data: {imagezoom: true} %>
                 </div>
               </li>

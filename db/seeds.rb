@@ -23,6 +23,12 @@ end
 #     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
 #     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
 #     brand_id: rand(1..5)
+#   image_url = %W(#{Faker::Avatar.image} #{Faker::Avatar.image}\
+#     #{Faker::Avatar.image})
+#   Product.create name: Faker::DragonBall.character, price: rand(1000..10_000),
+#     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
+#     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
+#     brand_id: rand(1..5), image: image_url
 # end
 
 # 100.times do
