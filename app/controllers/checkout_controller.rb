@@ -2,12 +2,18 @@ class CheckoutController < ApplicationController
   def index; end
 
   def create
-    bill = current_user.bills.create(status: 1)
+    array = []
     cart_params.each do |x|
-      bill.bill_details.create product_id: x[:product_id], quantity: x[:quantity]
+      array << {product_id: x[:product_id], quantity: x[:quantity]}
     end
-    flash[:success] = t "checkouted"
-    redirect_to current_user
+    bill = current_user.bills.new status: 1, bill_details_attributes: array
+    if bill.save
+      flash[:success] = t "checkouted"
+      redirect_to current_user
+    else
+      flash.now[:danger] = t ".fail"
+      render :index
+    end
   end
 
   private
@@ -21,6 +27,6 @@ class CheckoutController < ApplicationController
         quantity: params["item_quantity_#{x}"]}
       arr.push obj
     end
-    return arr
+    arr
   end
 end

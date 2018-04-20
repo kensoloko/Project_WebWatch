@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       login user
-      redirect_to user, flash: {success: t("login")}
+      flash[:success] = t ".login"
+      redirect_to user
     else
       flash.now[:danger] = t "invalid"
       render :new
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root_url, flash: {success: t("logout")}
+    flash[:success] = t ".logout"
+    redirect_to root_url
   end
 end

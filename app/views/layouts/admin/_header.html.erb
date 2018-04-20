@@ -24,7 +24,7 @@
         <h3><%= t "admin.gerneral" %></h3>
         <ul class="nav side-menu">
           <li>
-            <%= link_to admin_base_home_path do %>
+            <%= link_to admin_path do %>
             <i class="fa fa-home"></i> <%= t "admin.home" %>
             <% end %>
           </li>
@@ -44,22 +44,22 @@
             <% end %>
           </li>
           <li>
-            <%= link_to admin_base_products_path do %>
+            <%= link_to admin_products_path do %>
             <i class="fa fa-database"></i> <%= t "admin.product" %>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_base_orders_path do %>
+            <%= link_to admin_bills_path do %>
             <i class="fa fa-shopping-cart"></i> <%= t "admin.order" %>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_base_comments_path do %>
+            <%= link_to admin_comments_path do %>
             <i class="fa fa-envelope-o"></i> <%= t "admin.comment" %>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_base_ratings_path do %>
+            <%= link_to admin_rates_path do %>
             <i class="fa fa-trophy"></i> <%= t "admin.rating" %>
             <% end %>
           </li>

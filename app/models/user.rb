@@ -16,6 +16,10 @@ class User < ApplicationRecord
     format: {with: VALID_PHONE_REGEX}, uniqueness: true
   validates :address, presence: true
 
+  def bills_order
+    self.bills.order :status
+  end
+
   private
 
   def email_downcase

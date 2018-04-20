@@ -9,9 +9,11 @@ class BillsController < ApplicationController
   end
 
   private
-
   def load_bill
-    redirect_to root_url, flash: {danger: t("bill_not_found")}\
-    unless @bill = Bill.find_by(id: params[:id])
+    @bill = Bill.find_by id: params[:id]
+    unless @bill
+      flash[:danger] = t ".bill_not_found"
+      redirect_to root_url
+    end
   end
 end

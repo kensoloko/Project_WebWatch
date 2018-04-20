@@ -8,10 +8,10 @@
         <div class="col-md-5 single-top-left">
           <div class="flexslider">
             <ul class="slides">
-              <% JSON.parse(@product.image).each do |p| %>
-              <li data-thumb="<%= p %>">
+              <% @product.product_images.each do |p| %>
+              <li data-thumb="<%= p.image %>">
               <div class="thumb-image">
-                  <%= image_tag p, alt: "",
+                  <%= image_tag p.image, alt: "",
                   class: "img-responsive", data: {imagezoom: true} %>
                 </div>
               </li>
@@ -46,7 +46,7 @@
               </div>
               <div class="clearfix"> </div>
               <div class= "rating_star"><%= t ".averate_rate" %>
-                <span id="averate"><%= @averate.round 1 %></span>
+                <span id="averate"><%= @product.averate.round 1 %></span>
               </div>
             </div>
             <h5 class="item_price">
@@ -55,9 +55,9 @@
             <p><%= @product.description %></p>
             <ul class="tag-men">
               <li><span class="tag"><%= t ".category" %></span>
-              <span><%= @category.name %></span></li>
+              <span><%= @product.category.name %></span></li>
               <li><span class="tag"><%= t ".brand" %></span>
-              <span><%= @brand.name %></span></li>
+              <span><%= @product.brand.name %></span></li>
             </ul>
             <%= link_to t(".add_to_cart"), "javascript:;",
              class: "add-cart item_add", onclick: t(".alert") %>

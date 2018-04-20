@@ -105,7 +105,11 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
+    fillter:
+      product_not_found: "Product not found"
+      products: "Products"
     show:
+      product_not_found: "Product not found"
       comment: "Comment"
       alert: "alert('Add to Cart')"
       Lorem_Ipsum: "Lorem Ipsum"
@@ -217,9 +221,10 @@ en:
       headline: "Brands Manager"
       name: "Brand Name"
       descript: "Description"
-    orders:
-      headline: "Order Manager"
+    bills:
+      headline: "Bill Manager"
       status: "Status"
+      user_name: user name
     comments:
       headline: "Comments"
     ratings:

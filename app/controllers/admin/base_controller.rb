@@ -1,36 +1,26 @@
 class Admin::BaseController < ApplicationController
   layout "admin"
-  before_action :ensure_admin_user
+  before_action :check_login, only: :index
+  before_action :check_admin
 
   def products
     @products = Product.all
   end
 
-  def brands
-    @brands = Brand.all
-  end
-
-  def ratings
-  end
-
-  def categories
-    @categories = Category.all
-  end
-
-  def home
-  end
-
-  def comments
-  end
-
-  def users
-    @users = User.all
-  end
+  def index; end
 
   private
-  def ensure_admin_user
+
+  def check_login
+    unless logged_in?
+      redirect_to admin_login_url
+    end
+  end
+
+  def check_admin
     unless current_user and current_user.is_admin?
-      redirect_to root_path, flash: {danger: t("sessions.create.invalid")}
+      flash[:danger] = t "sessions.create.invalid"
+      redirect_to root_path
     end
   end
 end

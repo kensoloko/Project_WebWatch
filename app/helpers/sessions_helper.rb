@@ -16,7 +16,4 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def logged_in_as_admin?
-    current_user.present? && current_user.is_admin?
-  end
 end

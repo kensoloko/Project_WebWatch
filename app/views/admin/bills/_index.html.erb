@@ -1,0 +1,9 @@
+<% @bills.each do |bill| %>
+  <tr>
+    <td><%= bill.id %></td>
+    <td><%= bill.user.name %></td>
+    <td><%= t "bills.bill.bill_status_#{bill.status}" %></td>
+    <td><%= link_to "Edit", edit_admin_bill_path(bill),
+      remote: true, class: "btn btn-info" %></td>
+  </tr>
+<% end %>
