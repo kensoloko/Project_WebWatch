@@ -29,7 +29,7 @@ group :development, :test do
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
   gem "faker"
-  gem "sqlite3", "~> 1.3", ">= 1.3.11"
+  gem "sqlite3"
 end
 
 group :development do
@@ -44,7 +44,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.18.4'
+  gem "pg"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
