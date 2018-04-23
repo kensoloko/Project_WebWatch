@@ -22,7 +22,10 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
-  def edit; end
+  def edit
+    @brands = Brand.all
+    @categories = Category.all
+  end
 
   private
   def load_product

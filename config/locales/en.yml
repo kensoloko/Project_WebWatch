@@ -49,6 +49,7 @@ en:
   users:
     edit:
       save: "Save"
+      title: "Edit profile"
     load_user:
       user_not_found: "User not found"
     logged_in_user:
