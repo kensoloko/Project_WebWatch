@@ -7,6 +7,8 @@ en:
   login: "Log In"
   invalid: Invalid
   logout: "Log Out"
+  index: "Index"
+  Checkout: "Checkout"
   users_controller:
     log_in_success: "welcome to summoner rift"
   layouts:

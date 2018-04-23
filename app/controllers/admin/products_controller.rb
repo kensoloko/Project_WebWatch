@@ -35,4 +35,3 @@ class Admin::ProductsController < Admin::BaseController
       product_images_attributes: [:image]
   end
 end
-
