@@ -1,5 +1,6 @@
 class Admin::BillsController < Admin::BaseController
   before_action :load_bill, except: :index
+
   def index
     @bills = Bill.all
   end
@@ -25,4 +26,5 @@ class Admin::BillsController < Admin::BaseController
   def bill_params
     params.require(:bill).permit :status
   end
+
 end

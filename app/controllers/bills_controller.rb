@@ -8,6 +8,10 @@ class BillsController < ApplicationController
     end
   end
 
+  def show
+    @bill_details = @bill.bill_details
+  end
+
   private
   def load_bill
     @bill = Bill.find_by id: params[:id]

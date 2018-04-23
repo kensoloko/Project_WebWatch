@@ -21,12 +21,14 @@ simpleCart({
     {view: "remove" , text: "Remove" , label: false}
   ],
   checkout: {
-  type: "SendForm",
-  url: "/checkout",
-  method: "GET"
+    type: "SendForm",
+    url: "/checkout",
+    method: "GET"
   }
 });
 
 simpleCart.bind('beforeCheckout', function(data){
   simpleCart.empty();
 });
+
+
