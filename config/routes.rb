@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :bills
     resources :users
     resources :rates
-    resources :comments, :brands, :categories do
+    resources :comments, :brands, :categories, :product_images do
       get "remove"
     end
   end

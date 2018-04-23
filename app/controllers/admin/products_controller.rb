@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :load_product, only: %i(show)
+  before_action :load_product, only: %i(show edit)
   def index
     @products = Product.all
   end
@@ -21,6 +21,8 @@ class Admin::ProductsController < Admin::BaseController
     if @product.save
     end
   end
+
+  def edit; end
 
   private
   def load_product
