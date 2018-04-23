@@ -38,7 +38,8 @@
           <%= f.fields_for :product_images do |p| %>
           <div class="field">
             <%= p.label :image %><br>
-            <%= p.file_field :image, multiple: true, class: "upload-image" %>
+            <%= p.file_field :image, multiple: true,
+            name: "product[product_images_attributes][][image]", class: "upload-image" %>
           </div>
           <% end %>
           <div id="preview"></div>

@@ -26,6 +26,14 @@ class Product < ApplicationRecord
     self.product_images.first.image
   end
 
+  def sold_out?
+    if self.quantity <= 0
+      true
+    else
+      false
+    end
+  end
+
   class << self
     def news
       Product.order updated_at: :desc
@@ -33,7 +41,7 @@ class Product < ApplicationRecord
 
     def hots
       Product.joins("inner join bill_details on products.id =
-        bill_details.product_id").select('products.id, name, price, image,
+        bill_details.product_id").select('products.id, name, price,
         description, count(bill_details.id) as "count"')
         .group("products.id, bill_details.product_id").order("count desc")
     end

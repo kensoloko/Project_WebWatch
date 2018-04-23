@@ -5,8 +5,7 @@
     address: Faker::HarryPotter.location,
     email: Faker::Internet.email, phone: fakephone,
     password: "123123",
-    password_confirmation: "123123",
-    is_admin: true
+    password_confirmation: "123123"
 end
 
 5.times do
@@ -23,12 +22,6 @@ end
 #     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
 #     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
 #     brand_id: rand(1..5)
-#   image_url = %W(#{Faker::Avatar.image} #{Faker::Avatar.image}\
-#     #{Faker::Avatar.image})
-#   Product.create name: Faker::DragonBall.character, price: rand(1000..10_000),
-#     quantity: rand(1..500), description: Faker::ChuckNorris.fact,
-#     content: Faker::ChuckNorris.fact, category_id: rand(1..5),
-#     brand_id: rand(1..5), image: image_url
 # end
 
 # 100.times do

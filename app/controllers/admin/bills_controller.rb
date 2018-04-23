@@ -26,5 +26,5 @@ class Admin::BillsController < Admin::BaseController
   def bill_params
     params.require(:bill).permit :status
   end
->>>>>>> 369c93c72cd0f908a3ffd9b535add174a7152836
+
 end
