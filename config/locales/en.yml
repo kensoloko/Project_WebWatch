@@ -1,4 +1,5 @@
 en:
+  create_success: "Create success"
   cancel_bill_success: "Cancel Bill Success"
   bill_not_found: "Bill Not Found"
   checkouted: "Check Outed"
@@ -8,6 +9,10 @@ en:
   logout: "Log Out"
   index: "Index"
   Checkout: "Checkout"
+  noresult: "No results for"
+  bills:
+    bill:
+      cancel: Cancel
   users_controller:
     log_in_success: "welcome to summoner rift"
   layouts:
@@ -77,19 +82,6 @@ en:
     new:
       register: "REGISTER"
       sign_up: "Sign Up"
-  sessions:
-    new:
-      login: "Login"
-      existing_user: "Existing User"
-      email: "Email"
-      password: "Password"
-      question: "New User? Create an Account"
-      create_account: "By creating an account with our store, you will be able
-        to move through the checkout process faster, store multiple shipping
-        addresses, view and track your orders in your account and more."
-      btn_create_account: "Create an Account"
-    destroy:
-      logout: "Logout success, goodbye"
   static_pages:
     contact:
       contact: "Contact"
@@ -159,8 +151,6 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
-    search:
-      noresult: "No results for #{params[:search]}"
   sessions:
     new:
       login: "Login"
@@ -176,6 +166,8 @@ en:
     create:
       invalid: "User invalid"
       login: "Login success"
+    destroy:
+      logout: "Logout success, goodbye"
   shared:
     error_messages:
       form_errors: "Form has %{err}"

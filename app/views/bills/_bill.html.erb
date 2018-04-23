@@ -9,9 +9,11 @@
           </a>
            | <%= t ".created_at" %>: <%= bill.created_at.strftime "%d/%m/%Y" %>
            | <%= t ".status" %>: <%= t ".bill_status_#{bill.status}" %>
-           <%= link_to t(".cancel"), bills_destroy_path(bill),
-            method: :delete, :data => {:confirm => "Are you sure?"},
-            class: "text-right" %>
+          <% if bill.status == 1 %>
+            <%= link_to t(".cancel"), bills_destroy_path(bill),
+              method: :delete, :data => {:confirm => "Are you sure?"},
+              class: "text-right btn btn-danger" %>
+          <% end %>
         </h4>
       </div>
       <div id="collapse<%= bill.id %>" class="panel-collapse collapse">

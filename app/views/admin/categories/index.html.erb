@@ -1,16 +1,7 @@
 <% provide :title, t("admin.categories.headline") %>
 <% provide :page_headline, t("admin.categories.headline") %>
-<div class="page-title">
-  <div class="title_left">
-    <h3>
-      <%= yield :page_headline %> &nbsp
-      <%= link_to "Create" , new_admin_category_path, remote: true,
-        class: "btn btn-primary" %>
-    </h3>
-  </div>
-  <div class="title_right">
-  </div>
-</div>
+<% provide :url, new_admin_category_path %>
+<%= render "admin/shared/headline" %>
 <div class="clearfix">
   <div class="row">
     <div class="col_-md-12 col-sm-12 col-xs-12">

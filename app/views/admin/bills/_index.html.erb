@@ -5,5 +5,7 @@
     <td><%= t "bills.bill.bill_status_#{bill.status}" %></td>
     <td><%= link_to "Edit", edit_admin_bill_path(bill),
       remote: true, class: "btn btn-info" %></td>
+    <td><%= link_to "Show", admin_bill_path(bill),
+      remote: true, class: "btn btn-info" %></td>
   </tr>
 <% end %>

@@ -3,10 +3,6 @@ class Admin::BaseController < ApplicationController
   before_action :check_login, only: :index
   before_action :check_admin
 
-  def products
-    @products = Product.all
-  end
-
   def index; end
 
   private
