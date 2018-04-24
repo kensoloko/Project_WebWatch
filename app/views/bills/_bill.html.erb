@@ -28,7 +28,7 @@
           <% total_price = 0 %>
           <% bill.bill_details.each do |b| %>
             <% product = Product.find_by id: b.product_id %>
-            <% total_price += product.price %>
+            <% total_price += product.price * b.quantity %>
             <li class="list-group-item">
               <div class="row">
                 <div class="col-md-4"><%= product.name %></div>

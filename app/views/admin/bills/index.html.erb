@@ -4,6 +4,8 @@
   <div class="title_left">
     <h3>
       <%= yield :page_headline %>
+      <%= link_to "Export CSV" , admin_bills_path(format: "xls"),
+        class: "btn btn-primary" %>
     </h3>
   </div>
   <div class="title_right">
