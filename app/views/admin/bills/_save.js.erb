@@ -4,6 +4,6 @@ $("ul.errors").html("")
     $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
-  $(".product-index").html("<%= j render "admin/bills/index" %>")
+  $(".product-index").html("<%= j render "admin/bills/index"@ %>")
   $("#product-modal").modal("hide")
 <% end %>
