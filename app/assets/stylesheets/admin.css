@@ -10,6 +10,7 @@
  *= require admin/scroller.bootstrap
  *= require font-awesome
  *= require_self
+ *= require admin/upimage.sass
  */
  @import "font-awesome";
 

@@ -24,7 +24,12 @@ class Product < ApplicationRecord
   end
 
   def first_image
-    self.product_images.first.image
+    if self.product_images.first.nil?
+      img = "s-1.jpg"
+    else
+      img = self.product_images.first.image
+    end
+    img
   end
 
   def sold_out?

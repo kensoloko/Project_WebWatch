@@ -4,7 +4,9 @@ html , body{
  height:100%;
 
 }
-
+#preview img{
+    margin: 10px 5px 0 0 !important;
+}
 .full-width {
 
  width:100%;

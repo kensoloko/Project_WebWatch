@@ -2,13 +2,13 @@
   <div class="register-main">
     <div class="col-md-6 account-left">
       <p><%= f.label :name %></p>
-      <p><%= f.text_field :name, placeholder: t(".name") %></p>
+      <p><%= f.text_field :name, placeholder: t(".name"),class: "address-input" %></p>
       <p><%= f.label :email %></p>
-      <p><%= f.text_field :email, placeholder: t(".email") %></p>
+      <p><%= f.text_field :email, placeholder: t(".email"),class: "address-input" %></p>
       <p><%= f.label :phone %></p>
-      <p><%= f.text_field :phone, placeholder: t(".phone") %></p>
+      <p><%= f.text_field :phone, placeholder: t(".phone"),class: "address-input" %></p>
       <p><%= f.label :address %></p>
-      <p><%= f.text_area :address, placeholder: t(".address"), cols: 76, rows: 5 %></p>
+      <p><%= f.text_area :address, placeholder: t(".address"), class: "address-input" %></p>
     </div>
     <div class="col-md-6 account-left">
       <p><%= f.label :password %></p>

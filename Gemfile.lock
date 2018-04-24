@@ -44,13 +44,6 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (8.3.0)
       execjs
-    axlsx (1.3.6)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.4.1)
-      rubyzip (>= 0.9.5)
-    axlsx_rails (0.1.5)
-      axlsx
-      rails (>= 3.1)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -123,7 +116,6 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    htmlentities (4.3.4)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
@@ -278,7 +270,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  axlsx_rails
   bcrypt (~> 3.1, >= 3.1.11)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   byebug

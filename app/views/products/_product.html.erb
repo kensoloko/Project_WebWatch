@@ -1,10 +1,11 @@
 <div class="col-md-3 product-left">
   <div class="product-main simpleCart_shelfItem">
     <%= link_to product, class: "mask" do %>
-      <%= image_tag product.first_image, class: "img-responsive zoom-img" %>
+      <%= image_tag product.first_image, class: "zoom-img",
+        size: Settings.img_size %>
       <div class="product-bottom">
         <h3><%= product.name %></h3>
-        <p><%= truncate product.description, length: 30, separator: ' ' %></p>
+        <p><%= truncate product.description, length: 30, separator: " " %></p>
         <h4>
           <i></i>
           <span class="item_price"><%= product.price %></span>

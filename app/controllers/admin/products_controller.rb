@@ -22,8 +22,18 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
-  def edit; end
+  def edit
+    @brands = Brand.all
+    @categories = Category.all
+  end
 
+  def update
+    if @product.update_attributes product_params
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".fail"
+    end
+  end
   private
   def load_product
     @product = Product.find_by id: params[:id]
