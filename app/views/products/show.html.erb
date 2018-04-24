@@ -1,5 +1,6 @@
 <%= provide :title, @product.name %>
 <%= javascript_include_tag "rating_star" %>
+<%= javascript_include_tag "imagezoom" %>
 <%= stylesheet_link_tag "rating_star" %>
 <div class="single contact">
   <div class="container">
@@ -23,9 +24,6 @@
         <div class="col-md-7 single-top-right">
           <div class="single-para simpleCart_shelfItem">
             <div class="item_pid" style="display:none;"><%= @product.id %></div>
-            <div class="item_qtt" style="display:none;">
-              <%= @product.quantity %>
-            </div>
             <h2 class="item_name"><%= @product.name %></h2>
             <div class="star-on">
              <div id="pid"><%= @product.id %></div>
@@ -67,8 +65,10 @@
               <%= link_to t(".sold_out"), "javascript:;",
                 class: "sold_out" %>
             <% else %>
-              <%= link_to t(".add_to_cart"), "javascript:;",
-                class: "add-cart item_add", onclick: t(".alert") %>
+              <%= link_to "javascript:;",
+                class: "add-cart item_add", onclick: t(".alert") do %>
+                  <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
+              <% end %>
             <% end %>
           </div>
         </div>

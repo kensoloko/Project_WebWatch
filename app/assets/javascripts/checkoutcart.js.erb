@@ -10,9 +10,11 @@ simpleCart({
     },
     {attr: "price" , label: "Price", view: 'currency'} ,
     {view: function(item, column){
-      return '<button href="javascript:;" class="simpleCart_increment btn btn-primary">+</button>' +
-        '<span class="quantity">' + item.quantity() + '</span>' +
-        '<button href="javascript:;" class="simpleCart_decrement btn btn-primary">-</button>';
+      str = '<button href="javascript:;" class="simpleCart_increment btn btn-primary">+</button>' +
+        '<input type="number" value="' + item.quantity() + '" class="simpleCart_input" min="1">';
+      if (item.quantity() > 1)
+        str += '<button href="javascript:;" class="simpleCart_decrement btn btn-primary">-</button>'
+      return str
       },
       attr: "quantity" ,
       label: "Quantity"
@@ -24,11 +26,20 @@ simpleCart({
     type: "SendForm",
     url: "/checkout",
     method: "GET"
+  },
+  load: function(){
+    $(".simpleCart_input").change(function(){
+      console.log("abc");
+      if(this.val() <= 0) this.val(1)
+      if(this.val() == 1) $("this:parent > .btn").hide()
+    })
+  },
+  beforeRemove: function(item){
+    if(item.quantity() <= 0)
+      item.quantity(1);
   }
 });
 
-simpleCart.bind('beforeCheckout', function(data){
+simpleCart.bind("beforeCheckout", function(data){
   simpleCart.empty();
 });
-
-

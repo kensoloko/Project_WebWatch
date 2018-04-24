@@ -102,7 +102,7 @@ en:
     show:
       product_not_found: "Product not found"
       comment: "Comment"
-      alert: "alert('Add to Cart')"
+      alert: swal("Done!", "You added to Cart!", "success")
       Lorem_Ipsum: "Lorem Ipsum"
       customer_review: "1 customer review"
       item_price_1: "$ 95.00"

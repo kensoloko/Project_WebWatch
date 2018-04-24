@@ -62,8 +62,8 @@
 
 .simpleCart_items{
   font-size: 16px;
+  box-sizing: border-box;
   .headerRow{
-    box-sizing: border-box;
     background: black;
     color: white;
     width: 100%;
@@ -74,12 +74,8 @@
       line-height: 100px;
       text-align: center;
     }
-     .item-increment, .item-decrement{
-      display: none;
-    }
   }
   .itemRow{
-    box-sizing: border-box;
     border-top: 1px solid #BFD6CC;
     width: 100%;
     height: 100px;
@@ -88,8 +84,10 @@
       text-align: center;
       width: 20%;
       line-height: 100px;
-      .quantity{
-        padding: 0px 20px;
+      input[type="number"]{
+        width: 40px;
+        height: 30px;
+        margin: 0px 5px;
       }
     }
   }
@@ -147,4 +145,15 @@ a.sold_out{
   text-transform: uppercase;
   margin-top: 2em;
   display: inline-block;
+}
+
+a.add-cart{
+  background: red;
+  overflow-x: hidden;
+  trasition: all 3s ease;
+  &:hover{
+    background: white;
+    color: red;
+    border: 2px solid red;
+  }
 }
