@@ -7,7 +7,7 @@
         <h1 class="text-center"><%= t ".user_profile" %></h1>
         <div class="sngl-top">
           <div class="col-md-3 single-top-left">
-            <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
+            <%= image_tag @user.avatar_url, class: "image-user" %>
           </div>
           <div class="col-md-8 single-top-right profile">
             <div class="single-para simpleCart_shelfItem">
@@ -18,7 +18,7 @@
               <div class="information-profile">
                 <div class="row">
                   <b class="unbold">
-                    <%= image_tag "avatar.png", alt: "",class: "image-size" %>
+                    <%= image_tag "avatar.png", alt: "", class: "image-size" %>
                     <%= t ".Name" %>
                   </b>
                   <%= @user.name %>

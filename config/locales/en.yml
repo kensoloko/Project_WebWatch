@@ -53,6 +53,7 @@ en:
   users:
     edit:
       save: "Save"
+      title: "Edit profile"
     load_user:
       user_not_found: "User not found"
     logged_in_user:
@@ -201,6 +202,8 @@ en:
       content: "Content"
       brand: "Brand"
       category: "Category"
+      success: "Edit Success"
+      fail: "Edit Fail"
     categories:
       headline: "Categories Manager"
       cName: "Category Name"

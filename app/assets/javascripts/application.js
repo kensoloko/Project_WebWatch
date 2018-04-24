@@ -25,3 +25,4 @@
 //= require imagezoom
 //= require checkoutcart
 //= require searchbox
+//= require flash_hidden
