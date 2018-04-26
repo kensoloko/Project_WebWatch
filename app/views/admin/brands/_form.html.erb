@@ -9,12 +9,14 @@
   </div>
   <div class="form-group">
     <%= f.label :description, class: "control-label" %>
-    <%= f.text_field :description, class: "form-control" %>
+    <%= f.text_area :description, class: "form-control txt-area-content" %>
   </div>
 </div>
 <div class="modal-footer">
-  <%= f.submit class: "btn btn-primary btn-md" %>
-  <%= link_to t("admin.buttons.cancel"), "#", class: "btn btn-info btn-md", data: {dismiss: "modal"} %>
+  <%= button_tag type: f.submit ,class: "btn btn-primary btn-size-default" do %>
+    <i class="glyphicon glyphicon-ok"></i>
+  <% end %>
+  <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe, "#", class: "btn btn-danger btn-size-default", data: {dismss: "modal"} %>
 </div>
 <% end %>
 </div>

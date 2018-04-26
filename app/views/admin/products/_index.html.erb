@@ -1,5 +1,18 @@
 <% @products.each do |product| %>
   <tr>
+    <td class= "text-center table-action-column">
+      <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe , edit_admin_product_path(product), remote: true , class: "btn btn-info" %>
+
+    </td>
+    <td class= "text-center table-action-column">
+      <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, admin_product_remove_path(product), remote: true, class: "btn btn-danger" %>
+    </td>
+    <td>
+      <div class="icheckbox_flat-green checked table-action-column">
+        <%= check_box_tag "product_ids[]", product.id, false,
+          class: "icheckbox_flat-green checked brand-delete" %>
+      </div>
+    </td>
     <td><%= product.name %></td>
     <td><%= product.brand.name %></td>
     <td><%= product.category.name %></td>
@@ -7,10 +20,5 @@
     <td><%= image_tag product.product_images.first.image, class: "image_size" %>
     </td>
     <td><%= product.quantity %></td>
-    <td><%= product.description %></td>
-    <td><%= product.content %></td>
-
-    <td><%= link_to "Edit", edit_admin_product_path(product),
-      remote: true, class: "btn btn-info" %></td>
   </tr>
 <% end %>

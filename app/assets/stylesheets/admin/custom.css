@@ -4,7 +4,9 @@ html , body{
  height:100%;
 
 }
-
+#preview img{
+    margin: 10px 5px 0 0 !important;
+}
 .full-width {
 
  width:100%;
@@ -4261,4 +4263,15 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 
 .delete_promt {
     font-size: 16px;
+}
+
+.table-action-column {
+    width:  50px;
+}
+
+.txt-area-content {
+    height: 150px !important;
+}
+.btn-size-default {
+    width: 100px;
 }

@@ -1,6 +1,6 @@
-<div class="modal-dialog">
   <div class="modal-content">
-    <%= form_for [:admin, @product], html: {multipart: true}, remote: true do |f| %>
+    <%= form_for [:admin, @product], html: {multipart: true},
+      remote: true do |f| %>
       <div class="modal-body">
         <ul class="errors"></ul>
         <div class="form-group">
@@ -17,67 +17,39 @@
         </div>
         <div class="form-group">
           <%= f.label :brand_id, class: "control-label" %>
-          <%= f.select :brand_id, options_from_collection_for_select(@brands,
-            "id", "name"), {}, {class: "form-control"} %>
+          <%= f.select :brand_id, @list_brands, {}, {class: "form-control"} %>
         </div>
         <div class="form-group">
           <%= f.label :category_id, class: "control-label" %>
-          <%= f.select :category_id,
-            options_from_collection_for_select(@categories,"id", "name"),
-              {}, {class: "form-control"} %>
+          <%= f.select :category_id, @list_categories, {}, {class: "form-control"} %>
         </div>
         <div class="form-group">
           <%= f.label :description, class: "control-label" %>
-          <%= f.text_area :description, class: "form-control" %>
+          <%= f.text_area :description, class: "form-control txt-area-content" %>
         </div>
         <div class="form-group">
           <%= f.label :content, class: "control-label" %>
-          <%= f.text_area :content, class: "form-control" %>
+          <%= f.text_area :content, class: "form-control txt-area-content" %>
         </div>
         <div class="form-group" >
           <%= f.fields_for :product_images do |p| %>
           <div class="field">
             <%= p.label :image %><br>
             <%= p.file_field :image, multiple: true,
-            name: "product[product_images_attributes][][image]", class: "upload-image" %>
+              name: "product[product_images_attributes][][image]",
+              class: "upload-image", id: "file" %>
           </div>
           <% end %>
           <div id="preview"></div>
-          </div>
+        </div>
+
       </div>
       <div class="modal-footer">
-        <%= f.submit class: "btn btn-primary" %>
-        <%= link_to "Cancel", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+        <%= button_tag type: f.submit ,class: "btn btn-primary btn-size-default" do %>
+          <i class="glyphicon glyphicon-ok"></i>
+        <% end %>
+        <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe, "#", class: "btn btn-danger btn-size-default", data: {dismss: "modal"} %>
       </div>
     <% end %>
   </div>
-</div>
-<script>
-   $(".upload-image").on("change", function(){
-    var preview = document.querySelector("#preview");
-    var files   = document.querySelector("input[type=file]").files;
-
-    function readAndPreview(file) {
-
-      if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
-        var reader = new FileReader();
-
-        reader.addEventListener("load", function () {
-          var image = new Image();
-          image.height = 100;
-          image.width = 100;
-          image.title = file.name;
-          image.src = this.result;
-          preview.appendChild( image );
-        }, false);
-
-        reader.readAsDataURL(file);
-      }
-
-    }
-
-    if (files) {
-      [].forEach.call(files, readAndPreview);
-    }
-  })
-</script>
+<%= javascript_include_tag "admin/show_many_images" %>

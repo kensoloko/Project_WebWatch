@@ -1,11 +1,15 @@
 <% @bills.each do |bill| %>
   <tr>
-    <td><%= bill.id %></td>
+    <td class= "text-center table-action-column">
+      <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe , edit_admin_bill_path(bill), remote: true , class: "btn btn-info" %>
+
+    </td>
+    <td class= "text-center table-action-column">
+      <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe ,
+         admin_bill_path(bill), remote: true , class: "btn btn-info" %>
+
+    </td>
     <td><%= bill.user.name %></td>
     <td><%= t "bills.bill.bill_status_#{bill.status}" %></td>
-    <td><%= link_to "Edit", edit_admin_bill_path(bill),
-      remote: true, class: "btn btn-info" %></td>
-    <td><%= link_to "Show", admin_bill_path(bill),
-      remote: true, class: "btn btn-info" %></td>
   </tr>
 <% end %>

@@ -3,8 +3,11 @@
   <head>
     <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+    <%= favicon_link_tag "watch_default.ico" %>
     <%= yield :script %>
   </head>
   <body data-turbolinks="false">

@@ -12,7 +12,7 @@
           <% if bill.status == 1 %>
             <%= link_to t(".cancel"), bills_destroy_path(bill),
               method: :delete, :data => {:confirm => "Are you sure?"},
-              class: "text-right" %>
+              class: "text-right btn btn-danger" %>
           <% end %>
         </h4>
       </div>
