@@ -226,6 +226,16 @@ en:
     session_admin:
       new:
         login: "Log in"
+    buttons:
+      brand: " Brand"
+      new: " New"
+      create: "Create"
+      edit: "Edit"
+      delete: " Delete"
+      cancel: "Cancel"
+      prompt: "Are you sure you wish to delete "
+      confirm_delete: "Yes, Delete This "
+      cancel_delete: "No, Please Don't"
   checkout:
     index:
       checkout: "CHECKOUT"
