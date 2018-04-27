@@ -244,6 +244,13 @@ en:
       confirm_delete: "Yes, Delete This "
       cancel_delete: "No, Please Don't"
       belongto: "belong to "
+    flash:
+      create: "A new Record has been created"
+      delete: "A record has been deleted"
+      update: "A record has been updated"
+      create_fail: "Create failed"
+      update_fail: "Update failed"
+      delete_fail: "Delete failed"
   checkout:
     index:
       checkout: "CHECKOUT"

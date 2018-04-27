@@ -1,9 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :load_category, except: %i(index new)
+  before_action :load_category, only: %i(edit update destroy)
+  before_action :load_categories, only: %i(index create update)
+  after_action :load_categories, only: %i(create update destroy)
 
-  def index
-    @categories = Category.all
-  end
+  def index; end
 
   def show; end
 
@@ -13,14 +13,12 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.create category_params
-    @categories = Category.all
   end
 
   def edit; end
 
   def update
     @category.update_attributes category_params
-    @categories = Category.all
   end
 
   def remove
@@ -29,13 +27,19 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy
-    @categories = Category.all
+    if @categories.nil?
+      redirect_to admin_categories_path
+    end
   end
 
   private
 
   def load_category
     @category = Category.find_by id: params[:id]
+  end
+
+  def load_categories
+    @categories = Category.all
   end
 
   def category_params

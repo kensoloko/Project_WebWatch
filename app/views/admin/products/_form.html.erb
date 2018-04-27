@@ -36,7 +36,7 @@
           <div class="field">
             <%= p.label :image %><br>
             <label class="btn btn-default">
-              Add images
+              <%= t "admin.products.Add_images" %>
               <span style="display:none;">
               <%= p.file_field :image, multiple: true,
                 name: "product[product_images_attributes][][image]",
