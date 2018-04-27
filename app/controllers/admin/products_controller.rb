@@ -17,7 +17,9 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = Product.new product_params
-    @product.save
+
+    if @product.save
+    end
   end
 
   def edit; end
