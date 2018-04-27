@@ -3,8 +3,12 @@
   <head>
     <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <%= favicon_link_tag "watch_default.ico" %>
   </head>
   <body data-turbolinks="false">
     <%= render "layouts/header" %>

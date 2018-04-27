@@ -12,3 +12,56 @@ $(document).on('mousedown','a[data-confirm]',function(e){
     }
   });
 });
+$(document).ready(function(){
+  simpleCart.bind('update', function(){
+    showQuantity(simpleCart.quantity());
+    showSmallCart();
+  });
+});
+
+function showQuantity(value = 0)
+{
+  if(value > 0)
+  {
+    $(".cart > a > sup").show();
+    $(".cart > a > sup").html("(" + value + ")");
+  }
+  else
+  {
+    $(".cart > a > sup").hide();
+  }
+}
+
+function showSmallCart(){
+  if(window.localStorage.simpleCart_items != "{}")
+  {
+    var cart = JSON.parse(window.localStorage.simpleCart_items);
+    var array = Object.keys(cart).reverse();
+    var str = "";
+    for(var i = 0; i < 3; i++)
+    {
+      if([array[i]] != undefined)
+      {
+        $(".small_cart").css("transform","scale(1,1)");
+        var p = cart[array[i]];
+        if(p != undefined)
+        str += '<div class= "row">' +
+        '<div class="col-md-3">' +
+        '<img src="' + p.image + '" width="60" height="80">' +
+        '</div>' +
+        '<div class="col-md-9">' +
+        '<h3>' + p.name + '</h3>' +
+        '<p><i>' + p.quantity + ' x</i>' + ' - ' +
+        '<i>$ ' + p.price + '</i></p>' +
+        '<p><b>Subtotal: $ </b>' + (p.quantity * p.price) + '</p>' +
+        '</div></div>'
+        ;
+      }
+    }
+    $(".small_cart .body").html(str);
+  }
+  else
+  {
+    $(".small_cart").css("transform","scale(0,0)");
+  }
+}

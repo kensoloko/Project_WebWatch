@@ -15,7 +15,7 @@ class Admin::BaseController < ApplicationController
 
   def check_admin
     unless current_user && current_user.is_admin?
-      flash[:danger] = t "sessions.create.invalid"
+      flash[:warning] = t "sessions.create.invalid"
       redirect_to root_path
     end
   end

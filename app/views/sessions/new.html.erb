@@ -1,28 +1,29 @@
 <% provide :title, t(".login") %>
 <div class="account">
-    <div class="container">
+  <div class="container">
     <div class="account-top heading">
-        <h2><%= t ".login" %></h2>
-      </div>
-      <div class="account-main">
-        <div class="col-md-6 account-left">
-          <h3><%= t ".existing_user" %></h3>
-          <div class="account-bottom">
-            <%= form_for :session do |f| %>
-              <%= f.text_field :email, placeholder: t(".email") %>
-              <%= f.password_field :password, placeholder: t(".password") %>
-              <div class="address">
-                <%= f.submit t ".login" %>
-              </div>
-            <% end %>
+      <h2><%= t ".login" %></h2>
+    </div>
+    <div class="account-main">
+      <div class="col-md-6 account-left">
+        <h3><%= t ".existing_user" %></h3>
+        <div class="account-bottom">
+          <%= form_for :session do |f| %>
+          <%= f.text_field :email, placeholder: t(".email") %>
+          <%= f.password_field :password, placeholder: t(".password") %>
+          <div class="address">
+            <%= f.submit t ".login" %>
           </div>
+          <% end %>
         </div>
-        <div class="col-md-6 account-right account-left">
-          <h3><%= t ".question" %></h3>
-          <p><%= t ".create_account" %></p>
-          <%= link_to t(".btn_create_account"), signup_url %>
-        </div>
-        <div class="clearfix"></div>
       </div>
+      <div class="col-md-6 account-right account-left">
+        <h3><%= t ".question" %></h3>
+        <p><%= t ".create_account" %></p>
+        <br/>
+        <%= link_to t(".btn_create_account"), signup_url %>
+      </div>
+      <div class="clearfix"></div>
     </div>
   </div>
+</div>

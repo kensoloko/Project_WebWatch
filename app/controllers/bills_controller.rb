@@ -16,7 +16,7 @@ class BillsController < ApplicationController
   def load_bill
     @bill = Bill.find_by id: params[:id]
     unless @bill
-      flash[:danger] = t ".bill_not_found"
+      flash[:warning] = t ".bill_not_found"
       redirect_to root_url
     end
   end

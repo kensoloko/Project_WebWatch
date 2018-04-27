@@ -27,6 +27,13 @@ class Admin::ProductsController < Admin::BaseController
     @categories = Category.all
   end
 
+  def update
+    if @product.update_attributes product_params
+      flash[:success] = t ".success"
+    else
+      flash[:warning] = t ".fail"
+    end
+  end
   private
   def load_product
     @product = Product.find_by id: params[:id]

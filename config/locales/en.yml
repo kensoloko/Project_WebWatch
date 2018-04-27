@@ -9,6 +9,10 @@ en:
   logout: "Log Out"
   index: "Index"
   Checkout: "Checkout"
+  noresult: "No results for"
+  bills:
+    bill:
+      cancel: Cancel
   users_controller:
     log_in_success: "welcome to summoner rift"
   layouts:
@@ -81,6 +85,7 @@ en:
       sign_up: "Sign Up"
   static_pages:
     contact:
+      contact: "Contact"
       contact_page: "CONTACT"
       C_address: "Address"
       C_address1: "Address 1"
@@ -147,8 +152,6 @@ en:
       smart_watch: "Smart Watches"
       Explore_now: "Explore Now"
       price_1: "$ 329"
-    search:
-      noresult: "No results for #{params[:search]}"
   sessions:
     new:
       login: "Login"
@@ -157,9 +160,9 @@ en:
       password: "Password"
       question: "New User? Create an Account"
       create_account: "By creating an account with our store, you will be able
-                      to move through the checkout process faster, store
-                      multiple shipping addresses, view and track your orders
-                      in your account and more."
+                        to move through the checkout process faster, store
+                        multiple shipping addresses, view and track your orders
+                        in your account and more."
       btn_create_account: "Create an Account"
     create:
       invalid: "User invalid"
@@ -199,6 +202,8 @@ en:
       content: "Content"
       brand: "Brand"
       category: "Category"
+      success: "Edit Success"
+      fail: "Edit Fail"
     categories:
       headline: "Categories Manager"
       cName: "Category Name"

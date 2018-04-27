@@ -7,7 +7,7 @@
         <h1 class="text-center"><%= t ".user_profile" %></h1>
         <div class="sngl-top">
           <div class="col-md-3 single-top-left">
-            <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
+            <%= image_tag @user.avatar_url, class: "image-user" %>
           </div>
           <div class="col-md-8 single-top-right profile">
             <div class="single-para simpleCart_shelfItem">
@@ -18,7 +18,7 @@
               <div class="information-profile">
                 <div class="row">
                   <b class="unbold">
-                    <%= image_tag "avatar.png", alt: "",class: "image-size" %>
+                    <%= image_tag "avatar.png", alt: "", class: "image-size" %>
                     <%= t ".Name" %>
                   </b>
                   <%= @user.name %>
@@ -50,10 +50,20 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <% if @bills.size > 0 %>
-      <%= render @bills %>
-      <% end %>
+    <div class="row bills">
+      <div class="col-md-2">
+        <ul>
+          <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <h3>5 last bills</h3>
+        </div>
+        <% if @bills.size > 0 %>
+          <%= render @bills %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

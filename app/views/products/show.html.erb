@@ -24,24 +24,25 @@
         <div class="col-md-7 single-top-right">
           <div class="single-para simpleCart_shelfItem">
             <div class="item_pid" style="display:none;"><%= @product.id %></div>
+            <div class="item_image" style="display:none;"><%= @product.first_image %></div>
             <h2 class="item_name"><%= @product.name %></h2>
             <div class="star-on">
              <div id="pid"><%= @product.id %></div>
               <div class="rating-stars text-center">
                 <ul id="stars">
-                  <li class="star" title="Poor" data-value="1">
+                  <li class="star" title="Poor" data-value="1" data-user="<%= session[:user_id] %>">
                     <i class="fa fa-star fa-fw"></i>
                   </li>
-                  <li class="star" title="Fair" data-value="2">
+                  <li class="star" title="Fair" data-value="2" data-user="<%= session[:user_id] %>">
                     <i class="fa fa-star fa-fw"></i>
                   </li>
-                  <li class="star" title="Good" data-value="3">
+                  <li class="star" title="Good" data-value="3" data-user="<%= session[:user_id] %>">
                     <i class="fa fa-star fa-fw"></i>
                   </li>
-                  <li class="star" title="Excellent" data-value="4">
+                  <li class="star" title="Excellent" data-value="4" data-user="<%= session[:user_id] %>">
                     <i class="fa fa-star fa-fw"></i>
                   </li>
-                  <li class="star" title="WOW!!!" data-value="5">
+                  <li class="star" title="WOW!!!" data-value="5" data-user="<%= session[:user_id] %>">
                     <i class="fa fa-star fa-fw"></i>
                   </li>
                 </ul>
@@ -57,9 +58,9 @@
             <p><%= @product.description %></p>
             <ul class="tag-men">
               <li><span class="tag"><%= t ".category" %></span>
-              <span><%= @product.category.name %></span></li>
+              <span class="item_category"><%= @product.category.name %></span></li>
               <li><span class="tag"><%= t ".brand" %></span>
-              <span><%= @product.brand.name %></span></li>
+              <span class="item_brand"><%= @product.brand.name %></span></li>
             </ul>
             <% if @product.sold_out? %>
               <%= link_to t(".sold_out"), "javascript:;",
@@ -67,6 +68,7 @@
             <% else %>
               <%= link_to "javascript:;",
                 class: "add-cart item_add", onclick: t(".alert") do %>
+                  <span></span>
                   <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
               <% end %>
             <% end %>
