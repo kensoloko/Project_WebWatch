@@ -25,12 +25,12 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
-    if @product.update_attributes product_params
-      flash[:success] = t ".success"
-    else
-      flash[:warning] = t ".fail"
-    end
-    redirect_to admin_products_path
+    @product.update_attributes product_params
+    #   flash[:success] = t ".success"
+    # else
+    #   flash[:warning] = t ".fail"
+    # end
+     redirect_to admin_products_path
   end
 
   def remove
@@ -62,6 +62,7 @@ class Admin::ProductsController < Admin::BaseController
   def product_params
     params.require(:product).permit :name, :price, :quantity,
       :description, :content, :brand_id, :category_id,
-      product_images_attributes: [:image]
+      product_images_attributes: [:id, :image]
   end
+
 end
