@@ -1,5 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :load_product, only: %i(show edit update remove)
+  before_action :load_product, only: %i(show edit update destroy)
+  before_action :load_products only: %i(index create)
+  before_action :load_combobox, only: %i(new edit)
+  after_action :load_products, only: %i(update destroy)
+
   def index
     @products = Product.all
   end
@@ -9,23 +13,16 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def new
-    @list_brands = Brand.all.map { |list| [list.name, list.id] }
-    @list_categories = Category.all.map { |list| [list.name, list.id] }
     @product = Product.new
     @product_image = @product.product_images.build
   end
 
   def create
-    @products = Product.all
     @product = Product.new product_params
-    if @product.save
-    end
+    @product.save
   end
 
-  def edit
-    @list_brands = Brand.all.map { |list| [list.name, list.id] }
-    @list_categories = Category.all.map { |list| [list.name, list.id] }
-  end
+  def edit; end
 
   def update
     if @product.update_attributes product_params
@@ -42,15 +39,25 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
-    @products = Product.all
+    # @products = Product.all
+    if @products.nil?
+      redirect_to admin_products_path
+    end
   end
   private
   def load_product
     @product = Product.find_by id: params[:id]
   end
+
   def load_products
     @products = Product.all
   end
+
+  def load_combobox
+    @list_brands = Brand.all.map { |list| [list.name, list.id] }
+    @list_categories = Category.all.map { |list| [list.name, list.id] }
+  end
+
   def product_params
     params.require(:product).permit :name, :price, :quantity,
       :description, :content, :brand_id, :category_id,
