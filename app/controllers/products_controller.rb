@@ -38,13 +38,17 @@ class ProductsController < ApplicationController
         format.html{render html: @product.averate}
         format.js
       end
+    else
+      respond_to do |format|
+        format.html{render html: "false"}
+      end
     end
   end
 
   private
   def load_product
     unless @product = Product.find_by(id: params[:id])
-      flash[:danger] = t ".product_not_found"
+      flash[:warning] = t ".product_not_found"
       redirect_to root_url
     end
   end

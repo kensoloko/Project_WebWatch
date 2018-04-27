@@ -10,7 +10,7 @@ class Admin::SessionAdminController < ApplicationController
       login user
       redirect_to admin_url
     else
-      flash.now[:danger] = t "sessions.create.invalid"
+      flash.now[:error] = t "sessions.create.invalid"
       render :new
     end
   end

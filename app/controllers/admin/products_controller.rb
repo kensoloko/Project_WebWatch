@@ -27,7 +27,7 @@ class Admin::ProductsController < Admin::BaseController
     if @product.update_attributes product_params
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".fail"
+      flash[:warning] = t ".fail"
     end
   end
 

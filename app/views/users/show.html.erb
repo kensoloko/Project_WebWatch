@@ -50,10 +50,20 @@
         </div>
       </div>
     </div>
-    <div class= "col-md-12 border">
-      <% if @bills.size > 0 %>
-      <%= render @bills %>
-      <% end %>
+    <div class="row bills">
+      <div class="col-md-2">
+        <ul>
+          <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <h3>5 last bills</h3>
+        </div>
+        <% if @bills.size > 0 %>
+          <%= render @bills %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -29,7 +29,7 @@
                         <li><%= link_to t("cart"), cart_url %></li>
                         <li>
                           <%= link_to t("logout"), logout_path, method: :delete,
-                            :data => {:confirm => 'Are you sure?'} %>
+                            :data => {:confirm => 'Are you sure logout?'} %>
                         </li>
                       </ul>
                     </li>
@@ -41,13 +41,17 @@
             </div>
             <div class="col-md-4 cart box_1">
               <%= link_to cart_url do %>
-                  <div class="total">
-                    <span class="simpleCart_total"></span>
-                  </div>
-                  <%= image_tag("cart-1.png", alt: "cart") %>
+                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                <sup></sup>
               <% end %>
-              <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-              <div class="clearfix"> </div>
+              <div class="small_cart">
+                <h3>3 lastest products</h2>
+                <div class="body"></div>
+                <div class="foot">
+                  <%= link_to "VIEW CART", cart_url %>
+                </div>
+              </div>
+              <div class="clearfix"></div>
             </div>
           </div>
         </div>
