@@ -1,6 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :load_product, only: %i(show edit update destroy)
-  before_action :load_products only: %i(index create)
+  before_action :load_products, only: %i(index create)
   before_action :load_combo_box, only: %i(new edit)
   after_action :load_products, only: %i(update destroy)
 
@@ -17,20 +17,15 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = Product.new product_params
-
-    if @product.save
-    end
+    @product.save
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
-
-    if @product.update_attributes product_params
-      flash[:success] = t ".success"
-    else
-      flash[:warning] = t ".fail"
-    end
+    @product.update_attributes product_params
+    load_products
   end
 
   def remove

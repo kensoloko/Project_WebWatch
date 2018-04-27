@@ -7,11 +7,9 @@
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, admin_product_remove_path(product), remote: true, class: "btn btn-danger" %>
     </td>
-    <td>
-      <div class="icheckbox_flat-green checked table-action-column">
-        <%= check_box_tag "product_ids[]", product.id, false,
-          class: "icheckbox_flat-green checked brand-delete" %>
-      </div>
+    <td class="text-center table-action-column">
+      <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe,
+         product_path(product), class: "btn btn-info", target: "_blank"%>
     </td>
     <td><%= product.name %></td>
     <td><%= product.brand.name %></td>
