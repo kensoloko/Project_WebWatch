@@ -12,9 +12,9 @@ class Product < ApplicationRecord
   validates :price, :quantity, presence: true, numericality: true
   validates :content, :description, presence: true
   accepts_nested_attributes_for :product_images
+
   def averate
     rates = self.rates
-
     if rates.blank?
       averate = 0
     else

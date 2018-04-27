@@ -1,4 +1,3 @@
-//= require_directory "../../../vendor/assets/javascripts"
 $(function () {
   $("#slider4").responsiveSlides({
     auto: true,
