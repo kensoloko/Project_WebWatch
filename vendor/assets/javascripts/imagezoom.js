@@ -1,10 +1,4 @@
-/**
- * ImageZoom Plugin
- * http://0401morita.github.io/imagezoom-plugin
- * MIT licensed
- *
- * Copyright (C) 2014 http://0401morita.github.io/imagezoom-plugin A project by Yosuke Morita
- */
+
  //= require_directory "../../../vendor/assets/javascripts"
 (function($){
   var defaults = {

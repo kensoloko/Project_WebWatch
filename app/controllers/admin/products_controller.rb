@@ -4,9 +4,7 @@ class Admin::ProductsController < Admin::BaseController
   before_action :load_combo_box, only: %i(new edit)
   after_action :load_products, only: %i(update destroy)
 
-  def index
-    @products = Product.all
-  end
+  def index; end
 
   def show
     @product_images = @product.product_images.all
@@ -29,7 +27,7 @@ class Admin::ProductsController < Admin::BaseController
     if @product.update_attributes product_params
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".fail"
+      flash[:warning] = t ".fail"
     end
   end
 
@@ -39,6 +37,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
+
     if @products.nil?
       redirect_to admin_products_path
     end

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = t "create_success"
       redirect_to @user
     else
-      flash.now[:danger] = t "create_fail"
+      flash.now[:error] = t "create_fail"
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if @user.update_attributes user_params
       flash[:success] = t ".profile_updated"
     else
-      flash[:danger] = t ".update_fail"
+      flash[:warning] = t ".update_fail"
     end
     redirect_to @user
   end
@@ -43,14 +43,14 @@ class UsersController < ApplicationController
 
   def load_user
     unless @user = User.find_by(id: params[:id])
-      flash[:danger] = t ".user_not_found"
+      flash[:warning] = t ".user_not_found"
       redirect_to root_url
     end
   end
 
   def logged_in_user
     unless logged_in?
-      flash[:danger] = t ".please_login"
+      flash[:warning] = t ".please_login"
       redirect_to login_url
     end
   end
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find_by id: params[:id]
     if @user != current_user
-      flash[:danger] = t ".access_denied"
+      flash[:warning] = t ".access_denied"
       redirect_to root_url
     end
   end

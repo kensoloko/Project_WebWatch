@@ -1,5 +1,9 @@
 class CheckoutController < ApplicationController
-  def index; end
+  def index
+    unless logged_in?
+      @user = User.new;
+    end
+  end
 
   def create
     array = []
@@ -11,7 +15,7 @@ class CheckoutController < ApplicationController
       flash[:success] = t "checkouted"
       redirect_to current_user
     else
-      flash.now[:danger] = t ".fail"
+      flash.now[:error] = t ".fail"
       render :index
     end
   end
@@ -22,7 +26,7 @@ class CheckoutController < ApplicationController
     arr = []
     params[:itemCount].to_i.times do |x|
       x += 1
-      product_id = params["item_options_#{x}"][/[0-9]/].to_i
+      product_id = params["item_options_#{x}"].delete("pid:").to_i
       obj = {product_id: product_id, user_id: current_user.id,
         quantity: params["item_quantity_#{x}"]}
       arr.push obj

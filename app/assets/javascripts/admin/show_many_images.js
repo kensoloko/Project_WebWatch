@@ -1,4 +1,5 @@
 $(".upload-image").on("change", function(){
+var preview = document.querySelector("#preview");
 var files   = document.querySelector("input[type=file]").files;
 
 function readAndPreview(file) {
