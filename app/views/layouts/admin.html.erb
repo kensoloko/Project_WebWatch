@@ -5,13 +5,16 @@
     <%= render "/layouts/admin/admin_default" %>
   </head>
 
-  <body class = "nav-md">
-    <%= render "layouts/flash" %>
+  <body class = "nav-md" data-turbolinks="false">
     <div class="container body">
       <div class="main_container">
         <%= render "/layouts/admin/header" %>
+        <div class="container">
+            <%= render partial: "layouts/admin/flash", flash: flash %>
+          </div>
         <%= render "/layouts/admin/menu" %>
         <div class="right_col" role="main">
+
           <%= yield %>
         </div>
       </div>

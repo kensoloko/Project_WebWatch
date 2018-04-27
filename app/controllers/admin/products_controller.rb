@@ -3,6 +3,7 @@ class Admin::ProductsController < Admin::BaseController
   before_action :load_products, only: %i(index create)
   before_action :load_combo_box, only: %i(new edit)
   after_action :load_products, only: %i(update destroy)
+
   def index; end
 
   def show
