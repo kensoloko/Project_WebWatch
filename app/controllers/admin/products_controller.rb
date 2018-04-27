@@ -16,18 +16,19 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = Product.new product_params
+
     if @product.save
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
-
     if @product.update_attributes product_params
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".fail"
+      flash[:warning] = t ".fail"
     end
   end
 
@@ -37,6 +38,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
+
     if @products.nil?
       redirect_to admin_products_path
     end

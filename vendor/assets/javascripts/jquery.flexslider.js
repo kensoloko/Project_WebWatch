@@ -1,9 +1,4 @@
-/*
- * jQuery FlexSlider v2.5.0
- * Copyright 2012 WooThemes
- * Contributing Author: Tyler Smith
- */
- //= require_directory "../../../vendor/assets/javascripts"
+
 (function ($) {
 
   //FlexSlider: Object Instance
@@ -1120,7 +1115,7 @@
 
     // Primary Controls
     controlNav: true,               //Boolean: Create navigation for paging control of each slide? Note: Leave true for manualControls usage
-    directionNav: true,             //Boolean: Create navigation for previous/next navigation? (true/false)
+    directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
     prevText: "Previous",           //String: Set the text for the "previous" directionNav item
     nextText: "Next",               //String: Set the text for the "next" directionNav item
 
