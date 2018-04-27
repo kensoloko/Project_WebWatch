@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= render "/layouts/admin/admin_default" %>
+  </head>
+
+  <body class = "nav-md">
+    <%= render "layouts/flash" %>
+    <div class="container body">
+      <div class="main_container">
+        <%= render "/layouts/admin/header" %>
+        <%= render "/layouts/admin/menu" %>
+        <div class="right_col" role="main">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/admin/footer" %>
+  </div>
+  </body>
+</html>

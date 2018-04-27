@@ -1,0 +1,38 @@
+<% provide :title, t("admin.products.headline") %>
+<% provide :page_headline, t("admin.products.headline") %>
+<% provide :url, new_admin_product_path %>
+<%= render "admin/shared/headline" %>
+<div class="clearfix">
+  <div class="row">
+    <div class="col_-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_content">
+          <table id="tblCategories" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+            width="100%">
+            <thead>
+              <tr>
+                <th><%= t "admin.products.name" %></th>
+                <th><%= t "admin.brands.name" %></th>
+                <th><%= t "admin.categories.name" %></th>
+                <th><%= t "admin.products.price" %></th>
+                <th><%= t "admin.products.image" %></th>
+                <th><%= t "admin.products.quantity" %></th>
+                <th><%= t "admin.products.descript" %></th>
+                <th><%= t "admin.products.content" %></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="categories" class="product-index">
+              <%= render @products %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="product-modal" class="modal fade"></div>
+  <script>
+    $("#tblCategories").dataTable();
+  </script>

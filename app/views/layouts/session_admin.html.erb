@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= render "/layouts/admin/admin_default" %>
+  </head>
+  <body class= "login">
+    <%= render "layouts/flash" %>
+    <%= yield %>
+  </body>
+</html>

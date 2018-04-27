@@ -1,0 +1,60 @@
+<% provide :title, @user.name %>
+<%= stylesheet_link_tag "User_profile" %>
+<div class="patding">
+  <div class="container">
+    <div class="row single-main ">
+      <div class="col-md-12 single-main-left border">
+        <h1 class="text-center"><%= t ".user_profile" %></h1>
+        <div class="sngl-top">
+          <div class="col-md-3 single-top-left">
+            <%= image_tag @user.avatar_url, class: "img-thumbnail" %>
+          </div>
+          <div class="col-md-8 single-top-right profile">
+            <div class="single-para simpleCart_shelfItem">
+              <div class="row background-profile">
+                <div class="text-css"><%= t ".general_information" %></div>
+              </div>
+              <div class="clear-fix"></div>
+              <div class="information-profile">
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "avatar.png", alt: "",class: "image-size" %>
+                    <%= t ".Name" %>
+                  </b>
+                  <%= @user.name %>
+                </div>
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "003-gmail.png", class: "image-size" %>
+                    <%= t ".Email" %>
+                  </b>
+                  <%= @user.email %>
+                </div>
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "002-phone-book.png", class: "image-size" %>
+                    <%= t ".Phone" %>
+                  </b>
+                  <%= @user.phone %>
+                </div>
+                <div class="row">
+                  <b class="unbold">
+                    <%= image_tag "001-location-pin.png", class: "image-size" %>
+                    <%= t ".Address" %>
+                  </b>
+                  <%= @user.address %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <% if @bills.size > 0 %>
+      <%= render @bills %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

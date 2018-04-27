@@ -1,5 +1,9 @@
 require_relative "boot"
 require "rails/all"
+require "csv"
+require "carrierwave"
+require "carrierwave/orm/activerecord"
+
 Bundler.require(*Rails.groups)
 
 module WebWatch

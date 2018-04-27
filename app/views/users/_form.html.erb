@@ -1,0 +1,29 @@
+<%= form_for @user do |f|%>
+  <div class="register-main">
+    <div class="col-md-6 account-left">
+      <p><%= f.label :name %></p>
+      <p><%= f.text_field :name, placeholder: t(".name") %></p>
+      <p><%= f.label :email %></p>
+      <p><%= f.text_field :email, placeholder: t(".email") %></p>
+      <p><%= f.label :phone %></p>
+      <p><%= f.text_field :phone, placeholder: t(".phone") %></p>
+      <p><%= f.label :address %></p>
+      <p><%= f.text_area :address, placeholder: t(".address"), cols: 76, rows: 5 %></p>
+    </div>
+    <div class="col-md-6 account-left">
+      <p><%= f.label :password %></p>
+      <p><%= f.password_field :password, placeholder: t(".password") %></p>
+      <p><%= f.label :password_confirmation %></p>
+      <p><%= f.password_field :password_confirmation,
+        placeholder: t(".password_confirmation") %></p>
+      <% if logged_in? %>
+        <p><%= f.label :avatar_url, "Upload your avatar" %></p>
+        <p><%= f.file_field :avatar_url, accept: "image/jpeg,image/gif,image/png" %></p>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="address submit">
+    <%= f.submit yield(:button_text) %>
+  </div>
+<% end %>

@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406025525) do
+ActiveRecord::Schema.define(version: 20180419030317) do
 
   create_table "bill_details", force: :cascade do |t|
-    t.integer "Product_id"
-    t.integer "Bill_id"
+    t.integer "product_id"
+    t.integer "bill_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Bill_id"], name: "index_bill_details_on_Bill_id"
-    t.index ["Product_id"], name: "index_bill_details_on_Product_id"
+    t.index ["bill_id"], name: "index_bill_details_on_bill_id"
+    t.index ["product_id"], name: "index_bill_details_on_product_id"
   end
 
   create_table "bills", force: :cascade do |t|
-    t.integer "User_id"
+    t.integer "user_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_bills_on_User_id"
+    t.index ["user_id"], name: "index_bills_on_user_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -45,43 +45,50 @@ ActiveRecord::Schema.define(version: 20180406025525) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "Product_id"
-    t.integer "User_id"
+    t.integer "product_id"
+    t.integer "user_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Product_id", "User_id"], name: "comments_product_user"
-    t.index ["Product_id"], name: "index_comments_on_Product_id"
-    t.index ["User_id"], name: "index_comments_on_User_id"
+    t.index ["product_id", "user_id"], name: "comments_product_user"
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "product_images", force: :cascade do |t|
+    t.integer "product_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "product_name"
+    t.string "name"
     t.integer "price"
     t.integer "quantity"
     t.text "description"
-    t.text "image"
     t.text "content"
-    t.integer "Category_id"
-    t.integer "Brand_id"
+    t.integer "category_id"
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Brand_id"], name: "index_products_on_Brand_id"
-    t.index ["Category_id"], name: "index_products_on_Category_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer "Product_id"
-    t.integer "User_id"
+    t.integer "product_id"
+    t.integer "user_id"
     t.integer "rate_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Product_id"], name: "index_rates_on_Product_id"
-    t.index ["User_id"], name: "index_rates_on_User_id"
+    t.index ["product_id"], name: "index_rates_on_product_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "password_digest"
     t.string "email"
     t.string "phone"
