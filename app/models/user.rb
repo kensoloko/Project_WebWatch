@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :address, presence: true
 
   def bills_order
-    self.bills.order :status
+    self.bills.order(:status).limit(5)
   end
 
   private

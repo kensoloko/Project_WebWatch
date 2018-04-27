@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       login user
       flash[:success] = t ".login"
-      redirect_to user
+      redirect_back fallback_location: user
     else
-      flash.now[:danger] = t ".invalid"
+      flash.now[:error] = t ".invalid"
       render :new
     end
   end

@@ -1,4 +1,5 @@
 $(".upload-image").on("change", function(){
+var preview = document.querySelector("#preview");
 var files   = document.querySelector("input[type=file]").files;
 
 function readAndPreview(file) {
@@ -12,7 +13,7 @@ function readAndPreview(file) {
       image.width = 50;
       image.title = file.name;
       image.src = this.result;
-
+      console.log(file);
       var span = document.createElement("span");
       span.innerHTML = ['<img class="thumb" src="', image.src, '" title="',
         image.title, '"/><span class="remove_img_preview"></span>'].join('');

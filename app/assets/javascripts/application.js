@@ -14,14 +14,8 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-//= require load_default
+//= require jquery-1.11.0.min
 //= require simpleCart.min
-//= require memenu
-//= requrie fmemenu
-//= require jquery.easydropdown
 //= require responsiveslides.min
-//= require single
-//= require imagezoom
-//= require checkoutcart
-//= require searchbox
-//= require flash_hidden
+//= require sweetalert.min
+//= require custom
