@@ -1,7 +1,7 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :load_product, only: %i(show edit update destroy)
   before_action :load_products only: %i(index create)
-  before_action :load_combobox, only: %i(new edit)
+  before_action :load_combo_box, only: %i(new edit)
   after_action :load_products, only: %i(update destroy)
 
   def index
@@ -25,12 +25,12 @@ class Admin::ProductsController < Admin::BaseController
   def edit; end
 
   def update
+
     if @product.update_attributes product_params
       flash[:success] = t ".success"
     else
       flash[:danger] = t ".fail"
     end
-    load_products
   end
 
   def remove
@@ -39,11 +39,11 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
-    # @products = Product.all
     if @products.nil?
       redirect_to admin_products_path
     end
   end
+
   private
   def load_product
     @product = Product.find_by id: params[:id]
@@ -53,9 +53,9 @@ class Admin::ProductsController < Admin::BaseController
     @products = Product.all
   end
 
-  def load_combobox
-    @list_brands = Brand.all.map { |list| [list.name, list.id] }
-    @list_categories = Category.all.map { |list| [list.name, list.id] }
+  def load_combo_box
+    @list_brands = Brand.all.map {|list| [list.name, list.id]}
+    @list_categories = Category.all.map {|list| [list.name, list.id]}
   end
 
   def product_params

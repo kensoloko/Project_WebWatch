@@ -10,6 +10,7 @@ en:
   index: "Index"
   Checkout: "Checkout"
   noresult: "No results for"
+  note: "Please choose images before add product"
   bills:
     bill:
       cancel: Cancel
@@ -204,6 +205,7 @@ en:
       category: "Category"
       success: "Edit Success"
       fail: "Edit Fail"
+      Add_images: "Add Images"
     categories:
       headline: "Categories Manager"
       cName: "Category Name"

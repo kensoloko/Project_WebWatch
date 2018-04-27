@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :bill_details
+  has_many :bill_details, dependent: :destroy
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images
   belongs_to :category
