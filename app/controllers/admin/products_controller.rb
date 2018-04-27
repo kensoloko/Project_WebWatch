@@ -23,9 +23,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def edit
-   # @brands = Brand.all
     @list_brands = Brand.all.map { |list| [list.name, list.id] }
-    # @categories = Category.all
     @list_categories = Category.all.map { |list| [list.name, list.id] }
   end
 

@@ -241,6 +241,7 @@ en:
       prompt: "Are you sure you wish to delete "
       confirm_delete: "Yes, Delete This "
       cancel_delete: "No, Please Don't"
+      belongto: "belong to "
   checkout:
     index:
       checkout: "CHECKOUT"

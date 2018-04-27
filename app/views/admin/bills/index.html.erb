@@ -1,10 +1,10 @@
 <% provide :title, t("admin.bills.headline") %>
-<% provide :page_headline, t("admin.bills.headline") %>
+<% provide :page_headline, '<i class="fa fa-shopping-cart"></i>&nbspBills'.html_safe %>
 <div class="page-title">
   <div class="title_left">
     <h3>
       <%= yield :page_headline %>
-      <%= link_to '<i class="class="glyphicon-class"></i>&nbspExport CSV'.html.safe , admin_bills_path(format: "xls"), class: "btn btn-primary" %>
+      <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>&nbsp Export CSV'.html_safe , admin_bills_path(format: "xls"), class: "btn btn-primary" %>
     </h3>
   </div>
   <div class="title_right">
