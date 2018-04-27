@@ -118,6 +118,10 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    icheck-rails (1.0.2.2)
+      jquery-rails
+      rails (>= 3.1.0)
+      sass-rails
     inflecto (0.0.2)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -280,6 +284,7 @@ DEPENDENCIES
   faker
   figaro (~> 1.1, >= 1.1.1)
   font-awesome-rails (~> 4.7, >= 4.7.0.4)
+  icheck-rails (~> 1.0, >= 1.0.2.2)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
   kaminari (~> 1.1, >= 1.1.1)

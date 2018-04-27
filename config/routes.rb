@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :products
   resources :comments
   get "/admin", to: "admin/base#index"
+
   namespace :admin do
     get "/login", to: "session_admin#new"
     post "/login", to: "session_admin#create"
@@ -26,8 +27,9 @@ Rails.application.routes.draw do
     resources :bills
     resources :users
     resources :rates
-    resources :comments, :brands, :categories, :product_images do
+    resources :comments, :brands, :categories, :product_images, :products do
       get "remove"
     end
   end
+  delete "/admin/brands/destroy_multiple", to: "admin/brands#destroy_multiple"
 end

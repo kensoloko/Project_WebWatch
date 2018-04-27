@@ -1,16 +1,21 @@
 <div class="modal-dialog">
   <div class="modal-content">
   <div class="modal-header">
-    <h3>Delete Brand</h3>
+    <h3><i class="glyphicon glyphicon-trash"></i>
+    <%= t "admin.buttons.delete" %> <%= t "admin.buttons.brand" %></h3>
   </div>
   <div class="modal-body">
   <ul class="errors"></ul>
-    Are you sure you wish to delete <b><%= @brand.name %></b>?
+    <p class= "delete_promt" >
+      <%= t("admin.buttons.prompt")%><b><%= @brand.name %></b>?
+    </p>
   </div>
   <div class="modal-footer">
-    <%= link_to "Yes, Delete This Product", admin_brand_path(@brand),
+    <%= link_to '<i class="glyphicon glyphicon-ok"></i>&nbsp
+      Yes, delete this'.html_safe, admin_brand_path(@brand),
       method: :delete, remote: true, class: "btn btn-danger" %>
-    <%= link_to "No, Please Don't", "#", class: "btn btn-default",
+    <%= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp
+      No, please don\'t'.html_safe, "#", class: "btn btn-info",
       data: {dismiss: "modal"} %>
   </div>
   </div>

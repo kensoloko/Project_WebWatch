@@ -1,4 +1,9 @@
-<div class="modal-header">
-  <h3>New Category</h3>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="glyphicon glyphicon-folder-close"></i>&nbsp
+        <%= t "admin.buttons.new" %> <%= t "admin.buttons.category" %></h3>
+    </div>
+    <%= render "form" %>
+  </div>
 </div>
-<%= render "form" %>

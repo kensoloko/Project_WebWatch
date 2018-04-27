@@ -16,7 +16,8 @@ class Admin::BrandsController < Admin::BaseController
     @brand = Brand.create brand_params
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     @brand.update_attributes brand_params
@@ -30,6 +31,13 @@ class Admin::BrandsController < Admin::BaseController
   def destroy
     @brand.destroy
     @brands = Brand.all
+  end
+
+  def destroy_multiple
+    if params[:brand_ids]
+      Brand.where(id: params[:brand_ids]).destroy_all
+    end
+    render :index
   end
 
   private

@@ -2,8 +2,8 @@
   <div class="title_left">
     <h3>
       <%= yield :page_headline %> &nbsp
-      <%= link_to "Create" , yield(:url), remote: true,
-        class: "btn btn-primary" %>
+      <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe,
+       yield(:url), remote: true, class: "btn btn-primary" %>
     </h3>
   </div>
   <div class="title_right">

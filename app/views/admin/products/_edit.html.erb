@@ -1,4 +1,10 @@
-<div class="modal-header">
-  <h3><%= "Editing #{@product.name}" %></h3>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fa fa-suitcase"></i>&nbsp
+        <%= t "admin.buttons.edit" %> <%= @product.name %></h3>
+    </div>
+    <%= render "form" %>
+  </div>
 </div>
-<%= render "form" %>
+

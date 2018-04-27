@@ -1,4 +1,3 @@
-<div class="modal-dialog">
   <div class="modal-content">
     <%= form_for [:admin, @bill], remote: true,
       html: {style: "display:inline;"} do |f| %>
@@ -11,9 +10,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= f.submit class: "btn btn-primary" %>
-        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+        <%= button_tag type: f.submit ,class: "btn btn-primary btn-size-default" do %>
+          <i class="glyphicon glyphicon-ok"></i>
+        <% end %>
+        <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe, "#", class: "btn btn-danger btn-size-default", data: {dismss: "modal"} %>
       </div>
     <% end %>
   </div>
-</div>

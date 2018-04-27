@@ -1,5 +1,6 @@
 <% provide :title, t("admin.brands.headline") %>
-<% provide :page_headline, t("admin.brands.headline") %>
+<% provide :page_headline, '<i class="fa fa-institution"></i>&nbspBrands
+   Manager'.html_safe %>
 <% provide :url, new_admin_brand_path %>
 <%= render "admin/shared/headline" %>
 <div class="clearfix">
@@ -11,24 +12,35 @@
             width="100%">
             <thead>
               <tr>
-                <th><%= t "admin.id" %></th>
+                <th class= "table-action-column"></th>
+                <th class= "table-action-column"></th>
+                <th class= "table-action-column">
+                  <%= check_box_tag "check_all", "check_all", false,
+                  class: "check_all icheckbox_flat-green" %>
+                </th>
                 <th><%= t "admin.brands.name" %></th>
-                <th><%= t "admin.brands.descript" %></th>
-                <th>&nbsp</th>
-                <th>&nbsp</th>
               </tr>
             </thead>
             <tbody id="brands" class="product-index">
               <%= render "index" %>
             </tbody>
           </table>
+          <%#= form_tag url: {controller: admin_brands, action: destroy_multiple}, data: {confirm: "Are you sure?"}, method: :delete do %>
+          <%#= submit_tag "Delete selected items", class: "btn btn-danger" %>
+          <%# end %>
+          <%= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp Delete selected items'.html_safe, "#", class: "btn btn-danger", method: :delete %>
+        </div>
+        <div id="product-modal" class="modal fade" role="dialog">
         </div>
       </div>
     </div>
   </div>
 </div>
-<div id="product-modal" class="modal fade"></div>
-  <script>
-    var table = $("#tblBrands").dataTable();
-  </script>
-
+</div>
+<script>
+  $("#tblBrands").dataTable();
+  $(document).on("click", ".check_all", function(e) {
+    $(".brand-delete").prop("checked", !this.checked);
+    $(".brand-delete").click();
+  });
+</script>

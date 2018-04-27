@@ -4260,3 +4260,18 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 .image_size {
     width: 50px;
 }
+
+.delete_promt {
+    font-size: 16px;
+}
+
+.table-action-column {
+    width:  50px;
+}
+
+.txt-area-content {
+    height: 100px !important;
+}
+.btn-size-default {
+    width: 100px;
+}

@@ -1,11 +1,10 @@
 <% provide :title, t("admin.bills.headline") %>
-<% provide :page_headline, t("admin.bills.headline") %>
+<% provide :page_headline, '<i class="fa fa-shopping-cart"></i>&nbspBills'.html_safe %>
 <div class="page-title">
   <div class="title_left">
     <h3>
       <%= yield :page_headline %>
-      <%= link_to "Export CSV" , admin_bills_path(format: "xls"),
-        class: "btn btn-primary" %>
+      <%= link_to '<i class="glyphicon glyphicon-list-alt"></i>&nbsp Export CSV'.html_safe , admin_bills_path(format: "xls"), class: "btn btn-primary" %>
     </h3>
   </div>
   <div class="title_right">
@@ -21,10 +20,10 @@
           cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th><%= t "admin.id" %></th>
+              <th class= "text-center table-action-column"></th>
+              <th class= "text-center table-action-column"></th>
               <th><%= t "admin.bills.user_name" %></th>
               <th><%= t "admin.bills.status" %></th>
-              <th>&nbsp</th>
             </tr>
           </thead>
           <tbody id="bills" class="product-index">

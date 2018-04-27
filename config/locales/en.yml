@@ -231,6 +231,17 @@ en:
     session_admin:
       new:
         login: "Log in"
+    buttons:
+      brand: " Brand"
+      new: " New"
+      create: "Create"
+      edit: "Edit"
+      delete: " Delete"
+      cancel: "Cancel"
+      prompt: "Are you sure you wish to delete "
+      confirm_delete: "Yes, Delete This "
+      cancel_delete: "No, Please Don't"
+      belongto: "belong to "
   checkout:
     index:
       checkout: "CHECKOUT"
@@ -249,6 +260,7 @@ en:
       signup_to_checkout: "Please sign up to checkout"
   bills:
     bill:
+      ofbill: "\'s bill"
       bill_status_1: "Unpaid"
       bill_status_2: "Not delivered"
       bill_status_3: "Delivered"

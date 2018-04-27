@@ -14,8 +14,8 @@
  *= require bootstrap
  *= require style
  *= require memenu
+ *= require font-awesome
  *= require flexslider
  *= require custom.scss
  *= require livesearch.scss
  */
- @import "font-awesome";

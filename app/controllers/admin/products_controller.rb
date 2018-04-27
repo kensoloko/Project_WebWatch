@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :load_product, only: %i(show edit)
+  before_action :load_product, only: %i(show edit update remove)
   def index
     @products = Product.all
   end
@@ -9,8 +9,8 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def new
-    @brands = Brand.all
-    @categories = Category.all
+    @list_brands = Brand.all.map { |list| [list.name, list.id] }
+    @list_categories = Category.all.map { |list| [list.name, list.id] }
     @product = Product.new
     @product_image = @product.product_images.build
   end
@@ -23,8 +23,8 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def edit
-    @brands = Brand.all
-    @categories = Category.all
+    @list_brands = Brand.all.map { |list| [list.name, list.id] }
+    @list_categories = Category.all.map { |list| [list.name, list.id] }
   end
 
   def update
@@ -33,12 +33,20 @@ class Admin::ProductsController < Admin::BaseController
     else
       flash[:warning] = t ".fail"
     end
+    load_products
   end
+
+  def remove
+    @product = Product.find_by id: params[:product_id]
+  end
+
   private
   def load_product
     @product = Product.find_by id: params[:id]
   end
-
+  def load_products
+    @products = Product.all
+  end
   def product_params
     params.require(:product).permit :name, :price, :quantity,
       :description, :content, :brand_id, :category_id,
