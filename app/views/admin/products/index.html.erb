@@ -1,5 +1,6 @@
 <% provide :title, t("admin.products.headline") %>
-<% provide :page_headline, t("admin.products.headline") %>
+<% provide :page_headline, '<i class="fa fa-database"></i>&nbspProducts
+   Manager'.html_safe %>
 <% provide :url, new_admin_product_path %>
 <%= render "admin/shared/headline" %>
 <div class="clearfix">

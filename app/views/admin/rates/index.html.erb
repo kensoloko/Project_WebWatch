@@ -1,5 +1,6 @@
 <% provide :title, t("admin.ratings.headline") %>
-<% provide :page_headline, t("admin.ratings.headline") %>
+<% provide :page_headline, '<i class="glyphicon glyphicon-star-empty"></i>&nbsp
+   Rates'.html_safe %>
 <div class="page-title">
   <div class="title_left">
     <h3>
@@ -18,7 +19,6 @@
             width="100%">
             <thead>
               <tr>
-                <th><%= t "admin.id" %></th>
                 <th><%= t "admin.products.name" %></th>
                 <th><%= t "admin.users.name" %></th>
                 <th><%= t "admin.raitngs.value" %></th>
