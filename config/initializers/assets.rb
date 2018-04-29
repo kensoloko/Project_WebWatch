@@ -1,6 +1,7 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(index_responsiveslides.js)
 Rails.application.config.assets.precompile += %w(imagezoom.js)
+Rails.application.config.assets.precompile += %w(bill.js)
 Rails.application.config.assets.precompile += %w(jquery.flexslider.js)
 Rails.application.config.assets.precompile += %w(flexslider.css)
 Rails.application.config.assets.precompile += %w(single_animation.js)
