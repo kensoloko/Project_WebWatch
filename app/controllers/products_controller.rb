@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show rate)
 
-  def show; end
+  def show
+    save_product @product
+    #render html: session_products.length
+  end
 
   def index
     @products = Product.includes(:product_images).references(:product_images).page params[:page]

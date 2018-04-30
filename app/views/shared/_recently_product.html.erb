@@ -1,0 +1,24 @@
+<div class="latestproducts">
+  <h3><strong>Recently viewed products</strong></h3>
+  <div class="product-one">
+    <% session_products.each do |p| %>
+    <div class="col-md-3 product-left">
+      <div class="product-main simpleCart_shelfItem">
+        <%= link_to "/products/#{p[:id]}", class: "mask" do %>
+        <%= image_tag p[:first_image], class: "zoom-img",
+        size: Settings.img_size %>
+        <div class="product-bottom">
+          <h3><%= p[:name] %></h3>
+          <p><%= truncate p[:description], length: 30, separator: " " %></p>
+          <h4>
+            <i></i>
+            <span class="item_price"><%= p[:price] %></span>
+          </h4>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>

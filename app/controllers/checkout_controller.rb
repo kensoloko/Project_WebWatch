@@ -4,7 +4,15 @@ class CheckoutController < ApplicationController
   def create
     array = []
     cart_params.each do |x|
-      array << {product_id: x[:product_id], quantity: x[:quantity]}
+      product = Product.find_by id: x[:product_id]
+      if product && product.quantity >= x[:quantity].to_i
+        product.update_attributes quantity: (product.quantity - x[:quantity].to_i)
+        array << {product_id: x[:product_id], quantity: x[:quantity]}
+      else
+        flash.now[:error] = t ".fail"
+        render :index
+        return
+      end
     end
     bill = current_user.bills.new status: 1, bill_details_attributes: array
     if bill.save
