@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def show; end
 
   def index
-    @products = Product.page params[:page]
+    @products = Product.includes(:product_images).references(:product_images).page params[:page]
     respond_to do |format|
       format.html
       format.js

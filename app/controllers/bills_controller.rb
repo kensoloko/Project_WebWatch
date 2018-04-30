@@ -39,6 +39,7 @@ class BillsController < ApplicationController
   end
 
   def load_bills
-    @bills = @user.bills.status(params[:status]).time(params[:time])
+    @bills = @user.bills.includes(bill_details: [product: :product_images])
+      .references(:bill_details).status(params[:status]).time(params[:time])
   end
 end
