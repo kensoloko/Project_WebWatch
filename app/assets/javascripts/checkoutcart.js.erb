@@ -97,8 +97,14 @@ var app = new Vue({
     increment: function(p){
       if(p.quantity < 10)
       {
-        p.quantity += 1;
-        this.load();
+        if(p.maxqty < p.quantity + 1)
+          swal("info","The number of products left in the store is " + p.maxqty
+            ,"info");
+        else
+        {
+          p.quantity += 1;
+          this.load();
+        }
       }
       else
         swal("info","Sorry, you can only purchase certain products","info");
@@ -117,6 +123,12 @@ var app = new Vue({
       {
         p.quantity = 1;
         swal("info","Sorry, product number should be greater than 0","info");
+      }
+      else if (parseInt(p.maxqty) < p.quantity)
+      {
+        p.quantity = p.maxqty;
+        swal("info","The number of products left in the store is " + p.maxqty
+            ,"info");
       }
       else if (p.quantity > 10){
         p.quantity = 10;
