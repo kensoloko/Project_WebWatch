@@ -243,7 +243,9 @@ en:
       prompt: "Are you sure you wish to delete "
       confirm_delete: "Yes, Delete This "
       cancel_delete: "No, Please Don't"
+      deletes: " Delete Selected Items"
       belongto: "belong to "
+      prompt2: "Are you sure to delete these records?"
     flash:
       create: "A new Record has been created"
       delete: "A record has been deleted"

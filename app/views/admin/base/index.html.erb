@@ -3,19 +3,68 @@
 <div class="clearfix">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
-        <div class="x_content">
-          <div class="page-title">
-            <div class="title_left">
-              <h3>
-                <%= yield :page_headline %> &nbsp
-              </h3>
-            </div>
-            <div class="title_right">
-            </div>
+      <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-users"></i></div>
+            <div class="count"><%= User.total %></div>
+            <h3>Total users</h3>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-dropbox"></i></div>
+            <div class="count"><%= Product.total %></div>
+            <h3>Total products</h3>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+            <div class="count"><%= Bill.today %></div>
+            <h3>Order quantities today</h3>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-usd"></i></div>
+            <div class="count"><%= BillDetail.total_money %></div>
+            <h3>Total money all time</h3>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Buys and revenue charts <small>(Default: this month)</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content row" style="display: block;">
+      <div class="col-md-9" id="chart" style="max-width:1000px; max-height:600px">
+        <%= render "data_chart" %>
+      </div>
+      <div class="col-md-3">
+        <%= form_for :index, remote: true do |f| %>
+        <div class="row form-group">
+          <%= f.label :start %>
+          <%= f.date_field :start, class: "form-control" %>
+        </div>
+        <div class="row form-group">
+          <%= f.label :finish %>
+          <%= f.date_field :finish, class: "form-control" %>
+        </div>
+        <div class="row">
+          <%= f.submit "Load", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>

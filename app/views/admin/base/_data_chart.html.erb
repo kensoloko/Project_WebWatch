@@ -1,0 +1,7 @@
+<canvas id="mixed-chart" width="1000" height="600">
+<% @data_chart.each do |b| %>
+<span class="chart-data" day="<%= b.day %>" buys="<%= b.count %>">
+  <%= b.money %>
+</span>
+<% end %>
+</canvas>

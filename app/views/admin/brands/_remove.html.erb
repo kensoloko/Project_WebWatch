@@ -7,7 +7,10 @@
   <div class="modal-body">
   <ul class="errors"></ul>
     <p class= "delete_promt" >
-      <%= t("admin.buttons.prompt")%><b><%= @brand.name %></b>?
+      <%= t("admin.buttons.prompt")%><b><%= @brand.name %></b>
+    </p>
+    <p class= "delete_promt">
+      <%= @brand.delete_warning_text %>
     </p>
   </div>
   <div class="modal-footer">
