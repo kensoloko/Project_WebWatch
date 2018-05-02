@@ -20,17 +20,16 @@
                 </th>
                 <th><%= t "admin.products.name" %></th>
                 <th><%= t "admin.brands.name" %></th>
-                <th><%= t "admin.categories.name" %></th>
+                <th><%= t "admin.categories.cName" %></th>
                 <th><%= t "admin.products.price" %></th>
                 <th><%= t "admin.products.image" %></th>
                 <th><%= t "admin.products.quantity" %></th>
               </tr>
             </thead>
             <tbody id="products" class="product-index">
-              <%= render @products %>
+              <%= render "index" %>
             </tbody>
           </table>
-          <%#= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp Delete selected items'.html_safe, "#", class: "btn btn-danger", method: :delete %>
         </div>
       </div>
     </div>

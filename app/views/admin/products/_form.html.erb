@@ -37,8 +37,8 @@
           <%= f.fields_for :product_images do |p| %>
           <div class="field">
             <%= p.label :image %><br>
-            <%= p.file_field :image, multiple: true,
-                name: "product[product_images_attributes][][image]",
+            <%= f.file_field :image, multiple: true,
+                name: "product_images[image][]",
                 class: "upload-image", id: "files" %>
           </div>
           <% end %>
@@ -48,7 +48,8 @@
       </div>
       <div class="modal-footer">
         <%= button_tag type: f.submit ,
-          class: "btn btn-primary btn-size-default" do %>
+          class: "btn btn-primary btn-size-default", id: "btnsubmit",
+              method: :create do %>
           <i class="glyphicon glyphicon-ok"></i>
         <% end %>
         <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe,

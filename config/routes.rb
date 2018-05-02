@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   get "/rate/:id/:value", to: "products#rate"
   get "search(/:search)", to: "search#index", as: :search
   delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
-  resources :users
+  resources :users do
+    resources :bills
+  end
   resources :products
   resources :comments
   get "/admin", to: "admin/base#index"
-
+  post "/admin", to: "admin/base#index"
   namespace :admin do
     get "/login", to: "session_admin#new"
     post "/login", to: "session_admin#create"
@@ -30,6 +32,12 @@ Rails.application.routes.draw do
     resources :comments, :brands, :categories, :product_images, :products do
       get "remove"
     end
+
+    resources :brands do
+      collection do
+        post "delete_multiple"
+      end
+    end
+
   end
-  delete "/admin/brands/destroy_multiple", to: "admin/brands#destroy_multiple"
 end
