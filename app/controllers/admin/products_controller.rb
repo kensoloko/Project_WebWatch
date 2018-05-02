@@ -16,9 +16,17 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def create
+    byebug
     @product = Product.new product_params
-
-    if @product.save
+    respond_to do |format|
+      if @product.save(product_params)
+        params[:product_images]['image'].each do |a|
+          @product_image = @product.product_images.create!(:image =>a)
+        end
+        format.html{redirect_to admin_products_path, notice: "Success" }
+      else
+        format.html {render :new}
+      end
     end
   end
 
@@ -26,12 +34,20 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
-    @product.update_attributes product_params
-    #   flash[:success] = t ".success"
-    # else
-    #   flash[:warning] = t ".fail"
-    # end
-     redirect_to admin_products_path
+    respond_to do |format|
+      if @product.update(product_params)
+        i = 0
+        params[:product_images]['image'].each do |a|
+          @product_image = @product.product_images[i]
+            .update_attributes(:image => a)
+          i+=1
+        end
+        format.html {redirect_to admin_products_path,
+          notice: 'Item was successfully updated.'}
+      else
+        format.html {render :edit}
+      end
+    end
   end
 
   def remove
@@ -63,7 +79,6 @@ class Admin::ProductsController < Admin::BaseController
   def product_params
     params.require(:product).permit :name, :price, :quantity,
       :description, :content, :brand_id, :category_id,
-      product_images_attributes: [:id, :image]
+      product_images_attributes: [:id, :product_id, :image]
   end
-
 end

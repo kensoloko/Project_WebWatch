@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get "/rate/:id/:value", to: "products#rate"
   get "search(/:search)", to: "search#index", as: :search
   delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
-  resources :users
+  resources :users do
+    resources :bills
+  end
   resources :products
   resources :comments
   get "/admin", to: "admin/base#index"

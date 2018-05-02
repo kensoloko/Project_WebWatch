@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   default_scope {order created_at: :desc}
-  validates :name, presence: true,
+  validates :name, uniqueness: true, presence: true,
     length: {maximum: Settings.max_length}, uniqueness: true
   validates :price, :quantity, presence: true, numericality: true
   validates :content, :description, presence: true

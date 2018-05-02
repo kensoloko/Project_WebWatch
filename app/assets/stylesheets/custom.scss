@@ -311,3 +311,79 @@ div.cart{
   }
 }
 
+.bill-manage{
+  padding: 30px 0px;
+  background: #ddd;
+  h1{
+    box-sizing: border-box;
+    background: #333;
+    padding: 10px 15px;
+    color: white;
+  }
+  .table{
+    .status{
+      background: white;
+      position: sticky;
+      top: 0;
+      box-shadow: 0px 1px 5px rgba(100,100,100,0.5);
+      z-index: 1;
+      box-sizing: border-box;
+      height: 50px;
+      line-height: 50px;
+      text-indent: 15px;
+      margin: 0;
+      select{
+        outline: none;
+        border: none;
+        display: inline-block;
+        background: white;
+        height: 50px;
+        padding-left: 10px;
+        &:hover{
+          background: #eee;
+        }
+      }
+    }
+    .tbills{
+      padding-top: 10px;
+      .head{
+        box-sizing: border-box;
+        background: #333;
+        color: white;
+        margin: 0px;
+        .stick{
+          text-transform: uppercase;
+          background: lightblue;
+        }
+        &>div{
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+      }
+      .bill-details{
+        background: white;
+        .row{
+          border-bottom: 1px solid #ddd;
+          padding: 15px 0px;
+        }
+      }
+      .cancel{
+        .row{
+        margin: 0px 0px 10px 0px;
+          .stick-red{
+            padding: 15px 0px;
+            background: red;
+            transition: all 1s ease;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+            &:hover{
+              transform: scale(1.2,1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}

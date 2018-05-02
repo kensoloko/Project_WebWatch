@@ -1,19 +1,23 @@
 class CheckoutController < ApplicationController
-  def index
-    unless logged_in?
-      @user = User.new;
-    end
-  end
+  def index; end
 
   def create
     array = []
     cart_params.each do |x|
-      array << {product_id: x[:product_id], quantity: x[:quantity]}
+      product = Product.find_by id: x[:product_id]
+      if product && product.quantity >= x[:quantity].to_i
+        product.update_attributes quantity: (product.quantity - x[:quantity].to_i)
+        array << {product_id: x[:product_id], quantity: x[:quantity]}
+      else
+        flash.now[:error] = t ".fail"
+        render :index
+        return
+      end
     end
     bill = current_user.bills.new status: 1, bill_details_attributes: array
     if bill.save
       flash[:success] = t "checkouted"
-      redirect_to current_user
+      redirect_to user_bills_path current_user
     else
       flash.now[:error] = t ".fail"
       render :index
