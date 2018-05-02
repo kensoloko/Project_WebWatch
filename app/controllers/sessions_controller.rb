@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :check_login, only: :new
   def new; end
 
   def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = t ".login"
       redirect_back fallback_location: user
     else
-      flash.now[:error] = t ".invalid"
+      #flash.now[:error] = t ".invalid"
       render :new
     end
   end
@@ -17,5 +18,13 @@ class SessionsController < ApplicationController
     log_out
     flash[:success] = t ".logout"
     redirect_to root_url
+  end
+
+  private
+
+  def check_login
+    if logged_in?
+      redirect_to current_user
+    end
   end
 end

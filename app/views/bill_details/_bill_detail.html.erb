@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag bill_detail.product.first_image, size: "80x100" %>
+  </div>
+  <div class="col-md-6">
+    <%= bill_detail.product.name %>
+  </div>
+  <div class="col-md-2">
+    $ <%= bill_detail.product.price %>
+  </div>
+  <div class="col-md-2">
+    Qty: <%= bill_detail.quantity %>
+  </div>
+</div>

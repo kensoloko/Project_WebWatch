@@ -1,0 +1,34 @@
+<% provide :title, "Bill manage" %>
+<div class="bill-manage" id="bill">
+  <div class="container">
+    <header>
+      <h1>Bill Manage</h1>
+    </header>
+    <div class="table">
+      <div class="row status">
+        <div class="col-md-2">Status:</div>
+        <div class="col-md-2">
+        <%= select_tag :status,options_for_select(
+        [["ALL",""],
+        ["UNPAID","1"],
+        ["NOT DELIVERED","2"],
+        ["DELIVERED","3"],
+        ["PAID","4"],
+        ["ABORT","5"]]), id: "select_status" %>
+        </div>
+        <div class="col-md-2">
+        <%= select_tag :status,options_for_select(
+        [["5 TIMES RECENTLY",""],
+        ["ALL TIMES","1"],
+        ["THIS MONTH","2"],
+        ["LAST 6 MONTHS","3"],
+        ["THIS YEAR","4"]]), id: "select_times" %>
+        </div>
+      </div>
+      <div class="tbills">
+        <%= render @bills %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "bill" %>
