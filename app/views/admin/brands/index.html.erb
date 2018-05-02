@@ -8,6 +8,7 @@
     <div class="col_-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_content">
+          <%= form_tag delete_multiple_admin_brands_path do %>
           <table id="tblBrands" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
             width="100%">
             <thead>
@@ -25,10 +26,11 @@
               <%= render "index" %>
             </tbody>
           </table>
-          <%#= form_tag url: {controller: admin_brands, action: destroy_multiple}, data: {confirm: "Are you sure?"}, method: :delete do %>
-          <%#= submit_tag "Delete selected items", class: "btn btn-danger" %>
-          <%# end %>
-          <%= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp Delete selected items'.html_safe, "#", class: "btn btn-danger", method: :delete %>
+            <%= button_tag(type: "submit", class: "btn btn-danger",
+            data: {confirm: "Are you sure to delete these brands?"}) do %>
+             <i class="glyphicon glyphicon-remove"></i> Delete Selected Items
+            <% end %>
+          <% end %>
         </div>
         <div id="product-modal" class="modal fade" role="dialog">
         </div>
@@ -39,6 +41,7 @@
 </div>
 <script>
   $("#tblBrands").dataTable();
+
   $(document).on("click", ".check_all", function(e) {
     $(".brand-delete").prop("checked", !this.checked);
     $(".brand-delete").click();

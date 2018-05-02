@@ -4,6 +4,7 @@
 //= require admin/nprogress
 //= require admin/icheck
 //= require admin/jquery.dataTables
+//= require admin/chart
 //= require admin/dataTables.bootstrap
 //= require admin/dataTables.buttons
 //= require admin/buttons.bootstrap
@@ -18,5 +19,7 @@
 //= require admin/vfs_fonts
 //= require admin/custom
 //= require admin/flash_hidden
+//= require sweetalert.min
+//= require admin/custom-confirm-dialog
 //= require rails-ujs
 //= require turbolinks
