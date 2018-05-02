@@ -4,6 +4,7 @@
 //= require admin/nprogress
 //= require admin/icheck
 //= require admin/jquery.dataTables
+//= require admin/chart
 //= require admin/dataTables.bootstrap
 //= require admin/dataTables.buttons
 //= require admin/buttons.bootstrap

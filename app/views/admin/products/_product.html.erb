@@ -1,4 +1,4 @@
-<% @products.each do |product| %>
+
   <tr>
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe , edit_admin_product_path(product), remote: true , class: "btn btn-info" %>
@@ -22,4 +22,4 @@
     </td>
     <td><%= product.quantity %></td>
   </tr>
-<% end %>
+

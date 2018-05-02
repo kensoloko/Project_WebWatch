@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :products
   resources :comments
   get "/admin", to: "admin/base#index"
-
+  post "/admin", to: "admin/base#index"
   namespace :admin do
     get "/login", to: "session_admin#new"
     post "/login", to: "session_admin#create"

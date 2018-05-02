@@ -1976,7 +1976,67 @@ $(document).on('turbolinks:load', function(){
   					enabled: false
   				};
 
-
+          // if ($('#mixed-chart').length){
+          //   var arr = document.getElementsByClassName("chart-data");
+          //   var days = [];
+          //   var moneys = [];
+          //   var count = [];
+          //   for(var i = 0; i < arr.length; i++)
+          //   {
+          //     days.push(arr[i].getAttribute('day'));
+          //     count.push(arr[i].getAttribute('buys'));
+          //     moneys.push(arr[i].innerHTML.trim());
+          //   }
+          //   console.log(moneys);
+          //   console.log(days);
+          //   new Chart(document.getElementById("mixed-chart"), {
+          //     type: 'bar',
+          //     data: {
+          //       labels: days,
+          //       datasets: [{
+          //         label: "Buys",
+          //         type: "line",
+          //         borderColor: "#8e5ea2",
+          //         data: count,
+          //         fill: false,
+          //         yAxisID: "first"
+          //       },{
+          //         label: "Money",
+          //         type: "bar",
+          //         backgroundColor: "rgba(0,0,0,0.2)",
+          //         backgroundColorHover: "#3e95cd",
+          //         data: moneys,
+          //         yAxisID: "second"
+          //       }
+          //       ]
+          //     },
+          //     options: {
+          //       title: {
+          //         display: true,
+          //         text: 'Buys and revenue'
+          //       },
+          //       legend: { display: false },
+          //       scales: {
+          //         yAxes: [{
+          //           id: 'first',
+          //           type: 'linear',
+          //           position: 'left',
+          //           ticks: {
+          //             stepSize: 1,
+          //             min: 0
+          //           }
+          //         }, {
+          //           id: 'second',
+          //           type: 'linear',
+          //           position: 'right',
+          //           ticks: {
+          //             min: 0
+          //           }
+          //         }]
+          //       }
+          //     }
+          //   });
+          // }
 
   			if ($('#canvas_line').length ){
 
@@ -5005,9 +5065,7 @@ $(document).on('turbolinks:load', function(){
 
   		}
 
-
   	$(document).ready(function() {
-
   		init_sparklines();
   		init_flot_chart();
   		init_sidebar();
@@ -5026,9 +5084,9 @@ $(document).on('turbolinks:load', function(){
   		init_daterangepicker_reservation();
   		init_SmartWizard();
   		init_EasyPieChart();
-  		init_charts();
-  		init_echarts();
-  		init_morris_charts();
+  		data_chart();
+      init_echarts();
+      init_morris_charts();
   		init_skycons();
   		init_select2();
   		init_validator();
@@ -5042,8 +5100,71 @@ $(document).on('turbolinks:load', function(){
   		init_CustomNotification();
   		init_autosize();
   		init_autocomplete();
-
   	});
 
 
 });
+
+window.data_chart = function(){
+  if ($('#mixed-chart').length){
+    var arr = document.getElementsByClassName("chart-data");
+    var days = [];
+    var moneys = [];
+    var count = [];
+    for(var i = 0; i < arr.length; i++)
+    {
+      days.push(arr[i].getAttribute('day'));
+      count.push(arr[i].getAttribute('buys'));
+      moneys.push(arr[i].innerHTML.trim());
+    }
+    console.log(moneys);
+    console.log(days);
+    new Chart(document.getElementById("mixed-chart"), {
+      type: 'bar',
+      data: {
+        labels: days,
+        datasets: [{
+          label: "Buys",
+          type: "line",
+          borderColor: "#8e5ea2",
+          data: count,
+          fill: false,
+          yAxisID: "first"
+        },{
+          label: "Money",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.2)",
+          backgroundColorHover: "#3e95cd",
+          data: moneys,
+          yAxisID: "second"
+        }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Buys and revenue'
+        },
+        legend: { display: false },
+        scales: {
+          yAxes: [{
+            id: 'first',
+            type: 'linear',
+            position: 'left',
+            ticks: {
+              stepSize: 1,
+              min: 0
+            }
+          }, {
+            id: 'second',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              min: 0
+            }
+          }]
+        }
+      }
+    });
+  }
+}
