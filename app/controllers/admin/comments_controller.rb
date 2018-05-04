@@ -23,11 +23,8 @@ class Admin::CommentsController < Admin::BaseController
 
   def destroy
     @comment.destroy
-    oad_categories
+    load_comments
     flash.now[:success] = t "admin.flash.delete"
-    if @comments.nil?
-      redirect_to admin_comments_path
-    end
   end
 
  def delete_multiple
