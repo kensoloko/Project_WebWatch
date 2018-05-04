@@ -1,9 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :load_category, except: %i(index new)
+  before_action :load_category, only: %i(edit update destroy)
+  before_action :load_categories, only: %i(index create update delete_multiple)
+  after_action :load_categories, only: %i(create update destroy delete_multiple)
 
-  def index
-    @categories = Category.all
-  end
+  def index; end
 
   def show; end
 
@@ -13,14 +13,22 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.create category_params
-    @categories = Category.all
+    if @category.save
+      flash.now[:success] = t "admin.flash.create"
+    else
+      flash.now[:warning] = t "admin.flash.create_fail"
+    end
   end
 
   def edit; end
 
   def update
     @category.update_attributes category_params
-    @categories = Category.all
+    if @category.save
+      flash.now[:success] = t "admin.flash.update"
+    else
+      flash.now[:dangeer] = t "admin.flash.update_fail"
+    end
   end
 
   def remove
@@ -29,13 +37,64 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy
-    @categories = Category.all
+    load_categories
+    flash.now[:success] = t "admin.flash.delete"
+    if @categories.nil?
+      redirect_to admin_categories_path
+    end
+  end
+
+  def delete_multiple
+    if params[:category_ids].present?
+      @selected_categories = Category.where(id: params[:category_ids])
+      result = check_valid_delete_mutiple_action @selected_categories
+
+      if result[0] == 0
+        @selected_categories.each do |selected_category|
+          selected_category.destroy
+        end
+        flash[:success] = "Success to delete these records"
+      else
+        flash[:error] = "Unable to delete these categoies because " + result[2] +
+          "has some products belong to bill details . "
+      end
+    else
+      flash[:warning] = "Nothing to delete"
+    end
+    redirect_to admin_categories_path
+  end
+
+  def check_valid_delete_mutiple_action categories
+    result = []
+    invalid_categories = []
+    invalid_categories_string = ""
+    f = 0
+
+    categories.each do |category|
+      if category.check_valid_delete_action[0] == 1
+        f = 1
+        invalid_categories.push(category)
+      end
+    end
+
+    invalid_categories.each do |invalid_category|
+      invalid_categories_string += (invalid_category.name + " ")
+    end
+
+    result.push(f)
+    result.push(invalid_categories)
+    result.push(invalid_categories_string)
+    return result
   end
 
   private
 
   def load_category
     @category = Category.find_by id: params[:id]
+  end
+
+  def load_categories
+    @categories = Category.all
   end
 
   def category_params

@@ -32,6 +32,12 @@ Rails.application.routes.draw do
     resources :comments, :brands, :categories, :product_images, :products do
       get "remove"
     end
+
+    resources :brands, :categories, :comments, :products do
+      collection do
+        post "delete_multiple"
+      end
+    end
+
   end
-  delete "/admin/brands/destroy_multiple", to: "admin/brands#destroy_multiple"
 end

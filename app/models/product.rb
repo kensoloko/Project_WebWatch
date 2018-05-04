@@ -6,8 +6,9 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
   belongs_to :category
   belongs_to :brand
-  validates :name, presence: true,
-    length: {maximum: Settings.max_length}, uniqueness: true
+  default_scope {order created_at: :desc}
+  validates :name, uniqueness: true, presence: true,
+    length: {maximum: Settings.max_length}
   validates :price, :quantity, presence: true, numericality: true
   validates :content, :description, presence: true
 
