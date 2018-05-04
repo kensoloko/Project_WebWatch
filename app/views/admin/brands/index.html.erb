@@ -27,8 +27,9 @@
             </tbody>
           </table>
             <%= button_tag(type: "submit", class: "btn btn-danger",
-            data: {confirm: "Are you sure to delete these brands?"}) do %>
-             <i class="glyphicon glyphicon-remove"></i> Delete Selected Items
+            data: {confirm: t("admin.buttons.prompt2")}) do %>
+             <i class="glyphicon glyphicon-remove"></i>
+             <%= t "admin.buttons.deletes"%>
             <% end %>
           <% end %>
         </div>

@@ -27,10 +27,10 @@ class Bill < ApplicationRecord
       limit(5)
     end
   end
+
   scope :today, -> do
     where("created_at between ? and ?",
       Date.today.beginning_of_day,
       Date.today.end_of_day).count("*")
   end
-
 end

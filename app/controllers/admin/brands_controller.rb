@@ -1,7 +1,8 @@
 class Admin::BrandsController < Admin::BaseController
   before_action :load_brand, only: %i(edit update destroy)
   before_action :load_brands, only: %i(index create update delete_multiple)
-  after_action :load_brands, only: %i(create update destroy)
+  after_action :load_brands, only: %i(create update destroy delete_multiple)
+
   def index; end
 
   def show; end
@@ -45,13 +46,15 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def delete_multiple
-    @selected_brands = Brand.where(id: params[:brand_ids])
-    if @selected_brands.nil?
-      flash.now[:warning] = "Nothing to delete"
-    else
+
+    if params[:brand_ids].present?
+      @selected_brands = Brand.where(id: params[:brand_ids])
       @selected_brands.each do |selected_brand|
         selected_brand.destroy
       end
+      flash[:success] = t "success_delete"
+    else
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_brands_path
   end

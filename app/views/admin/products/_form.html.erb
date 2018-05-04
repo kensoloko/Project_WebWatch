@@ -37,13 +37,17 @@
           <%= f.fields_for :product_images do |p| %>
           <div class="field">
             <%= p.label :image %><br>
-            <%= f.file_field :image, multiple: true,
+            <label class="btn btn-default">
+              <%= t "admin.products.Add_images" %>
+              <span style="display:none;">
+              <%= p.file_field :image, multiple: true,
                 name: "product_images[image][]",
                 class: "upload-image", id: "files" %>
+            </label>
           </div>
           <% end %>
           <div id="preview"></div>
-        </div>
+          </div>
 
       </div>
       <div class="modal-footer">

@@ -22,7 +22,7 @@ class Admin::ProductsController < Admin::BaseController
       params[:product_images]["image"].each do |a|
         @product_image = @product.product_images.create!(:image =>a)
       end
-      redirect_to admin_products_path, success: "Success"
+      redirect_to admin_products_path, success: t("Success")
     else
       flash.now[:error] = t "admin.flash.create_fail"
     end
@@ -35,13 +35,13 @@ class Admin::ProductsController < Admin::BaseController
     respond_to do |format|
       if @product.update(product_params)
         i = 0
-        params[:product_images]['image'].each do |a|
+        params[:product_images]["image"].each do |a|
           @product_image = @product.product_images[i]
             .update_attributes(:image => a)
           i+=1
         end
         format.html {redirect_to admin_products_path,
-          notice: 'Item was successfully updated.'}
+          notice: t("update_success")}
       else
         format.html {render :edit}
       end

@@ -11,6 +11,15 @@ en:
   Checkout: "Checkout"
   noresult: "No results for"
   note: "Please choose images before add product"
+  You_cant_delete: "You can't delete"
+  log_remove: "This brand contains some products : "
+  log_remove2: "which have relation with bills details ."
+  warning_text: "This brand has some products . Delete this brand also
+    remove all its products . Are you sure "
+  success_delete: "Success to delete these records"
+  nothing_delete: "Nothing to delete"
+  Success: "Success"
+  update_success: "Item was successfully updated."
   bills:
     bill:
       cancel: Cancel
@@ -243,7 +252,9 @@ en:
       prompt: "Are you sure you wish to delete "
       confirm_delete: "Yes, Delete This "
       cancel_delete: "No, Please Don't"
+      deletes: " Delete Selected Items"
       belongto: "belong to "
+      prompt2: "Are you sure to delete these records?"
     flash:
       create: "A new Record has been created"
       delete: "A record has been deleted"

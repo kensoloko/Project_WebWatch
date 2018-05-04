@@ -6,7 +6,12 @@
   </div>
   <div class="modal-body">
   <ul class="errors"></ul>
-    <%= t("admin.buttons.prompt")%><b><%= @category.name %></b>?
+    <p class= "delete_promt">
+      <%= t("admin.buttons.prompt")%><b><%= @category.name %></b>?
+    </p>
+    <p class= "delete_promt">
+      <%= @category.delete_warning_text %>
+    </p>
   </div>
   <div class="modal-footer">
     <%= link_to '<i class="glyphicon glyphicon-ok"></i>&nbsp
