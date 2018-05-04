@@ -7,7 +7,7 @@ $("ul.errors").html("")
   <% flash.each do |message_type, message| %>
     swal("<%= message_type %>!", "<%= message %>", "<%= message_type %>");
   <% end %>
-  <% if @categories.nil? %>
+  <% if @comments.nil? %>
     <% redirect_to admin_comments_path %>
   <% else %>
     $(".product-index").html("<%= j render "admin/comments/index" %>")

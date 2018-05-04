@@ -50,13 +50,44 @@ class Admin::CategoriesController < Admin::BaseController
   def delete_multiple
     if params[:category_ids].present?
       @selected_categories = Category.where(id: params[:category_ids])
-      @selected_categories.each do |selected_categorie|
-        selected_categorie.destroy
+      result = check_valid_delete_mutiple_action @selected_categories
+
+      if result[0] == 0
+        @selected_categories.each do |selected_category|
+          selected_category.destroy
+        end
+        flash[:success] = "Success to delete these records"
+      else
+        flash[:error] = "Unable to delete these categoies because " + result[2] +
+          "has some products belong to bill details . "
       end
     else
-      flash[:warning] = "nothing_delete"
+      flash[:warning] = "Nothing to delete"
     end
     redirect_to admin_categories_path
+  end
+
+  def check_valid_delete_mutiple_action categories
+    result = []
+    invalid_categories = []
+    invalid_categories_string = ""
+    f = 0
+
+    categories.each do |category|
+      if category.check_valid_delete_action[0] == 1
+        f = 1
+        invalid_categories.push(category)
+      end
+    end
+
+    invalid_categories.each do |invalid_category|
+      invalid_categories_string += (invalid_category.name + " ")
+    end
+
+    result.push(f)
+    result.push(invalid_categories)
+    result.push(invalid_categories_string)
+    return result
   end
 
   private

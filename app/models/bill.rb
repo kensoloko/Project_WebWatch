@@ -27,10 +27,28 @@ class Bill < ApplicationRecord
       limit(5)
     end
   end
-
   scope :today, -> do
     where("created_at between ? and ?",
       Date.today.beginning_of_day,
       Date.today.end_of_day).count("*")
   end
+  scope :spending_desc, -> {joins(bill_details: :product)
+    .where("bills.status = 4 and bills.created_at between ? and ?",
+      1.month.ago.beginning_of_month,
+      1.month.ago.end_of_month)
+    .select("user_id, sum(products.price * bill_details.quantity) as 'money',
+      count(distinct bills.id) as 'count'")
+    .group(:user_id)}
+  scope :tops, -> {unscoped.spending_desc.joins(:user)
+    .order("money desc").select("users.*").limit(5)}
+  scope :status_statistics_last, ->{group(:status)
+    .where("bills.created_at between ? and ?",
+      1.month.ago.beginning_of_month,
+      1.month.ago.end_of_month)
+    .count("*")}
+  scope :status_statistics_now, ->{group(:status)
+    .where("bills.created_at between ? and ?",
+      Date.today.beginning_of_month,
+      Date.today.end_of_month)
+    .count("*")}
 end

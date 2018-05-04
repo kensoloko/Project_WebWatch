@@ -4275,3 +4275,7 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 .btn-size-default {
     width: 100px;
 }
+
+.top-profile{
+    padding: 6px !important;
+}

@@ -40,8 +40,8 @@ class Admin::ProductsController < Admin::BaseController
             .update_attributes(:image => a)
           i+=1
         end
-        format.html {redirect_to admin_products_path,
-          notice: t("update_success")}
+        redirect_to admin_products_path,
+          notice: t("update_success")
       else
         format.html {render :edit}
       end
@@ -58,6 +58,48 @@ class Admin::ProductsController < Admin::BaseController
     if @products.nil?
       redirect_to admin_products_path
     end
+  end
+
+  def delete_multiple
+    if params[:product_ids].present?
+      @selected_products = Product.where(id: params[:product_ids])
+      result = check_valid_delete_mutiple_action @selected_products
+
+      if result[0] == 0
+        @selected_products.each do |selected_product|
+          selected_product.destroy
+        end
+        flash[:success] = "Success to delete these records"
+      else
+        flash[:error] = "Unable to delete these product because " + result[2] +
+          " belong to bill details . "
+      end
+    else
+      flash[:warning] = "Nothing to delete"
+    end
+    redirect_to admin_products_path
+  end
+
+  def check_valid_delete_mutiple_action products
+    result = []
+    invalid_products = []
+    invalid_products_string = ""
+    flag = 0
+
+    products.each do |product|
+      if product.bill_details.present?
+        flag = 1
+        invalid_products.push(product)
+      end
+    end
+
+    invalid_products.each do |invalid_product|
+      invalid_products_string += (invalid_product.name + " ")
+    end
+
+    result.push(flag)
+    result.push(invalid_products)
+    result.push(invalid_products_string)
   end
 
   private

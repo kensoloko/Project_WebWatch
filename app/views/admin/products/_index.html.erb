@@ -15,6 +15,12 @@
       <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe,
          product_path(product), class: "btn btn-info", target: "_blank"%>
     </td>
+    <td>
+      <div class="icheckbox_flat-green checked table-action-column">
+        <%= check_box_tag "product_ids[]", product.id, false,
+          class: "icheckbox_flat-green checked product-delete" %>
+      </div>
+    </td>
     <td><%= product.name %></td>
     <td><%= product.brand.name %></td>
     <td><%= product.category.name %></td>
