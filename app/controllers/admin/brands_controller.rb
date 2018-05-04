@@ -2,6 +2,7 @@ class Admin::BrandsController < Admin::BaseController
   before_action :load_brand, only: %i(edit update destroy)
   before_action :load_brands, only: %i(index create update delete_multiple)
   after_action :load_brands, only: %i(create update destroy delete_multiple)
+
   def index; end
 
   def show; end
@@ -50,6 +51,7 @@ class Admin::BrandsController < Admin::BaseController
       @selected_brands.each do |selected_brand|
         selected_brand.destroy
       end
+      flash[:success] = "Success to delete these records"
     else
       flash[:warning] = "Nothing to delete"
     end

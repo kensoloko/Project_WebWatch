@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       get "remove"
     end
 
-    resources :brands do
+    resources :brands, :categories, :comments do
       collection do
         post "delete_multiple"
       end

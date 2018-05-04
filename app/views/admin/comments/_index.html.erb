@@ -3,6 +3,12 @@
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, admin_comment_remove_path(comment), remote: true, class: "btn btn-danger" %>
     </td>
+    <td>
+      <div class="icheckbox_flat-green checked table-action-column">
+        <%= check_box_tag "comment_ids[]", comment.id, false,
+          class: "icheckbox_flat-green checked comment-delete" %>
+      </div>
+    </td>
     <td><%= comment.product.name %></td>
     <td><%= comment.user.name %></td>
     <td><%= comment.content %></td>

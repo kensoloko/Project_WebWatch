@@ -12,9 +12,8 @@
         <%= render "/layouts/admin/menu" %>
         <div class="right_col" role="main">
           <div id= "flash_message" class="container">
-            <%= render partial: "layouts/admin/flash", flash: flash %>
+            <%= render "layouts/admin/flash" %>
           </div>
-
           <%= yield %>
         </div>
       </div>

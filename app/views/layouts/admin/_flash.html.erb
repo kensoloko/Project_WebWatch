@@ -1,5 +1,6 @@
-<% flash.each do |type, message| %>
-<div class="alert <%= flash_class_for(type) %>" role="alert">
-  <%= message %>
-</div>
+<% flash.each do |message_type, message| %>
+  <script type="text/javascript">
+    swal("<%= message_type %>!", "<%= message %>", "<%= message_type %>");
+  </script>
 <% end %>
+
