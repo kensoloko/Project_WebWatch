@@ -18,5 +18,8 @@
 //= require admin/pdfmake
 //= require admin/vfs_fonts
 //= require admin/custom
+//= require admin/flash_hidden
+//= require sweetalert.min
+//= require admin/custom-confirm-dialog
 //= require rails-ujs
 //= require turbolinks

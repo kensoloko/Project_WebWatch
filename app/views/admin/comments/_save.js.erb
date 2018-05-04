@@ -4,6 +4,13 @@ $("ul.errors").html("")
     $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
-  $(".product-index").html("<%= j render "admin/comments/index" %>")
+  <% flash.each do |message_type, message| %>
+    swal("<%= message_type %>!", "<%= message %>", "<%= message_type %>");
+  <% end %>
+  <% if @comments.nil? %>
+    <% redirect_to admin_comments_path %>
+  <% else %>
+    $(".product-index").html("<%= j render "admin/comments/index" %>")
+  <% end %>
   $("#product-modal").modal("hide")
 <% end %>

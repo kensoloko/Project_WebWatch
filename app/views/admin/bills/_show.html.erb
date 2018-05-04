@@ -1,28 +1,42 @@
-<div class="clearfix">
-  <div class="row">
-    <div class="col_-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
-        <div class="x_content">
-          <table id="tblBills"
-          class="table table-striped table-bordered dt-responsive nowrap"
-          cellspacing="0" width="100%">
-          <thead>
-            <tr>
-              <th><%= t "admin.id" %></th>
-              <th><%= t ".product_name" %></th>
-              <th><%= t ".price" %></th>
-              <th><%= t ".quantity" %></th>
-              <th><%= t ".total" %></th>
-            </tr>
-          </thead>
-          <tbody id="bills" class="product-index">
-            <%= render @bill.bill_details %>
-          </tbody>
-        </table>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="glyphicon glyphicon-folder-close"></i>&nbsp
+        <%= @bill.user.name %>
+        <%= t "bills.bill.ofbill"%></h3>
+    </div>
+    <div class="row">
+      <div class="col_-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <table id="tblBills"
+              class="table table-striped table-bordered dt-responsive nowrap"
+              cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th><%= t ".product_name" %></th>
+                  <th><%= t ".price" %></th>
+                  <th><%= t ".quantity" %></th>
+                  <th><%= t ".total" %></th>
+                </tr>
+              </thead>
+              <%# @bill.bill_details.each do |bill_detail|%>
+              <tbody id="bills" class="product-index">
+                <%= render @bill.bill_details %>
+                <!-- <tr>
+                  <td><%#= bill_detail.product.name %></td>
+                  <td><%#= bill_detail.product.price %></td>
+                  <td><%#= bill_detail.quantity %></td>
+                  <td><%#= bill_detail.quantity * @bill.bill_detail.product.price %></td>
+                </tr> -->
+              </tbody>
+              <%# end %>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <div id="product-modal" class="modal fade"></div>
 <script>

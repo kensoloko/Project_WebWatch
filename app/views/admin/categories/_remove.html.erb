@@ -4,17 +4,40 @@
     <h3><i class="glyphicon glyphicon-trash"></i>
       <%= t "admin.buttons.delete" %> <%= t "admin.buttons.category" %></h3>
   </div>
+  <% if @category.check_valid_delete_action[0] == 0 %>
   <div class="modal-body">
   <ul class="errors"></ul>
-    <%= t("admin.buttons.prompt")%><b><%= @category.name %></b>?
+    <p class= "delete_promt">
+      <%= t("admin.buttons.prompt")%><b><%= @category.name %></b>?
+    </p>
+    <p class= "delete_promt">
+      <%= @category.delete_warning_text %>
+    </p>
   </div>
   <div class="modal-footer">
     <%= link_to '<i class="glyphicon glyphicon-ok"></i>&nbsp
       Yes, delete this'.html_safe, admin_category_path(@category),
       method: :delete, remote: true, class: "btn btn-danger" %>
     <%= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp
-      No, please don\'t'.html_safe, "#", class: "btn btn-default",
+      No, please don\'t'.html_safe, "#", class: "btn btn-info",
       data: {dismiss: "modal"} %>
   </div>
+  <% else %>
+   <div class="modal-body">
+    <ul class="errors"></ul>
+    <p class= "delete_promt" >
+      You can't delete <b><%= @category.name %></b>
+    </p>
+    <p class= "delete_promt">
+      This category contains some products : <%= @category.check_valid_delete_action[2]%>
+      which have relation with bills details .
+    </p>
+  </div>
+  <div class="modal-footer">
+    <%= link_to '<i class="glyphicon glyphicon-remove"></i>&nbsp
+      No, please don\'t'.html_safe, "#", class: "btn btn-info",
+      data: {dismiss: "modal"} %>
+  </div>
+  <% end %>
   </div>
 </div>
