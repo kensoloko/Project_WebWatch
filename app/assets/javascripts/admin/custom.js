@@ -5100,10 +5100,52 @@ $(document).on('turbolinks:load', function(){
   		init_CustomNotification();
   		init_autosize();
   		init_autocomplete();
+      pie_chart();
   	});
 
 
 });
+
+window.pie_chart = function(){
+  if ($('#pie-chart-last').length && $('#pie-chart-now').length){
+    var obj = JSON.parse($('#pie-chart-last span').html());
+    var arr = Object.keys(obj).map(function (key) { return obj[key]; });
+    new Chart(document.getElementById("pie-chart-last"), {
+      type: 'pie',
+      data: {
+        labels: ["Unpaid", "Not deliverd", "Deliverd", "Paid", "Abort"],
+        datasets: [{
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: arr
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Bill status last month'
+        }
+      }
+    });
+    var obj = JSON.parse($('#pie-chart-now span').html());
+    var arr = Object.keys(obj).map(function (key) { return obj[key]; });
+    new Chart(document.getElementById("pie-chart-now"), {
+      type: 'pie',
+      data: {
+        labels: ["Unpaid", "Not deliverd", "Deliverd", "Paid", "Abort"],
+        datasets: [{
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: arr
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Bill status this month'
+        }
+      }
+    });
+  }
+}
 
 window.data_chart = function(){
   if ($('#mixed-chart').length){

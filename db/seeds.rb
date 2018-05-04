@@ -1,11 +1,7 @@
-20.times do
-  fakephone = "0962"
-  d = rand(1.months).second.ago
-  6.times{fakephone << rand(9).to_s}
-  User.create name: Faker::HarryPotter.character,
-    address: Faker::HarryPotter.location,
-    email: Faker::Internet.email, phone: fakephone,
-    password: "123123",
-    password_confirmation: "123123",
-    created_at: d, updated_at: d
+1000.times do
+  d = rand(6.months).second.ago
+  bill = Bill.create(user_id: rand(1..20), status: rand(1..5), created_at: d, updated_at: d)
+  rand(1..5).times do
+    bill.bill_details.create(product_id: rand(2..7), quantity: rand(1..10), created_at: d, updated_at: d)
+  end
 end

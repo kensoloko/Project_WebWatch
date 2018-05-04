@@ -18,7 +18,6 @@ class User < ApplicationRecord
 
   scope :total, -> {count("*")}
 
-
   def bills_order
     self.bills.order(:status).limit(5)
   end
