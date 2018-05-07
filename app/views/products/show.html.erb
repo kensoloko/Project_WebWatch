@@ -23,29 +23,42 @@
           </div>
           <div class="col-md-7 single-top-right">
             <div class="single-para simpleCart_shelfItem">
-              <div class="item_pid" style="display:none;"><%= @product.id %></div>
-              <div class="item_image" style="display:none;"><%= @product.first_image %></div>
-              <div class="item_maxqty" style="display:none;"><%= @product.quantity %></div>
-              <h2 class="item_name"><%= @product.name %></h2>
+              <div class="item_pid" style="display:none;">
+                <%= @product.id %>
+              </div>
+              <div class="item_image" style="display:none;">
+                <%= @product.first_image %>
+              </div>
+              <div class="item_maxqty" style="display:none;">
+                <%= @product.quantity %>
+              </div>
+              <h2 class="item_name">
+                <%= @product.name %>
+              </h2>
               <div class="star-on">
                 <div id="pid">
                   <%= @product.id %>
                 </div>
                 <div class="rating-stars text-center">
                   <ul id="stars">
-                    <li class="star" title="Poor" data-value="1" data-user="<%= session[:user_id] %>">
+                    <li class="star" title="Poor" data-value="1"
+                      data-user="<%= session[:user_id] %>">
                       <i class="fa fa-star fa-fw"></i>
                     </li>
-                    <li class="star" title="Fair" data-value="2" data-user="<%= session[:user_id] %>">
+                    <li class="star" title="Fair" data-value="2"
+                      data-user="<%= session[:user_id] %>">
                       <i class="fa fa-star fa-fw"></i>
                     </li>
-                    <li class="star" title="Good" data-value="3" data-user="<%= session[:user_id] %>">
+                    <li class="star" title="Good" data-value="3"
+                      data-user="<%= session[:user_id] %>">
                       <i class="fa fa-star fa-fw"></i>
                     </li>
-                    <li class="star" title="Excellent" data-value="4" data-user="<%= session[:user_id] %>">
+                    <li class="star" title="Excellent" data-value="4"
+                      data-user="<%= session[:user_id] %>">
                       <i class="fa fa-star fa-fw"></i>
                     </li>
-                    <li class="star" title="WOW!!!" data-value="5" data-user="<%= session[:user_id] %>">
+                    <li class="star" title="WOW!!!" data-value="5"
+                      data-user="<%= session[:user_id] %>">
                       <i class="fa fa-star fa-fw"></i>
                     </li>
                   </ul>
@@ -102,7 +115,9 @@
             <li class="item2">
               <%= link_to "#" do %>
               <%= image_tag("arrow.png") %>
-              <%=  t(".review") %> <span id="count_comment">(<%= @product.comments.size %>)</span>
+              <%=  t(".review") %> <span id="count_comment">
+                (<%= @product.comments.size %>)
+              </span>
               <% end %>
               <ul>
                 <li class="subitem1" id="comments">

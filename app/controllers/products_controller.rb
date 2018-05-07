@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.includes(:product_images).references(:product_images).page params[:page]
+    @products = Product.includes(:product_images)
+      .references(:product_images).page params[:page]
     respond_to do |format|
       format.html
       format.js
@@ -45,6 +46,22 @@ class ProductsController < ApplicationController
       respond_to do |format|
         format.html{render html: "false"}
       end
+    end
+  end
+
+  def search
+    @products = Product.ransack(name_cont: params[:q])
+      .result(distinct: true)
+    @brands = Brand.ransack(name_cont: params[:q])
+      .result(distinct: true)
+    respond_to do |format|
+      format.html{
+
+      }
+      format.json{
+        @products = @products.limit(5)
+        @brands = @brands.limit(5)
+      }
     end
   end
 

@@ -1,4 +1,5 @@
 en:
+  brand_not_found: "Brand not found"
   create_success: "Create success"
   cancel_bill_success: "Cancel Bill Success"
   bill_not_found: "Bill Not Found"
@@ -32,7 +33,7 @@ en:
       hot: "Hot"
       sale: "Sale"
       contact: "Contact"
-      Search: "Search..."
+      Search: "Search"
       S: ""
     footer:
       follow_us: "Follow Us"
@@ -105,7 +106,12 @@ en:
       tel: "Tel:01689219785,"
       fax: "Fax:190-4509-494"
       C_email: "kensoloko@gmail.com"
+  brands:
+    index:
+      Brands: "Brands"
   products:
+    search:
+      Search: "Search"
     products:
       products: "Products"
       smart_watch: "Smart Watches"

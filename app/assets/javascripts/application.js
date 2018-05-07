@@ -19,3 +19,5 @@
 //= require responsiveslides.min
 //= require sweetalert.min
 //= require custom
+//= require jquery.easy-autocomplete
+//= require search.js
