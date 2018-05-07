@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
         format.html
         format.js
       end
-
     when "hot"
       @products = Product.hots.page params[:page]
       respond_to do |format|

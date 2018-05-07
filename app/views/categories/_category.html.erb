@@ -1,0 +1,7 @@
+<div class="latestproducts">
+  <h3><strong><%= link_to category.name, category %></strong></h3>
+  <div class="product-one">
+    <%= render category.products.limit(4) %>
+    <div class="clearfix"></div>
+  </div>
+</div>

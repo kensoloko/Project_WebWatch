@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'category/index'
+
+  get 'category/show'
+
   root "products#index"
   get "/new", to: "products#fillter", status: "new"
   get "/hot", to: "products#fillter", status: "hot"
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
   resources :products
   resources :comments
   resources :brands
+  resources :categories
   get "/admin", to: "admin/base#index"
   post "/admin", to: "admin/base#index"
   namespace :admin do
