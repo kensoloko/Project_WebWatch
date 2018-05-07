@@ -52,6 +52,8 @@ class ProductsController < ApplicationController
       .result(distinct: true)
     @brands = Brand.ransack(name_cont: params[:q])
       .result(distinct: true)
+    @categories = Category.ransack(name_cont: params[:q])
+      .result(distinct: true)
     respond_to do |format|
       format.html{
 
@@ -59,6 +61,7 @@ class ProductsController < ApplicationController
       format.json{
         @products = @products.limit(5)
         @brands = @brands.limit(5)
+        @categories = @categories.limit(5)
       }
     end
   end

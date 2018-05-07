@@ -2,10 +2,56 @@
 <div class="prdt">
 <div class="container">
 <div class="prdt-top">
+<h1 class="text-center"><%= t ".Search" %></h1>
   <div class="col-md-12 prdt-left">
     <div class="product-top">
       <div class="product-one">
-        <%= render @products %>
+        <% if @products.present? %>
+          <h2 class="text-left"><%= t ".Product" %></h2>
+          <%= render @products %>
+        <% end %>
+        <div class="clearfix"></div>
+        <% if @brands.present? %>
+          <h2 class="text-left"><%= t ".Brand" %></h2>
+            <div class="container">
+            <div class="row">
+              <% @brands.each do |brand| %>
+                <div class="col-md-3 product-left width-box">
+                  <div class="product-main simpleCart_shelfItem">
+                    <%= link_to brand, class: "mask" do %>
+                    <div class="product-bottom">
+                      <h3><%= brand.name %></h3>
+                      <p><%= truncate brand.description, length: 30,
+                        separator: " " %></p>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            </div>
+        <% end %>
+        <div class="clearfix"></div>
+        <% if @categories.present? %>
+          <h2 class="text-left"><%= t ".Category" %></h2>
+            <div class="container">
+            <div class="row">
+              <% @categories.each do |category| %>
+                <div class="col-md-3 product-left width-box">
+                  <div class="product-main simpleCart_shelfItem">
+                    <%= link_to category, class: "mask" do %>
+                    <div class="product-bottom">
+                      <h3><%= category.name %></h3>
+                      <p><%= truncate category.description, length: 30,
+                        separator: " " %></p>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            </div>
+        <% end %>
       </div>
       <div class="clearfix"></div>
     </div>

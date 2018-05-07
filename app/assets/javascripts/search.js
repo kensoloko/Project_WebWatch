@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function(){
-  $input = $("[data-behavior='autocomplete']");
+  $input = $("#search");
   var options = {
     getValue: "name",
     url: function(phrase){
@@ -8,22 +8,23 @@ document.addEventListener("turbolinks:load", function(){
     categories: [
       {
         listLocation: "products",
-        header: "<strong>Products</strong>"
-       }
-      // {
-      //   listLocation: "brands",
-      //   header: "<strong>Brands</strong>",
-      // }
+        header: "<strong>--Products--</strong>"
+       },
+      {
+        listLocation: "brands",
+        header: "<strong>--Brands--</strong>",
+      },
+      {
+        listLocation: "categories",
+        header: "<strong>--Categories--</strong>",
+      },
     ],
     list: {
       onChooseEvent: function(){
         var url = $input.getSelectedItemData().url
-        console.log(url)
-        $input.val("")
-        Turbolinks.visit(url)
+        window.location.href = url
       }
     }
   }
   $input.easyAutocomplete(options)
-
 });
