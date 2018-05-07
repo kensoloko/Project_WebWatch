@@ -22,8 +22,6 @@ class SessionsController < ApplicationController
   private
 
   def check_login
-    if logged_in?
-      redirect_to current_user
-    end
+    redirect_to current_user if logged_in?
   end
 end

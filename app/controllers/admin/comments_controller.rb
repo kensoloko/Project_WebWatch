@@ -27,7 +27,7 @@ class Admin::CommentsController < Admin::BaseController
     flash.now[:success] = t "admin.flash.delete"
   end
 
- def delete_multiple
+  def delete_multiple
     if params[:comment_ids].present?
       @selected_comments = Comment.where(id: params[:comment_ids])
       @selected_comments.each do |selected_comment|

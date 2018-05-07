@@ -5,16 +5,15 @@
       <div class="col-md-9">
         <div class="row head">
           <div class="col-md-7">
-            <span class="simpleCart_quantity"></span> products
+            <span class="simpleCart_quantity"></span> <%= t ".products" %>
           </div>
           <div class="col-md-2">
-            Price
+            <%= t "Price" %>
           </div>
           <div class="col-md-3">
-            Quantity
+            <%= t "Quantity" %>
           </div>
         </div>
-
         <div class="items">
           <div class="row" v-for="p in items">
             <div class="col-md-7">
@@ -24,9 +23,15 @@
                 </div>
                 <div class="col-md-8">
                   <h3>{{p.name}}</h3>
-                  <p><i>{{p.brand}}</i></p>
-                  <p><i>{{p.category}}</i></p>
-                  <p><i class="fa fa-trash fa-2x" v-on:click="remove(p)"></i></p>
+                  <p>
+                    <i>{{p.brand}}</i>
+                  </p>
+                  <p>
+                    <i>{{p.category}}</i>
+                  </p>
+                  <p>
+                    <i class="fa fa-trash fa-2x" v-on:click="remove(p)"></i>
+                  </p>
                 </div>
               </div>
             </div>
@@ -35,7 +40,8 @@
             </div>
             <div class="col-md-3 quantity">
               <span id="increment" v-on:click="increment(p)">+</span>
-              <input id="quantity" v-model="p.quantity" type="number" max="10" min="1" v-on:change="quantity(p)">
+              <input id="quantity" v-model="p.quantity" type="number" max="10"
+                min="1" v-on:change="quantity(p)">
               <span id="decrement" v-on:click="decrement(p)">-</span>
             </div>
           </div>
@@ -43,27 +49,31 @@
       </div>
       <div class="col-md-3 bill-info">
         <div class="row">
-          <h3 class="col-md-12">Bill informations</h3>
+          <h3 class="col-md-12"><%= t "bill_information" %></h3>
           <div class="col-md-6">Total: </div>
           <div class="col-md-6 text-right">
             <span class="simpleCart_total"></span>
           </div>
           <% if logged_in? %>
             <div class="col-md-6">
-              <a href="javascript:;" class="simpleCart_checkout bg-success">CHECKOUT</a>
+              <a href="javascript:;" class="simpleCart_checkout bg-success">
+                <%= t ".checkout" %>
+              </a>
             </div>
           <% else %>
             <div class="col-md-6">
-              <a href="#" class="bg-info" data-toggle="modal" data-target="#myModal">
-              LOG IN
+              <a href="#" class="bg-info" data-toggle="modal"
+                data-target="#myModal">
+                <%= t "login" %>
               </a>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <div class="modal-content col-md-8 col-md-offset-3">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Log in</h4>
+                    <button type="button" class="close"
+                      data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><%= t "login" %></h4>
                   </div>
                   <%= form_for :session, url: login_url do |f| %>
                   <div class="modal-body">
@@ -71,11 +81,12 @@
                     <p><%= f.text_field :email %></p>
                     <p><%= f.label :password %></p>
                     <p><%= f.password_field :password %></p>
-                    <p><%= link_to " Create an account?", signup_url %></p>
+                    <p><%= link_to t("crete_an_account"), signup_url %></p>
                   </div>
                   <div class="modal-footer">
-                    <%= f.submit "Log in" %>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <%= f.submit t("login"), class: "btn btn-primary" %>
+                    <button type="button" class="btn btn-primary"
+                      data-dismiss="modal"><%= t "close" %></button>
                   </div>
                   <% end %>
                 </div>
@@ -88,7 +99,7 @@
   </div>
   <div class="container-fluid" v-else>
     <h1 class="head">
-      There are 0 products in your cart, <%= link_to"Continue shopping...", root_url %>
+      <%= t "no_product" %><%= link_to"Continue shopping...", root_url %>
     </h1>
   </div>
 </div>

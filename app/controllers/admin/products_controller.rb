@@ -20,7 +20,7 @@ class Admin::ProductsController < Admin::BaseController
 
     if @product.save(product_params)
       params[:product_images]["image"].each do |a|
-        @product_image = @product.product_images.create!(:image =>a)
+        @product_image = @product.product_images.create! image: a
       end
       flash.now[:success] = t "admin.flash.create"
     else
@@ -32,19 +32,18 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
-      if @product.update(product_params)
-        i = 0
-        params[:product_images]["image"].each do |a|
-          @product_image = @product.product_images[i]
-            .update_attributes(:image => a)
-          i+=1
-        end if params[:product_images].present?
-        flash[:success] = t "update_success"
-        redirect_to admin_products_path
-      else
-        render :edit
-      end
-
+    if @product.update(product_params)
+      i = 0
+      params[:product_images]["image"].each do |a|
+        @product_image = @product.product_images[i]
+          .update_attributes image: a
+        i += 1
+      end if params[:product_images].present?
+      flash[:success] = t "update_success"
+      redirect_to admin_products_path
+    else
+      render :edit
+    end
   end
 
   def remove
@@ -55,9 +54,7 @@ class Admin::ProductsController < Admin::BaseController
     @product.destroy
     flash.now[:success] = t "admin.flash.delete"
     load_products
-    if @products.nil?
-      redirect_to admin_products_path
-    end
+    redirect_to admin_products_path if @products.nil?
   end
 
   def delete_multiple
@@ -65,7 +62,7 @@ class Admin::ProductsController < Admin::BaseController
       @selected_products = Product.where(id: params[:product_ids])
       result = check_valid_delete_mutiple_action @selected_products
 
-      if result[0] == 0
+      if (result[0]).zero?
         @selected_products.each do |selected_product|
           selected_product.destroy
         end
@@ -112,8 +109,8 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def load_combo_box
-    @list_brands = Brand.all.map {|list| [list.name, list.id]}
-    @list_categories = Category.all.map {|list| [list.name, list.id]}
+    @list_brands = Brand.all.map{|list| [list.name, list.id]}
+    @list_categories = Category.all.map{|list| [list.name, list.id]}
   end
 
   def product_params

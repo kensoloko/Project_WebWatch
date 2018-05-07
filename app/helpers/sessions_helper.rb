@@ -29,13 +29,16 @@ module SessionsHelper
       session[:products] = session_products
     end
     session[:products] << p
-    session[:products].uniq! {|x| x[:id]}
+    session[:products].uniq!{|x| x[:id]}
     session[:products].shift if session[:products].to_a.length > 4
   end
 
   def session_products
     session[:products].map do |h|
-      h = h.inject({}){|m,(k,v)| m[k.to_sym] = v; m}
+      h = h.reduce({}) do |m, (k, v)|
+        m[k.to_sym] = v
+        m
+      end
     end
   end
 

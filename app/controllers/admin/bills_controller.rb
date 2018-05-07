@@ -5,7 +5,7 @@ class Admin::BillsController < Admin::BaseController
     @bills = Bill.all
     respond_to do |format|
       format.html
-      format.xls { send_data @bills.to_xls(col_sep: "\t") }
+      format.xls{send_data @bills.to_xls(col_sep: "\t")}
     end
   end
 

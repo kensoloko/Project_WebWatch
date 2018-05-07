@@ -48,7 +48,7 @@ class Admin::BrandsController < Admin::BaseController
       @selected_brands = Brand.where(id: params[:brand_ids])
       result = check_valid_delete_mutiple_action @selected_brands
 
-      if result[0] == 0
+      if (result[0]).zero?
         @selected_brands.each do |selected_brand|
           selected_brand.destroy
         end
@@ -83,7 +83,7 @@ class Admin::BrandsController < Admin::BaseController
     result.push(f)
     result.push(invalid_brands)
     result.push(invalid_brands_string)
-    return result
+    result
   end
 
   private

@@ -41,9 +41,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category.destroy
     flash.now[:success] = t "admin.flash.delete"
     load_categories
-    if @categories.nil?
-      redirect_to admin_categories_path
-    end
+    redirect_to admin_categories_path if @categories.nil?
   end
 
   def delete_multiple
@@ -51,14 +49,14 @@ class Admin::CategoriesController < Admin::BaseController
       @selected_categories = Category.where(id: params[:category_ids])
       result = check_valid_delete_mutiple_action @selected_categories
 
-      if result[0] == 0
+      if (result[0]).zero?
         @selected_categories.each do |selected_category|
           selected_category.destroy
         end
         flash[:success] = t "success_delete"
       else
-        flash[:error] = t("admin.categories.multi_delete_message1") + result[2] +
-          t("admin.categories.multi_delete_message2")
+        flash[:error] = t("admin.categories.multi_delete_message1") + result[2]
+          + t("admin.categories.multi_delete_message2")
       end
     else
       flash[:warning] = t "nothing_delete"
@@ -86,7 +84,7 @@ class Admin::CategoriesController < Admin::BaseController
     result.push(f)
     result.push(invalid_categories)
     result.push(invalid_categories_string)
-    return result
+    result
   end
 
   private

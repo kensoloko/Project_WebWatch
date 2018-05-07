@@ -26,7 +26,6 @@ class CheckoutController < ApplicationController
   end
 
   private
-
   def cart_params
     arr = []
     params[:itemCount].to_i.times do |x|
