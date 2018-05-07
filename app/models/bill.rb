@@ -51,4 +51,13 @@ class Bill < ApplicationRecord
       Date.today.beginning_of_month,
       Date.today.end_of_month)
     .count("*")}
+
+    def total_price
+      # self.joins(bill_details: :product).sum("products.price * bill_details.quantity")
+      total = 0
+      self.bill_details.each do |bill_detail|
+        total += (bill_detail.product.price * bill_detail.quantity)
+      end
+      return total
+    end
 end

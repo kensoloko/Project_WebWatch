@@ -38,4 +38,8 @@ module SessionsHelper
       h = h.inject({}){|m,(k,v)| m[k.to_sym] = v; m}
     end
   end
+
+  def session_products?
+    session[:products].present?
+  end
 end

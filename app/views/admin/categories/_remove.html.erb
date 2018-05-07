@@ -11,7 +11,7 @@
       <%= t("admin.buttons.prompt")%><b><%= @category.name %></b>?
     </p>
     <p class= "delete_promt">
-      <%= @category.delete_warning_text %>
+      <%= @category.delete_warning_text if @category.delete_warning_text.present? %>
     </p>
   </div>
   <div class="modal-footer">
