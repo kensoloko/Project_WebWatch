@@ -221,10 +221,16 @@ en:
       success: "Edit Success"
       fail: "Edit Fail"
       Add_images: "Add Images"
+      multi_delete_message1: "Unable to delete these products because "
+      multi_delete_message2: " belong to bill details ."
     categories:
       headline: "Categories Manager"
       cName: "Category Name"
       descript: "Description"
+      multi_delete_message1: "Unable to delete these categories because "
+      multi_delete_message2: " has some products belong to bill details ."
+      warning_text: "This category has some products . Delete this brand also
+        remove all its products . Are you sure "
     users:
       headline: "Users Manager"
       name: "Username"
@@ -236,10 +242,16 @@ en:
       headline: "Brands Manager"
       name: "Brand Name"
       descript: "Description"
+      multi_delete_message1: "Unable to delete these brands because "
+      multi_delete_message2: " has some products belong to bill details ."
+      warning_text: "This brand has some products . Delete this brand also
+        remove all its products . Are you sure "
     bills:
       headline: "Bill Manager"
       status: "Status"
       user_name: user name
+      total_price: "Total price : "
+      create_time: "Created time : "
     comments:
       headline: "Comments"
     ratings:
@@ -268,6 +280,14 @@ en:
       create_fail: "Create failed"
       update_fail: "Update failed"
       delete_fail: "Delete failed"
+    base:
+      total_users: "Total Users"
+      total_products: "Total Product"
+      order_today: "Order quantities today"
+      total_money_all_time: "Total money all time"
+      buy_revenue: "Buys and revenue charts"
+      top_profiles: "Top Profiles"
+      bill_status: "Bills status"
   checkout:
     index:
       checkout: "CHECKOUT"

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'category/index'
-
-  get 'category/show'
-
   root "products#index"
   get "/new", to: "products#fillter", status: "new"
   get "/hot", to: "products#fillter", status: "hot"
@@ -22,29 +18,18 @@ Rails.application.routes.draw do
   resources :users do
     resources :bills
   end
-  resources :products
-  resources :comments
-  resources :brands
-  resources :categories
+  resources :products, :comments, :brands, :categories
   get "/admin", to: "admin/base#index"
   post "/admin", to: "admin/base#index"
   namespace :admin do
     get "/login", to: "session_admin#new"
     post "/login", to: "session_admin#create"
-    resources :products
-    resources :product_images
-    resources :bills
-    resources :users
-    resources :rates
+    resources :product_images, :products, :bills, :users, :rates
     resources :comments, :brands, :categories, :product_images, :products do
-      get "remove"
+      get "remove", on: :collection
     end
-
     resources :brands, :categories, :comments, :products do
-      collection do
-        post "delete_multiple"
-      end
+      post "delete_multiple", on: :collection
     end
-
   end
 end

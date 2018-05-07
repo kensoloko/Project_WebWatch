@@ -8,28 +8,28 @@
           <div class="tile-stats">
             <div class="icon"><i class="fa fa-users"></i></div>
             <div class="count"><%= User.total %></div>
-            <h3>Total users</h3>
+            <h3><%= t "admin.base.total_users" %></h3>
           </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
           <div class="tile-stats">
             <div class="icon"><i class="fa fa-dropbox"></i></div>
             <div class="count"><%= Product.total %></div>
-            <h3>Total products</h3>
+            <h3><%= t "admin.base.total_products" %></h3>
           </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
           <div class="tile-stats">
             <div class="icon"><i class="fa fa-shopping-cart"></i></div>
             <div class="count"><%= Bill.today %></div>
-            <h3>Order quantities today</h3>
+            <h3><%= t "admin.base.order_today"%></h3>
           </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
           <div class="tile-stats">
             <div class="icon"><i class="fa fa-usd"></i></div>
             <div class="count"><%= BillDetail.total_money %></div>
-            <h3>Total money all time</h3>
+            <h3><%= t "admin.base.total_money_all_time" %></h3>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
 
   <div class="x_panel">
     <div class="x_title">
-      <h2>Buys and revenue charts <small>(Default: this month)</small></h2>
+      <h2><%= t "admin.base.buy_revenue" %> <small>(Default: this month)</small></h2>
       <ul class="nav navbar-right panel_toolbox">
         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         </li>
@@ -71,7 +71,7 @@
     <div class="col-md-3">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Top Profiles</h2>
+          <h2><%= t "admin.base.top_profiles"%></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -96,28 +96,27 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="x_panel">
-        <div class="x_title">
-          <h2>Bills status</h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content pie-chart">
-          <div class="row">
-            <div class="col-md-6">
-              <canvas id="pie-chart-last" width="100" height="100">
-                <span><%= JSON.generate(Bill.status_statistics_last) %></span>
-              </canvas>
-            </div>
-            <div class="col-md-6">
-              <canvas id="pie-chart-now" width="100" height="100">
-                <span><%= JSON.generate(Bill.status_statistics_now) %></span>
-              </canvas>
-            </div>
+  <div class="col-md-6">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t "admin.base.bill_status"%></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content pie-chart">
+        <div class="row">
+          <div class="col-md-6">
+            <canvas id="pie-chart-last" width="100" height="100">
+              <span><%= JSON.generate(Bill.status_statistics_last) %></span>
+            </canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="pie-chart-now" width="100" height="100">
+              <span><%= JSON.generate(Bill.status_statistics_now) %></span>
+            </canvas>
           </div>
         </div>
       </div>

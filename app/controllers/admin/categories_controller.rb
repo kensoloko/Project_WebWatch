@@ -39,9 +39,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy
-    load_categories
     flash.now[:success] = t "admin.flash.delete"
-
     if @categories.nil?
       redirect_to admin_categories_path
     end
@@ -56,13 +54,13 @@ class Admin::CategoriesController < Admin::BaseController
         @selected_categories.each do |selected_category|
           selected_category.destroy
         end
-        flash[:success] = "Success to delete these records"
+        flash[:success] = t "success_delete"
       else
-        flash[:error] = "Unable to delete these categoies because " + result[2] +
-          "has some products belong to bill details . "
+        flash[:error] = t("admin.categories.multi_delete_message1") + result[2] +
+          t("admin.categories.multi_delete_message2")
       end
     else
-      flash[:warning] = "Nothing to delete"
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_categories_path
   end

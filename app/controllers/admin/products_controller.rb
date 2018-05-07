@@ -22,7 +22,7 @@ class Admin::ProductsController < Admin::BaseController
       params[:product_images]["image"].each do |a|
         @product_image = @product.product_images.create!(:image =>a)
       end
-      redirect_to admin_products_path, success: t("Success")
+      flash.now[:success] = t "admin.flash.create"
     else
       flash.now[:error] = t "admin.flash.create_fail"
     end
@@ -32,20 +32,19 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
-    respond_to do |format|
       if @product.update(product_params)
         i = 0
         params[:product_images]["image"].each do |a|
           @product_image = @product.product_images[i]
             .update_attributes(:image => a)
           i+=1
-        end
-        redirect_to admin_products_path,
-          notice: t("update_success")
+        end if params[:product_images].present?
+        flash[:success] = t "update_success"
+        redirect_to admin_products_path
       else
-        format.html {render :edit}
+        render :edit
       end
-    end
+
   end
 
   def remove
@@ -54,7 +53,8 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
-
+    flash.now[:success] = t "admin.flash.delete"
+    load_products
     if @products.nil?
       redirect_to admin_products_path
     end
@@ -69,13 +69,13 @@ class Admin::ProductsController < Admin::BaseController
         @selected_products.each do |selected_product|
           selected_product.destroy
         end
-        flash[:success] = "Success to delete these records"
+        flash[:success] = t "success_delete"
       else
-        flash[:error] = "Unable to delete these product because " + result[2] +
-          " belong to bill details . "
+        flash[:error] = t("admin.products.multi_delete_message1") + result[2] +
+          t("admin.products.multi_delete_message2")
       end
     else
-      flash[:warning] = "Nothing to delete"
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_products_path
   end

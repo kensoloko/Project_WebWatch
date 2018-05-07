@@ -40,9 +40,6 @@ class Admin::BrandsController < Admin::BaseController
     @brand.destroy
     load_brands
     flash.now[:success] = t "admin.flash.delete"
-    if @brands.nil?
-      redirect_to admin_brands_path
-    end
   end
 
   def delete_multiple
@@ -57,8 +54,8 @@ class Admin::BrandsController < Admin::BaseController
         end
         flash[:success] = t "success_delete"
       else
-        flash[:error] = "Unable to delete these brands because " + result[2] +
-          "has some products belong to bill details . "
+        flash[:error] = t("admin.brands.multi_delete_message1") + result[2] +
+          t("admin.brands.multi_delete_message2")
       end
     else
       flash[:warning] = t "nothing_delete"
