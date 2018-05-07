@@ -83,7 +83,7 @@ class Admin::BrandsController < Admin::BaseController
     result.push(f)
     result.push(invalid_brands)
     result.push(invalid_brands_string)
-    return result
+    result
   end
 
   private

@@ -5,22 +5,13 @@ class Category < ApplicationRecord
     uniqueness: true
   validates :description, presence: true
 
-  default_scope {order created_at: :desc}
-
-  def delete_warning_text
-    warning_text = " "
-    if self.products.present?
-      warning_text = I18n.t "admin.categories.warning_text"
-    end
-    return warning_text;
-  end
+  default_scope{order created_at: :desc}
 
   def check_valid_delete_action
     result = []
     flag = 0
     invalid_products = []
     invalid_products_string = ""
-
     check_products = self.products
     if check_products.present?
       check_products.each do |check_product|
@@ -40,6 +31,6 @@ class Category < ApplicationRecord
     else
       result.push(flag)
     end
-    return result
+    result
   end
 end
