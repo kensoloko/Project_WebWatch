@@ -1,12 +1,14 @@
 <% @bills.each do |bill| %>
   <tr>
     <td class= "text-center table-action-column">
-      <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe , edit_admin_bill_path(bill), remote: true , class: "btn btn-info" %>
+      <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe , edit_admin_bill_path(bill), remote: true ,
+      title: t("admin.buttons.edit"), class: "btn btn-info" %>
 
     </td>
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe ,
-         admin_bill_path(bill), remote: true , class: "btn btn-info" %>
+         admin_bill_path(bill), remote: true ,
+         title: t("admin.buttons.view"), class: "btn btn-info" %>
 
     </td>
     <td><%= bill.user.name %></td>

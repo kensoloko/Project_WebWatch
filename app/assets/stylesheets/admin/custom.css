@@ -4279,3 +4279,19 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 .top-profile{
     padding: 6px !important;
 }
+
+.swal-text {
+  background-color: #d4f7f7;
+  padding: 17px;
+  border: 1px solid #F0E1A1;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: #61534e;
+}
+
+.swal-modal {
+  border: 3px solid grey;
+}
+
+

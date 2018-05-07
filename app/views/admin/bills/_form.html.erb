@@ -11,11 +11,13 @@
       </div>
       <div class="modal-footer">
         <%= button_tag type: f.submit ,
-          class: "btn btn-primary btn-size-default" do %>
+          class: "btn btn-primary btn-size-default",
+          title: t("admin.buttons.save_record") do %>
           <i class="glyphicon glyphicon-ok"></i>
         <% end %>
         <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe, "#",
-          class: "btn btn-danger btn-size-default", data: {dismss: "modal"} %>
+          class: "btn btn-danger btn-size-default",
+          title: t("admin.buttons.close_dialog"), data: {dismss: "modal"} %>
       </div>
     <% end %>
   </div>

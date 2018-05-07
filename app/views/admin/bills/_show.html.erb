@@ -3,7 +3,13 @@
     <div class="modal-header">
       <h3><i class="glyphicon glyphicon-folder-close"></i>&nbsp
         <%= @bill.user.name %>
-        <%= t "bills.bill.ofbill"%></h3>
+        <%= t "bills.bill.ofbill"%>
+      </h3>
+      <h4>
+        <i class = "fa fa-clock-o"></i>
+        <%= t "admin.bills.create_time" %>
+        <%= @bill.created_at.strftime("%B %e, %Y at %I:%M %p") %>
+      </h5>
     </div>
     <div class="row">
       <div class="col_-md-12 col-sm-12 col-xs-12">
@@ -20,17 +26,15 @@
                   <th><%= t ".total" %></th>
                 </tr>
               </thead>
-              <%# @bill.bill_details.each do |bill_detail|%>
               <tbody id="bills" class="product-index">
                 <%= render @bill.bill_details %>
-                <!-- <tr>
-                  <td><%#= bill_detail.product.name %></td>
-                  <td><%#= bill_detail.product.price %></td>
-                  <td><%#= bill_detail.quantity %></td>
-                  <td><%#= bill_detail.quantity * @bill.bill_detail.product.price %></td>
-                </tr> -->
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td><h5><%= t "admin.bills.total_price" %></h5></td>
+                  <td class="text-right"><%= @bill.total_price %></td>
+                </tr>
               </tbody>
-              <%# end %>
             </table>
           </div>
         </div>

@@ -1,7 +1,8 @@
 <% @comments.each do |comment| %>
   <tr>
     <td class= "text-center table-action-column">
-      <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, admin_comment_remove_path(comment), remote: true, class: "btn btn-danger" %>
+      <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, admin_comment_remove_path(comment), remote: true,
+      title: t("admin.buttons.delete"), class: "btn btn-danger" %>
     </td>
     <td>
       <div class="icheckbox_flat-green checked table-action-column">
@@ -9,7 +10,10 @@
           class: "icheckbox_flat-green checked comment-delete" %>
       </div>
     </td>
-    <td><%= comment.product.name %></td>
+    <td>
+      <%= link_to comment.product.name, product_path(comment.product),
+        class: "btn btn-info", target: "_blank" %>
+   </td>
     <td><%= comment.user.name %></td>
     <td><%= comment.content %></td>
   </tr>

@@ -8,10 +8,9 @@ class Category < ApplicationRecord
   default_scope {order created_at: :desc}
 
   def delete_warning_text
-    warning_text = ""
+    warning_text = " "
     if self.products.present?
-      warning_text = "This category has some products .
-        Delete this also remove all its products . Are you sure "
+      warning_text = I18n.t "admin.categories.warning_text"
     end
     return warning_text;
   end
@@ -23,20 +22,24 @@ class Category < ApplicationRecord
     invalid_products_string = ""
 
     check_products = self.products
-    check_products.each do |check_product|
-      if check_product.bill_details.present?
-        flag = 1
-        invalid_products.push(check_product)
+    if check_products.present?
+      check_products.each do |check_product|
+        if check_product.bill_details.present?
+          flag = 1
+          invalid_products.push(check_product)
+        end
       end
-    end
 
-    invalid_products.each do |invalid_product|
-      invalid_products_string += (invalid_product.name + " ")
-    end
+      invalid_products.each do |invalid_product|
+        invalid_products_string += (invalid_product.name + " ")
+      end
 
-    result.push(flag)
-    result.push(invalid_products)
-    result.push(invalid_products_string)
+      result.push(flag)
+      result.push(invalid_products)
+      result.push(invalid_products_string)
+    else
+      result.push(flag)
+    end
     return result
   end
 end

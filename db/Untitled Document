@@ -1,0 +1,31 @@
+Phần admin : using admin template fetch data from database , view in datatables . 
+Các thao tác thêm sửa xóa 1 , nhiều bản ghi tích hợp Ajax có bắt lỗi về quan hệ dữ liệu . 
+------------------------------------
+Các công nghệ đã học được :
+Form_for
+ Call back function
+ Macro (generate, rake, spring, ...)
+. Seed
+ RESTful 
+ Association (has_many/has_one/belongs_to)
+ Resources, Nested Resources
+ Export CSV, Excel
+ Nested Attribute (fields_for, reject_if, allow_destroy, ...)
+ Search form, filter form
+ Validation
+Environment Variable
+ MVC
+Ajax (Rails ajax, jQuery ajax)
+Strong Params
+Pagination (Kaminari (https://github.com/amatsuda/kaminari), will_paginate)
+
+ Scope
+ Resource
+ Jquery selector
+ CSS selector
+ Ruby Nil Object
+Gem Setting (https://github.com/railsconfig/config)
+Rake task
+ I18n (mutil language, dictionary, time format, number format, 
+multiple upload file
+

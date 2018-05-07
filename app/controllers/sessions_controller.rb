@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       flash[:success] = t ".login"
       redirect_back fallback_location: user
     else
-      #flash.now[:error] = t ".invalid"
       render :new
     end
   end

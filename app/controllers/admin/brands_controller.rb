@@ -40,9 +40,6 @@ class Admin::BrandsController < Admin::BaseController
     @brand.destroy
     load_brands
     flash.now[:success] = t "admin.flash.delete"
-    if @brands.nil?
-      redirect_to admin_brands_path
-    end
   end
 
   def delete_multiple
@@ -51,16 +48,18 @@ class Admin::BrandsController < Admin::BaseController
       result = check_valid_delete_mutiple_action @selected_brands
 
       if result[0] == 0
-        @selected_brands.each do |selected_brand|
-          selected_brand.destroy
-        end
-        flash[:success] = "Success to delete these records"
+        @selected_brands.each(&:destroy)
+        selected_brands_string = " "
+        @selected_brands.each {|x| selected_brands_string += (x.name + " , ")}
+        flash[:success] = t("success_delete") + selected_brands_string
       else
-        flash[:error] = "Unable to delete these brands because " + result[2] +
-          "has some products belong to bill details . "
+        result[3].each {|x| x.destroy} if result[3].present?
+        flash[:info] = result[4] + "have been deleted successfully" + " But
+           , some of the brands can not be delete like : " +
+           result[2] + " because they contains some products in bill details "
       end
     else
-      flash[:warning] = "Nothing to delete"
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_brands_path
   end
@@ -69,23 +68,32 @@ class Admin::BrandsController < Admin::BaseController
     result = []
     invalid_brands = []
     invalid_brands_string = ""
+    valid_brands = []
+    valid_brands_string = ""
     f = 0
 
     brands.each do |brand|
       if brand.check_valid_delete_action[0] == 1
-        f = 1
         invalid_brands.push(brand)
+        f = 1
+      else
+        valid_brands.push(brand)
       end
     end
 
-    invalid_brands.each do |invalid_brand|
-      invalid_brands_string += (invalid_brand.name + " ")
-    end
+    invalid_brands.each {|x| invalid_brands_string += (x.name + " , ")} if
+      invalid_brands.present?
+
+    valid_brands.each {|x| valid_brands_string += (x.name + " , ")} if
+      valid_brands.present?
 
     result.push(f)
     result.push(invalid_brands)
     result.push(invalid_brands_string)
-    return result
+    result.push(valid_brands)
+    result.push(valid_brands_string)
+
+    result
   end
 
   private

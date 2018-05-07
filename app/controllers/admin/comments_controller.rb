@@ -33,9 +33,9 @@ class Admin::CommentsController < Admin::BaseController
       @selected_comments.each do |selected_comment|
         selected_comment.destroy
       end
-      flash[:success] = "Success to delete these records"
+      flash[:success] = t "success_delete"
     else
-      flash[:warning] = "Nothing to delete"
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_comments_path
   end

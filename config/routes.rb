@@ -38,6 +38,5 @@ Rails.application.routes.draw do
         post "delete_multiple"
       end
     end
-
   end
 end

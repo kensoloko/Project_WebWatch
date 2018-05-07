@@ -2,12 +2,14 @@
   <tr>
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe ,
-         edit_admin_brand_path(brand), remote: true , class: "btn btn-info" %>
+         edit_admin_brand_path(brand), remote: true , class: "btn btn-info",
+         title: t("admin.buttons.edit") %>
 
     </td>
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe,
-       admin_brand_remove_path(brand), remote: true, class: "btn btn-danger" %>
+       admin_brand_remove_path(brand), remote: true, class: "btn btn-danger",
+       title: t("admin.buttons.delete") %>
     </td>
     <td>
       <div class="icheckbox_flat-green checked table-action-column">

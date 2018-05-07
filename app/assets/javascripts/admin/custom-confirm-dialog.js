@@ -3,7 +3,7 @@ $(document).on('mousedown','button[data-confirm]',function(e){
   element = this;
   link = $(e.target);
   message = link.data('confirm');
-  swal(message, {buttons: ["No , please don't !", "Yes ofcourse"],
+  swal(message, {buttons: ["No , please don't !", "Yes of course"],
    icon: "warning"}).then(function(val){
     if(val == true)
     {

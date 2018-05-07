@@ -52,12 +52,13 @@
       </div>
       <div class="modal-footer">
         <%= button_tag type: f.submit ,
-          class: "btn btn-primary btn-size-default", id: "btnsubmit" do %>
+          class: "btn btn-primary btn-size-default", id: "btnsubmit",
+              title: t("admin.buttons.save_record"), method: :create do %>
           <i class="glyphicon glyphicon-ok"></i>
         <% end %>
         <%= link_to '<i class="glyphicon glyphicon-off"></i>'.html_safe,
           "", class: "btn btn-danger btn-size-default",
-          data: {dismiss: "modal"} %>
+          title: t("admin.buttons.close_dialog"), data: {dismiss: "modal"} %>
       </div>
     <% end %>
   </div>

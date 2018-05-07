@@ -3,17 +3,13 @@
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe,
         edit_admin_product_path(product), remote: true ,
-        class: "btn btn-info" %>
+        class: "btn btn-info", title: t("admin.buttons.edit") %>
 
     </td>
     <td class= "text-center table-action-column">
       <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe,
         admin_product_remove_path(product), remote: true,
-        class: "btn btn-danger" %>
-    </td>
-    <td class="text-center table-action-column">
-      <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe,
-         product_path(product), class: "btn btn-info", target: "_blank"%>
+        class: "btn btn-danger", title: t("admin.buttons.delete") %>
     </td>
     <td>
       <div class="icheckbox_flat-green checked table-action-column">
@@ -21,12 +17,16 @@
           class: "icheckbox_flat-green checked product-delete" %>
       </div>
     </td>
-    <td><%= product.name %></td>
+    <td>
+      <%= link_to product.name,
+         product_path(product), class: "btn btn-info", target: "_blank",
+         title: "#{product.name} info page"%>
+    </td>
     <td><%= product.brand.name %></td>
     <td><%= product.category.name %></td>
-    <td><%= product.price %></td>
+    <td class="text-right"><%= product.price %></td>
     <td><%= image_tag product.first_image, class: "image_size" %>
     </td>
-    <td><%= product.quantity %></td>
+    <td class="text-right"><%= product.quantity %></td>
   </tr>
 <% end %>

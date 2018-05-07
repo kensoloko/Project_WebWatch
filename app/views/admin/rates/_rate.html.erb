@@ -1,6 +1,9 @@
 <tr>
-  <td><%= rate.product.name %></td>
+  <td>
+    <%= link_to rate.product.name , product_path(rate.product),
+      class: "btn btn-info", target: "_blank" %>
+  </td>
   <td><%= rate.user.name %></td>
-  <td><%= rate.rate_value %></td>
+  <td class="text-right"><%= rate.rate_value %></td>
 </tr>
 

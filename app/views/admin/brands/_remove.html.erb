@@ -8,10 +8,10 @@
     <div class="modal-body">
     <ul class="errors"></ul>
       <p class= "delete_promt" >
-        <%= t("admin.buttons.prompt")%><b><%= @brand.name %></b>
+        <%= t "admin.buttons.prompt"%> <b><%= @brand.name %></b>
       </p>
       <p class= "delete_promt">
-        <%= @brand.delete_warning_text %>
+        <%= @brand.delete_warning_text if @brand.delete_warning_text.present?  %>
       </p>
     </div>
     <div class="modal-footer">
@@ -26,11 +26,12 @@
     <div class="modal-body">
     <ul class="errors"></ul>
     <p class= "delete_promt" >
-      You can't delete <b><%= @brand.name %></b>
+      <%= t ".You_cant_delete " %><b><%= @brand.name %></b>
     </p>
     <p class= "delete_promt">
-      This brand contains some products : <%= @brand.check_valid_delete_action[2]%>
-      which have relation with bills details .
+      <%= t "log_remove" %>
+      <%= @brand.check_valid_delete_action[2]%>
+      <%= t "log_remove2" %>
     </p>
   </div>
   <div class="modal-footer">
