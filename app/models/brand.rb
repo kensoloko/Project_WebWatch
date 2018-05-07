@@ -8,9 +8,9 @@ class Brand < ApplicationRecord
 
   def delete_warning_text
     warning_text = ""
+
     if self.products.present?
-      warning_text = "This brand has some products . Delete this brand also
-        remove all its products . Are you sure "
+      warning_text = t "warning_text"
     end
     return warning_text;
   end

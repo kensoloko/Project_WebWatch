@@ -124,8 +124,7 @@ var app = new Vue({
         p.quantity = 1;
         swal("info","Sorry, product number should be greater than 0","info");
       }
-      else if (parseInt(p.maxqty) < p.quantity)
-
+      else if (parseInt(p.maxqty) < p.quantity && parseInt(p.maxqty) <= 10)
       {
         p.quantity = p.maxqty;
         swal("info","The number of products left in the store is " + p.maxqty

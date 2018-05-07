@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def show
     save_product @product
-    #render html: session_products.length
   end
 
   def index

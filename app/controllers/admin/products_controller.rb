@@ -17,11 +17,12 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = Product.new product_params
+
     if @product.save(product_params)
       params[:product_images]["image"].each do |a|
         @product_image = @product.product_images.create!(:image =>a)
       end
-      redirect_to admin_products_path, success: "Success"
+      redirect_to admin_products_path, success: t("Success")
     else
       flash.now[:error] = t "admin.flash.create_fail"
     end
@@ -40,7 +41,7 @@ class Admin::ProductsController < Admin::BaseController
           i+=1
         end
         redirect_to admin_products_path,
-          notice: "Item was successfully updated."
+          notice: t("update_success")
       else
         format.html {render :edit}
       end

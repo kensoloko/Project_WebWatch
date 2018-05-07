@@ -13,6 +13,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.create category_params
+
     if @category.save
       flash.now[:success] = t "admin.flash.create"
     else
@@ -24,6 +25,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def update
     @category.update_attributes category_params
+
     if @category.save
       flash.now[:success] = t "admin.flash.update"
     else
@@ -39,6 +41,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category.destroy
     load_categories
     flash.now[:success] = t "admin.flash.delete"
+
     if @categories.nil?
       redirect_to admin_categories_path
     end

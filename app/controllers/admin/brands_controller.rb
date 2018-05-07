@@ -46,6 +46,7 @@ class Admin::BrandsController < Admin::BaseController
   end
 
   def delete_multiple
+
     if params[:brand_ids].present?
       @selected_brands = Brand.where(id: params[:brand_ids])
       result = check_valid_delete_mutiple_action @selected_brands
@@ -54,13 +55,13 @@ class Admin::BrandsController < Admin::BaseController
         @selected_brands.each do |selected_brand|
           selected_brand.destroy
         end
-        flash[:success] = "Success to delete these records"
+        flash[:success] = t "success_delete"
       else
         flash[:error] = "Unable to delete these brands because " + result[2] +
           "has some products belong to bill details . "
       end
     else
-      flash[:warning] = "Nothing to delete"
+      flash[:warning] = t "nothing_delete"
     end
     redirect_to admin_brands_path
   end
