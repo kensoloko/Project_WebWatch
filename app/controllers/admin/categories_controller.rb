@@ -40,6 +40,7 @@ class Admin::CategoriesController < Admin::BaseController
   def destroy
     @category.destroy
     flash.now[:success] = t "admin.flash.delete"
+    load_categories
     if @categories.nil?
       redirect_to admin_categories_path
     end

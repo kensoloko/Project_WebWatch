@@ -7,12 +7,8 @@ class Brand < ApplicationRecord
   default_scope {order created_at: :desc}
 
   def delete_warning_text
-    warning_txt = " "
-
-    if self.products.present?
-      warning_txt = I18n.t "admin.brands.warning_text"
-    end
-    return warning_txt;
+    warning_txt = ""
+    warning_txt = I18n.t "admin.brands.warning_text"
   end
 
   def check_valid_delete_action
@@ -40,6 +36,6 @@ class Brand < ApplicationRecord
     else
       result.push(flag)
     end
-    return result
+      result
   end
 end

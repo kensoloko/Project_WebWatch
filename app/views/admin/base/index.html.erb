@@ -82,10 +82,11 @@
           <% Bill.tops.each do |u| %>
           <li class="media event top-profile">
             <a class="pull-left">
-              <i><%= image_tag u.avatar_url, size: "50x50" %></i>
+              <i><%= image_tag u.avatar_url, size: Settings.ava_size %></i>
             </a>
             <div class="media-body">
-              <%= link_to u.name, user_url(u.id), class: "title", target: "_blank" %>
+              <%= link_to u.name, user_url(u.id), class: "title",
+                 target: "_blank" %>
               <p><strong>$ <%= u.money %>. </strong> last month</p>
               <p> <small><%= u.count %> bills</small>
               </p>
