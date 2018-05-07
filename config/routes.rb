@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   get "/contact", to: "static_pages#contact"
   get "/rate/:id/:value", to: "products#rate"
-  get "search(/:search)", to: "search#index", as: :search
+  get :search, controller: :products
+  get :autocomplete, controller: :products
   delete "/bills/:id", to: "bills#destroy", as: "bills_destroy"
   resources :users do
     resources :bills
   end
   resources :products
   resources :comments
+  resources :brands
   get "/admin", to: "admin/base#index"
   post "/admin", to: "admin/base#index"
   namespace :admin do
