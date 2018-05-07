@@ -13,14 +13,16 @@ document.addEventListener("turbolinks:load", function(){
       {
         listLocation: "brands",
         header: "<strong>--Brands--</strong>",
-      }
+      },
+      {
+        listLocation: "categories",
+        header: "<strong>--Categories--</strong>",
+      },
     ],
     list: {
       onChooseEvent: function(){
         var url = $input.getSelectedItemData().url
-        console.log(url)
-        //$input.val("")
-        Turbolinks.visit(url)
+        window.location.href = url
       }
     }
   }

@@ -7,22 +7,21 @@
             <li class="grid"><%= link_to t(".Home"), root_url %></li>
             <li class="grid"><%= link_to t(".new"), new_url %></li>
             <li class="grid"><%= link_to t(".hot"), hot_url %></li>
-            <li class="grid"><%= link_to t(".sale"), "#" %></li>
+            <li class="grid"><%= link_to t(".category"), categories_url %></li>
+            <li class="grid"><%= link_to t(".brand"), brands_url %></li>
             <li class="grid"><%= link_to t(".contact"), contact_url %></li>
           </ul>
         </div>
         <div class="clearfix"> </div>
       </div>
-      <div class="col-md-3 header-right">
-        <div class="search-bar" data-turbolinks="true">
+      <div class="col-md-3 header-right" data-turbolinks="true">
           <%= form_with url: search_path, local: true, method: :get,
             html: {class: "form-inline my-2 my-lg-0"} do |f|  %>
             <%= f.text_field :q, placeholder: t(".Search"),
-              id: "search", class: "form-control mr-sm-2" %>
+              id: "search", class: "form-control mr-sm-2", required: "" %>
             <%= f.button t(".Search"),
-              class: "btn btn-outline-success my-2 my-sm-0" %>
+              class: "btn btn-default my-2 my-sm-0" %>
           <% end %>
-        </div>
       </div>
       <div class="clearfix"> </div>
       </div>

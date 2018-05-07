@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def show
     save_product @product
-    #render html: session_products.length
   end
 
   def index
@@ -23,7 +22,6 @@ class ProductsController < ApplicationController
         format.html
         format.js
       end
-
     when "hot"
       @products = Product.hots.page params[:page]
       respond_to do |format|
@@ -54,6 +52,8 @@ class ProductsController < ApplicationController
       .result(distinct: true)
     @brands = Brand.ransack(name_cont: params[:q])
       .result(distinct: true)
+    @categories = Category.ransack(name_cont: params[:q])
+      .result(distinct: true)
     respond_to do |format|
       format.html{
 
@@ -61,6 +61,7 @@ class ProductsController < ApplicationController
       format.json{
         @products = @products.limit(5)
         @brands = @brands.limit(5)
+        @categories = @categories.limit(5)
       }
     end
   end

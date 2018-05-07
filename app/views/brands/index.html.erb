@@ -1,27 +1,13 @@
 <%= provide :title, t(".Brands") %>
-<% @brands.each do |brand| %>
 <div class="prdt">
 <div class="container">
 <div class="prdt-top">
   <div class="col-md-12 prdt-left">
     <div class="product-top">
       <div class="product-one">
-
-        <div class="col-md-3 product-left">
-          <div class="product-main simpleCart_shelfItem">
-            <%= link_to brand, class: "mask" do %>
-            <div class="product-bottom">
-              <h3><%= brand.name %></h3>
-              <p><%= truncate brand.description, length: 30,
-                separator: " " %></p>
-            </div>
-            <% end %>
-          </div>
-        </div>
-
+        <%= render @brands %>
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
 </div>
-<% end %>

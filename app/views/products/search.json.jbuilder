@@ -11,3 +11,10 @@ json.brands do
     json.url brand_path(brand)
   end
 end
+
+json.categories do
+  json.array!(@categories) do |category|
+    json.name category.name
+    json.url category_path(category)
+  end
+end

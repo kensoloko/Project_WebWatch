@@ -112,6 +112,9 @@ en:
   products:
     search:
       Search: "Search"
+      Product: "Product"
+      Category: "Category"
+      Brand: "Brand"
     products:
       products: "Products"
       smart_watch: "Smart Watches"

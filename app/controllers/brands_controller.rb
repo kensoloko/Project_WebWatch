@@ -6,7 +6,11 @@ class BrandsController < ApplicationController
   end
 
   def show
-
+    @products = @brand.products.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

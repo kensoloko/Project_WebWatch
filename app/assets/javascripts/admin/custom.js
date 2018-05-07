@@ -5109,6 +5109,11 @@ $(document).on('turbolinks:load', function(){
 window.pie_chart = function(){
   if ($('#pie-chart-last').length && $('#pie-chart-now').length){
     var obj = JSON.parse($('#pie-chart-last span').html());
+    var obj = JSON.parse($('#pie-chart-now span').html());
+    for(var i = 1; i <= 5; i++)
+    {
+      obj[i] = (typeof obj[i] == 'undefined')? 0 : obj[i]
+    }
     var arr = Object.keys(obj).map(function (key) { return obj[key]; });
     new Chart(document.getElementById("pie-chart-last"), {
       type: 'pie',
@@ -5127,7 +5132,11 @@ window.pie_chart = function(){
       }
     });
     var obj = JSON.parse($('#pie-chart-now span').html());
-    var arr = Object.keys(obj).map(function (key) { return obj[key]; });
+    for(var i = 1; i <= 5; i++)
+    {
+      obj[i] = (typeof obj[i] == 'undefined')? 0 : obj[i]
+    }
+    var arr = Object.keys(obj).map(function (key) {return obj[key]});
     new Chart(document.getElementById("pie-chart-now"), {
       type: 'pie',
       data: {
@@ -5159,8 +5168,6 @@ window.data_chart = function(){
       count.push(arr[i].getAttribute('buys'));
       moneys.push(arr[i].innerHTML.trim());
     }
-    console.log(moneys);
-    console.log(days);
     new Chart(document.getElementById("mixed-chart"), {
       type: 'bar',
       data: {
