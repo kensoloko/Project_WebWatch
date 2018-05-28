@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   mount_uploader :avatar_url, ImageUploader
-  has_many :bills
-  has_many :comments
-  has_many :rates
+  has_many :bills, dependent: :restrict_with_exception
+  has_many :comments, dependent: :destroy
+  has_many :rates, dependent: :destroy
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /(09|01[2|6|8|9])+([0-9]{8})\b/i

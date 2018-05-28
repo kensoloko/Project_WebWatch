@@ -31,6 +31,10 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "faker"
   gem "sqlite3"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "factory_bot_rails"
+  gem "database_cleaner", "~> 1.5"
 end
 
 group :development do
@@ -42,6 +46,8 @@ end
 
 group :test do
   gem "rubocop", "0.47.1", require: false
+  gem "simplecov"
+  gem "rails-controller-testing"
 end
 
 group :production do

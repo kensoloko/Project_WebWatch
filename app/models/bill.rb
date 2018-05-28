@@ -1,5 +1,5 @@
 class Bill < ApplicationRecord
-  has_many :bill_details
+  has_many :bill_details, dependent: :destroy
   belongs_to :user
   accepts_nested_attributes_for :bill_details
   validates :status, numericality: true

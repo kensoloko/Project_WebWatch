@@ -4,3 +4,4 @@ class Rate < ApplicationRecord
   validates :user_id, uniqueness: {scope: :product_id}
   default_scope{order created_at: :desc}
 end
+
